@@ -486,63 +486,8 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
 
 <div class="divider"></div>
 
-<!-- CALCULATOR -->
-<section id="calculator" class="wrap">
-  <div class="sec-eye">Save more together</div>
-  <h2 class="sec-h">The gang price calculator</h2>
-  <p class="sec-sub">More friends = bigger discount. See exactly what your group pays.</p>
-  <div class="calc-box">
-    <div class="calc-inner">
-      <div>
-        <div class="calc-title">How much does your squad pay?</div>
-        <div class="calc-desc">5+ friends get 5% off. 8+ get 10% off. 13+ get 15% off. The bigger the gang, the better the deal.</div>
-        <div class="disc-row">
-          <div class="disc-chip"><div class="num">5%</div><div class="lbl">5–7 friends</div></div>
-          <div class="disc-chip"><div class="num">10%</div><div class="lbl">8–12 friends</div></div>
-          <div class="disc-chip"><div class="num">15%</div><div class="lbl">13+ friends</div></div>
-        </div>
-      </div>
-      <div>
-        <div class="calc-form">
-          <div>
-            <label class="calc-label">Select package</label>
-            <select class="calc-select" id="calcPkg" onchange="calcGang()">
-              <option value="5499">Bachelors Beach Vibes — Economy (₹5,499)</option>
-              <option value="8999">Bachelors Beach Vibes — Premium (₹8,999)</option>
-              <option value="3000">Coastal Heritage Tour (₹3,000)</option>
-              <option value="4000">South Pilgrimage Circuit (₹4,000)</option>
-              <option value="2800">Malenadu Mist Tour (₹2,800)</option>
-              <option value="8999b">Grand Coastal Circuit (₹8,999)</option>
-              <option value="3500">Culinary & Culture Trail (₹3,500)</option>
-            </select>
-          </div>
-          <div class="calc-row">
-            <div>
-              <label class="calc-label">Number of friends</label>
-              <input type="number" class="calc-input" id="calcPax" min="1" max="60" value="6" oninput="calcGang()" placeholder="e.g. 8"/>
-            </div>
-            <div>
-              <label class="calc-label">Travel date</label>
-              <input type="date" class="calc-input" id="calcDate"/>
-            </div>
-          </div>
-          <button class="calc-btn" onclick="calcGang()"><i class="fas fa-calculator" style="font-size:12px"></i>Calculate gang price</button>
-          <div class="calc-result" id="calcResult">
-            <div class="result-lbl">Price breakdown</div>
-            <div class="result-row"><span>Base price / person</span><strong id="resBase">—</strong></div>
-            <div class="result-row"><span>Group size</span><strong id="resPax">—</strong></div>
-            <div class="result-row"><span>Gang discount <span id="resDiscPct" style="color:rgba(255,255,255,.38)"></span></span><strong id="resDisc">—</strong></div>
-            <div class="result-row"><span>Per person after discount</span><strong id="resPer">—</strong></div>
-            <div class="result-total"><div class="lbl">Total for your gang</div><div class="amt" id="resTotal">—</div></div>
-            <button class="result-wa" onclick="bookFromCalc()"><i class="fab fa-whatsapp"></i>Book this on WhatsApp</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<div class="divider"></div>
+            
 
 <!-- WHY US -->
 <section class="wrap">
