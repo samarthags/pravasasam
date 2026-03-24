@@ -289,12 +289,11 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
 </div>
 
 <div class="divider"></div>
-
-<!-- DESTINATIONS -->
 <section id="destinations" class="wrap">
   <div class="sec-eye">Explore Karnataka</div>
   <h2 class="sec-h">Six stunning destinations</h2>
   <p class="sec-sub">Coastal beaches, misty waterfalls, and everything in between — we cover them all.</p>
+
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="coastal">Coastal</button>
@@ -302,42 +301,79 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
     <button class="filter-btn" data-filter="budget">Budget</button>
     <button class="filter-btn" data-filter="premium">Premium</button>
   </div>
+
   <div class="dest-grid">
+
+    <!-- Gokarna -->
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Gokarna')">
-      <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="Gokarna"/>
-      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Gokarna — Om Beach</div><div class="dest-meta">Beach trek · Cafe hangout · Night bonfire</div></div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Om_Beach_Gokarna.jpg" alt="Gokarna Om Beach"/>
+      <div class="dest-overlay">
+        <span class="dest-badge">Coastal</span>
+        <div class="dest-name">Gokarna — Om Beach</div>
+        <div class="dest-meta">Beach trek · Cafe hangout · Night bonfire</div>
+      </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
+
+    <!-- Murudeshwar -->
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Murudeshwar')">
-      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Murudeshwar"/>
-      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Murudeshwar</div><div class="dest-meta">Scuba diving · Netrani Island · Giant Shiva</div></div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Murudeshwar_Shiva_Statue.jpg" alt="Murudeshwar"/>
+      <div class="dest-overlay">
+        <span class="dest-badge">Coastal</span>
+        <div class="dest-name">Murudeshwar</div>
+        <div class="dest-meta">Scuba diving · Netrani Island · Giant Shiva</div>
+      </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
+
+    <!-- Honnavar -->
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Honnavara')">
-      <img src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=600&q=80" alt="Honnavara"/>
-      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Honnavara Mangroves</div><div class="dest-meta">Backwater boating · Best for Instagram reels</div></div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Honnavar_Mangroves.jpg" alt="Honnavar Mangroves"/>
+      <div class="dest-overlay">
+        <span class="dest-badge">Coastal</span>
+        <div class="dest-name">Honnavara Mangroves</div>
+        <div class="dest-meta">Backwater boating · Best for Instagram reels</div>
+      </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
+
+    <!-- Udupi -->
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Udupi')">
-      <img src="https://images.unsplash.com/photo-1509316785289-025f5b846b35?w=600&q=80" alt="Udupi"/>
-      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Udupi & Malpe Beach</div><div class="dest-meta">St. Mary's Island · Water sports · Sea walk</div></div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Malpe_Beach.jpg" alt="Udupi Malpe Beach"/>
+      <div class="dest-overlay">
+        <span class="dest-badge">Coastal</span>
+        <div class="dest-name">Udupi & Malpe Beach</div>
+        <div class="dest-meta">St. Mary's Island · Water sports · Sea walk</div>
+      </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
+
+    <!-- Shivamogga -->
     <div class="dest-card" data-tags="malenadu budget premium" onclick="scrollToBook('Shivamogga')">
-      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=600&q=80" alt="Shivamogga"/>
-      <div class="dest-overlay"><span class="dest-badge">Malenadu</span><div class="dest-name">Shivamogga & Jog Falls</div><div class="dest-meta">Trekking · Bird watching · Forest homestay</div></div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6f/Jog_Falls_2019.jpg" alt="Jog Falls Shivamogga"/>
+      <div class="dest-overlay">
+        <span class="dest-badge">Malenadu</span>
+        <div class="dest-name">Shivamogga & Jog Falls</div>
+        <div class="dest-meta">Trekking · Bird watching · Forest homestay</div>
+      </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
+
+    <!-- Mangaluru -->
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Mangaluru')">
-      <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80" alt="Mangaluru"/>
-      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Mangaluru</div><div class="dest-meta">Surfing · Night life · Seafood trail</div></div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Panambur_Beach_Mangalore.jpg" alt="Mangaluru Beach"/>
+      <div class="dest-overlay">
+        <span class="dest-badge">Coastal</span>
+        <div class="dest-name">Mangaluru</div>
+        <div class="dest-meta">Surfing · Night life · Seafood trail</div>
+      </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
+
   </div>
 </section>
 
 <div class="divider"></div>
-
 <!-- PACKAGES -->
 <section id="packages" class="wrap">
   <div class="sec-eye">What we offer</div>
