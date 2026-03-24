@@ -7,258 +7,532 @@
 <meta name="description" content="Karnataka coastal & Malenadu travel packages from Bengaluru. Budget & Luxury packages. Bachelor groups welcome. Book now!"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+*{-webkit-tap-highlight-color:transparent}
+a,button{outline:none;text-decoration:none;color:inherit;cursor:pointer}
+body{font-family:'DM Sans',sans-serif;background:#f8f7f4;color:#1a1a1a;overflow-x:hidden}
 
+/* CSS VARS */
+:root{
+  --green:#1a7a4a;
+  --green-mid:#22954f;  
+  --green-light:#d4edda;
+  --green-pale:#f0f9f4;
+  --black:#0f1a13;
+  --text:#2c2c2c;
+  --muted:#6b7c72;
+  --border:#e2ede7;
+  --white:#fff;
+  --cream:#f8f7f4;
+  --shadow:0 2px 24px rgba(26,122,74,.10);
+  --shadow-lg:0 8px 48px rgba(26,122,74,.16);
+}
 
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes wordIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+@keyframes wordOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-10px)}}
+@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
 
+.vis .a1{animation:fadeUp .7s .05s cubic-bezier(.16,1,.3,1) both}
+.vis .a2{animation:fadeUp .7s .15s cubic-bezier(.16,1,.3,1) both}
+.vis .a3{animation:fadeUp .7s .25s cubic-bezier(.16,1,.3,1) both}
+.vis .a4{animation:fadeUp .7s .35s cubic-bezier(.16,1,.3,1) both}
+.vis .a5{animation:fadeUp .7s .45s cubic-bezier(.16,1,.3,1) both}
 
-<style>    
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}    
-html,body{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}    
-*{-webkit-tap-highlight-color:transparent}    
-a,button{outline:none;text-decoration:none;color:inherit;cursor:pointer}    
-body{font-family:'Sora',sans-serif;background:#0d0d0d;color:#fff;overflow-x:hidden}    
-    
-@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}    
-@keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}    
-@keyframes wordIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}    
-@keyframes wordOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-8px)}}    
-@keyframes blink{0%,100%{opacity:.3}50%{opacity:.9}}    
-    
-.vis .a1{animation:fadeUp .65s .05s cubic-bezier(.16,1,.3,1) both}    
-.vis .a2{animation:fadeUp .65s .13s cubic-bezier(.16,1,.3,1) both}    
-.vis .a3{animation:fadeUp .65s .21s cubic-bezier(.16,1,.3,1) both}    
-.vis .a4{animation:fadeUp .65s .29s cubic-bezier(.16,1,.3,1) both}    
-    
-::-webkit-scrollbar{width:4px}    
-::-webkit-scrollbar-track{background:#0d0d0d}    
-::-webkit-scrollbar-thumb{background:#282828;border-radius:4px}    
-    
-/* NAV */    
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 22px;height:52px;background:rgba(13,13,13,.92);backdrop-filter:blur(20px);border-bottom:1px solid #191919}    
-.nav-logo{font-size:15px;font-weight:800;color:#fff;letter-spacing:-.04em}    
-.nav-logo span{color:rgba(255,255,255,.25)}    
-.nav-links{display:flex;align-items:center;gap:22px;list-style:none}    
-.nav-links a{font-size:11px;font-weight:600;color:rgba(255,255,255,.28);letter-spacing:.01em;transition:color .15s}    
-.nav-links a:hover{color:rgba(255,255,255,.7)}    
-.nav-book{padding:7px 16px;background:#fff;color:#0d0d0d;font-family:'Sora',sans-serif;font-size:11.5px;font-weight:700;border-radius:100px;border:none;transition:opacity .15s,transform .15s}    
-.nav-book:hover{opacity:.88;transform:scale(1.03)}    
-@media(max-width:640px){.nav-links{display:none}}    
-    
-/* HERO */    
-.hero{display:flex;flex-direction:column;align-items:center;text-align:center;padding:96px 20px 60px}    
-.eyebrow{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border:1px solid #222;border-radius:100px;font-size:11px;font-weight:600;color:rgba(255,255,255,.28);letter-spacing:.05em;text-transform:uppercase;margin-bottom:28px}    
-.dot{width:5px;height:5px;border-radius:50%;background:#fff;animation:blink 2.4s ease-in-out infinite}    
-.headline{font-size:clamp(34px,9vw,80px);font-weight:800;line-height:1.02;letter-spacing:-.04em;color:#fff;margin-bottom:10px}    
-.word-row{font-size:clamp(28px,7.5vw,68px);font-weight:800;line-height:1.02;letter-spacing:-.04em;margin-bottom:20px}    
-.word-wrap{display:inline-block;min-width:180px}    
-.changing-word{display:inline-block;background:linear-gradient(90deg,rgba(255,255,255,.35) 0%,#fff 45%,rgba(255,255,255,.35) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3.5s linear infinite}    
-.changing-word.fade-in{animation:wordIn .22s ease forwards,shimmer 3.5s linear infinite}    
-.changing-word.fade-out{animation:wordOut .22s ease forwards}    
-.hero-sub{font-size:clamp(13px,3.5vw,16px);color:rgba(255,255,255,.38);font-weight:300;max-width:420px;margin:0 auto 16px;line-height:1.75}    
-.pills{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px;margin-bottom:28px}    
-.pill{padding:4px 11px;border:1px solid #222;border-radius:100px;font-size:10.5px;font-weight:600;color:rgba(255,255,255,.2);display:flex;align-items:center;gap:5px}    
-.pill i{font-size:8px;color:rgba(255,255,255,.35)}    
-.cta-col{display:flex;flex-direction:column;align-items:stretch;gap:10px;width:100%;max-width:360px}    
-.btn-main{display:flex;align-items:center;justify-content:center;gap:8px;padding:15px 20px;background:#fff;color:#0d0d0d;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;border-radius:100px;border:none;transition:opacity .15s,transform .15s}    
-.btn-main:hover{opacity:.9;transform:scale(1.02)}    
-.btn-ghost{display:flex;align-items:center;justify-content:center;gap:7px;padding:14px 20px;background:transparent;color:rgba(255,255,255,.36);font-family:'Sora',sans-serif;font-size:13px;font-weight:600;border-radius:100px;border:1px solid #232323;transition:border-color .15s,color .15s}    
-.btn-ghost:hover{border-color:rgba(255,255,255,.22);color:#fff}    
-    
-.divider{height:1px;background:#191919;margin:0 20px}    
-.wrap{max-width:960px;margin:0 auto;padding:52px 20px}    
-.sec-eye{text-align:center;font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.22);margin-bottom:10px}    
-.sec-h{text-align:center;font-size:clamp(22px,6vw,34px);font-weight:800;letter-spacing:-.04em;line-height:1.1;color:#fff;margin-bottom:8px}    
-.sec-sub{text-align:center;font-size:clamp(12px,3vw,13.5px);color:rgba(255,255,255,.3);font-weight:300;line-height:1.7;max-width:400px;margin:0 auto 36px}    
-    
-/* FILTER */    
-.filter-bar{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;margin-bottom:28px}    
-.filter-btn{padding:6px 16px;border-radius:100px;font-family:'Sora',sans-serif;font-size:10.5px;font-weight:700;border:1px solid #222;color:rgba(255,255,255,.22);background:transparent;cursor:pointer;transition:all .15s}    
-.filter-btn:hover,.filter-btn.active{background:#fff;color:#0d0d0d;border-color:#fff}    
-    
-/* DESTINATION GRID */    
-.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1px;background:#191919;border:1px solid #191919;border-radius:16px;overflow:hidden}    
-.dest-card{position:relative;background:#111;overflow:hidden;cursor:pointer;aspect-ratio:4/3}    
-.dest-card img{width:100%;height:100%;object-fit:cover;display:block;opacity:.45;transition:opacity .4s,transform .5s}    
-.dest-card:hover img{opacity:.65;transform:scale(1.06)}    
-.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.92) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:18px}    
-.dest-badge{display:inline-block;align-self:flex-start;padding:3px 9px;margin-bottom:6px;background:rgba(255,255,255,.07);border:1px solid #2a2a2a;border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.4)}    
-.dest-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.02em}    
-.dest-meta{font-size:10px;color:rgba(255,255,255,.3);margin-top:4px;font-weight:400;line-height:1.5}    
-.dest-arrow{position:absolute;top:14px;right:14px;width:30px;height:30px;background:rgba(255,255,255,.07);border:1px solid #2a2a2a;border-radius:50%;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);font-size:10px;opacity:0;transition:opacity .2s,transform .2s}    
-.dest-card:hover .dest-arrow{opacity:1;transform:translate(2px,-2px)}    
-    
-/* PACKAGES */    
-.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:#191919;border:1px solid #191919;border-radius:16px;overflow:hidden}    
-.pkg-card{background:#111;padding:22px;transition:background .18s;position:relative}    
-.pkg-card:hover{background:#141414}    
-.pkg-card.featured{background:#131313}    
-.pkg-feat-badge{display:inline-block;padding:3px 9px;margin-bottom:14px;background:rgba(255,255,255,.06);border:1px solid #2a2a2a;border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.4)}    
-.pkg-icon{width:38px;height:38px;border-radius:10px;background:#0d0d0d;border:1px solid #222;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:12px}    
-.pkg-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;letter-spacing:-.02em}    
-.pkg-duration{font-size:10px;font-weight:600;color:rgba(255,255,255,.22);letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}    
-.pkg-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}    
-.pkg-tag{padding:3px 9px;background:rgba(255,255,255,.04);border:1px solid #1e1e1e;border-radius:100px;font-size:9.5px;font-weight:600;color:rgba(255,255,255,.22)}    
-.pkg-list{list-style:none;margin-bottom:18px}    
-.pkg-list li{font-size:11.5px;color:rgba(255,255,255,.3);padding:5px 0;border-bottom:1px solid #181818;display:flex;align-items:center;gap:8px;line-height:1.5;font-weight:300}    
-.pkg-list li:last-child{border-bottom:none}    
-.pkg-list li i{font-size:8px;color:rgba(255,255,255,.2);flex-shrink:0}    
-.pkg-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid #191919}    
-.pkg-price-label{font-size:9px;font-weight:600;color:rgba(255,255,255,.2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}    
-.pkg-price{font-size:18px;font-weight:800;color:#fff;letter-spacing:-.03em}    
-.pkg-price span{font-size:10px;font-weight:400;color:rgba(255,255,255,.2)}    
-.btn-pkg{padding:8px 16px;background:#fff;color:#0d0d0d;border:none;border-radius:100px;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;transition:opacity .15s,transform .15s;flex-shrink:0}    
-.btn-pkg:hover{opacity:.88;transform:scale(1.03)}    
-    
-/* CALCULATOR */    
-.calc-box{background:#111;border:1px solid #1e1e1e;border-radius:16px;padding:32px}    
-.calc-inner{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}    
-.calc-title{font-size:clamp(17px,4vw,22px);font-weight:800;color:#fff;letter-spacing:-.04em;margin-bottom:8px}    
-.calc-desc{font-size:12px;color:rgba(255,255,255,.28);line-height:1.7;font-weight:300;margin-bottom:20px}    
-.disc-row{display:flex;gap:8px;flex-wrap:wrap}    
-.disc-chip{text-align:center;background:rgba(255,255,255,.04);border:1px solid #1e1e1e;border-radius:10px;padding:8px 12px}    
-.disc-chip .num{font-size:17px;font-weight:800;color:#fff}    
-.disc-chip .lbl{font-size:9px;color:rgba(255,255,255,.22);text-transform:uppercase;letter-spacing:.05em}    
-.calc-form{display:flex;flex-direction:column;gap:12px}    
-.calc-label{font-size:9.5px;font-weight:700;color:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:5px}    
-.calc-select,.calc-input{width:100%;padding:11px 14px;background:rgba(255,255,255,.05);border:1px solid #222;border-radius:10px;font-family:'Sora',sans-serif;font-size:12.5px;color:#fff;-webkit-appearance:none;transition:border-color .15s}    
-.calc-select option{background:#111;color:#fff}    
-.calc-select:focus,.calc-input:focus{outline:none;border-color:rgba(255,255,255,.2)}    
-.calc-input::placeholder{color:rgba(255,255,255,.18)}    
-.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}    
-.calc-btn{width:100%;padding:13px;background:#fff;color:#0d0d0d;border:none;border-radius:10px;font-family:'Sora',sans-serif;font-size:13px;font-weight:700;cursor:pointer;transition:opacity .15s,transform .15s;display:flex;align-items:center;justify-content:center;gap:8px}    
-.calc-btn:hover{opacity:.9;transform:scale(1.01)}    
-.calc-result{background:rgba(255,255,255,.03);border:1px solid #1e1e1e;border-radius:12px;padding:18px;display:none;margin-top:2px}    
-.calc-result.show{display:block}    
-.result-lbl{font-size:9px;font-weight:700;color:rgba(255,255,255,.22);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}    
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #181818;font-size:12px;color:rgba(255,255,255,.3);font-weight:300}    
-.result-row:last-child{border-bottom:none}    
-.result-row strong{color:#fff;font-size:13px;font-weight:700}    
-.result-total{margin-top:12px;padding:14px;background:rgba(255,255,255,.04);border:1px solid #252525;border-radius:10px;text-align:center}    
-.result-total .amt{font-size:32px;font-weight:800;color:#fff;letter-spacing:-.04em}    
-.result-total .lbl{font-size:9px;color:rgba(255,255,255,.22);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}    
-.result-wa{width:100%;margin-top:10px;padding:11px;background:rgba(255,255,255,.06);border:1px solid #252525;border-radius:10px;font-family:'Sora',sans-serif;font-size:12px;font-weight:700;color:rgba(255,255,255,.6);cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;gap:7px}    
-.result-wa:hover{background:rgba(255,255,255,.1);color:#fff;border-color:#333}    
-@media(max-width:640px){.calc-inner{grid-template-columns:1fr}.calc-row{grid-template-columns:1fr}}    
-    
-/* FEATURE GRID */    
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:#191919;border:1px solid #191919;border-radius:16px;overflow:hidden}    
-.feat-card{background:#111;padding:22px 20px;transition:background .18s}    
-.feat-card:hover{background:#141414}    
-.feat-icon{width:38px;height:38px;border-radius:10px;background:#0d0d0d;border:1px solid #222;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.4);margin-bottom:12px}    
-.feat-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.02em}    
-.feat-desc{font-size:11.5px;color:rgba(255,255,255,.3);line-height:1.7;font-weight:300}    
-    
-/* GEMS */    
-.gems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1px;background:#191919;border:1px solid #191919;border-radius:16px;overflow:hidden}    
-.gem-card{background:#111;padding:22px 20px;transition:background .18s}    
-.gem-card:hover{background:#141414}    
-.gem-badge{display:inline-block;padding:3px 9px;margin-bottom:11px;background:rgba(255,255,255,.04);border:1px solid #222;border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.25)}    
-.gem-name{font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;letter-spacing:-.02em}    
-.gem-desc{font-size:11.5px;color:rgba(255,255,255,.3);line-height:1.7;font-weight:300;margin-bottom:10px}    
-.gem-tip{font-size:10.5px;color:rgba(255,255,255,.2);font-weight:600;padding-top:10px;border-top:1px solid #191919}    
-    
-/* STEPS */    
-.steps-wrap{max-width:500px;margin:0 auto;display:flex;flex-direction:column;gap:8px}    
-.step{display:flex;align-items:flex-start;gap:14px;padding:18px 20px;background:#111;border:1px solid #1c1c1c;border-radius:13px;transition:border-color .18s}    
-.step:hover{border-color:#282828}    
-.step-n{font-size:10px;font-weight:700;color:rgba(255,255,255,.15);letter-spacing:.06em;flex-shrink:0;margin-top:2px}    
-.step-t{font-size:13px;font-weight:700;color:#fff;margin-bottom:3px;letter-spacing:-.02em}    
-.step-d{font-size:11.5px;color:rgba(255,255,255,.3);line-height:1.65;font-weight:300}    
-    
-/* TESTIMONIALS */    
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1px;background:#191919;border:1px solid #191919;border-radius:16px;overflow:hidden}    
-.testi-card{background:#111;padding:22px;transition:background .18s}    
-.testi-card:hover{background:#141414}    
-.testi-stars{display:flex;gap:2px;margin-bottom:12px}    
-.testi-stars i{font-size:10px;color:rgba(255,255,255,.3)}    
-.testi-text{font-size:12px;color:rgba(255,255,255,.35);line-height:1.8;font-weight:300;font-style:italic;margin-bottom:16px}    
-.testi-author{display:flex;align-items:center;gap:10px}    
-.testi-av{width:36px;height:36px;border-radius:50%;background:#1a1a1a;border:1px solid #252525;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;color:rgba(255,255,255,.4);flex-shrink:0}    
-.testi-name{font-size:12px;font-weight:700;color:#fff;letter-spacing:-.01em}    
-.testi-trip{font-size:10px;color:rgba(255,255,255,.2);margin-top:2px}    
-    
-/* FAQ */    
-.faq-list{max-width:560px;margin:0 auto;display:flex;flex-direction:column;gap:7px}    
-.faq-item{background:#111;border:1px solid #1c1c1c;border-radius:12px;overflow:hidden}    
-.faq-q{padding:16px 18px;font-size:13px;font-weight:700;color:#fff;letter-spacing:-.01em;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer}    
-.faq-q i{font-size:10px;color:rgba(255,255,255,.2);flex-shrink:0;transition:transform .2s}    
-.faq-item.open .faq-q i{transform:rotate(45deg)}    
-.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}    
-.faq-item.open .faq-a{max-height:200px;padding:0 18px 14px}    
-.faq-a p{font-size:11.5px;color:rgba(255,255,255,.3);line-height:1.7;font-weight:300}    
-    
-/* BOOKING FORM */    
-.form-box{max-width:560px;margin:0 auto;background:#111;border:1px solid #1e1e1e;border-radius:20px;padding:36px 30px}    
-.form-title{font-size:clamp(20px,5vw,26px);font-weight:800;color:#fff;letter-spacing:-.04em;margin-bottom:6px}    
-.form-subtitle{font-size:12px;color:rgba(255,255,255,.28);margin-bottom:22px;line-height:1.65;font-weight:300}    
-.form-note{display:flex;align-items:center;gap:8px;padding:10px 14px;margin-bottom:20px;background:rgba(255,255,255,.04);border:1px solid #252525;border-radius:10px;font-size:11.5px;color:rgba(255,255,255,.35);font-weight:500}    
-.form-note i{color:rgba(255,255,255,.18);font-size:10px;flex-shrink:0}    
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}    
-.form-full{grid-column:1/-1}    
-.form-group{display:flex;flex-direction:column;gap:6px}    
-.form-label{font-size:9.5px;font-weight:700;color:rgba(255,255,255,.28);letter-spacing:.09em;text-transform:uppercase}    
-.form-input,.form-select,.form-textarea{padding:11px 14px;background:rgba(255,255,255,.05);border:1px solid #222;border-radius:10px;font-family:'Sora',sans-serif;font-size:12.5px;color:#fff;transition:border-color .15s;-webkit-appearance:none;resize:none}    
-.form-input::placeholder{color:rgba(255,255,255,.18)}    
-.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:rgba(255,255,255,.18)}    
-.form-select option{background:#111;color:#fff}    
-.form-input.error,.form-select.error{border-color:rgba(255,80,80,.4)!important}    
-.form-error{font-size:10px;color:rgba(255,100,100,.7);display:none}    
-.form-error.show{display:block}    
-.btn-submit{width:100%;padding:15px;margin-top:4px;background:#fff;color:#0d0d0d;border:none;border-radius:100px;font-family:'Sora',sans-serif;font-size:14px;font-weight:700;cursor:pointer;transition:opacity .15s,transform .15s;display:flex;align-items:center;justify-content:center;gap:9px}    
-.btn-submit:hover{opacity:.9;transform:scale(1.02)}    
-.btn-submit:disabled{opacity:.4;cursor:not-allowed;transform:none}    
-@media(max-width:520px){.form-grid{grid-template-columns:1fr}}    
-    
-/* CONTACT */    
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1px;background:#191919;border:1px solid #191919;border-radius:16px;overflow:hidden}    
-.contact-card{background:#111;padding:22px 20px;transition:background .18s}    
-.contact-card:hover{background:#141414}    
-.contact-icon{width:38px;height:38px;border-radius:10px;background:#0d0d0d;border:1px solid #222;display:flex;align-items:center;justify-content:center;font-size:14px;color:rgba(255,255,255,.4);margin-bottom:12px}    
-.contact-title{font-size:12px;font-weight:700;color:#fff;margin-bottom:5px;letter-spacing:-.01em}    
-.contact-val{font-size:12px;color:rgba(255,255,255,.55);font-weight:600;word-break:break-word;margin-bottom:4px}    
-.contact-sub{font-size:10.5px;color:rgba(255,255,255,.2);line-height:1.55;font-weight:300}    
-    
-/* BOTTOM CTA */    
-.cta-box{max-width:520px;margin:0 auto;padding:44px 28px;background:#111;border:1px solid #1e1e1e;border-radius:20px;text-align:center}    
-.cta-t{font-size:clamp(22px,6vw,30px);font-weight:800;letter-spacing:-.04em;line-height:1.1;margin-bottom:10px;color:#fff}    
-.cta-d{font-size:clamp(12px,3vw,13px);color:rgba(255,255,255,.3);font-weight:300;line-height:1.75;max-width:320px;margin:0 auto 22px}    
-.cta-url{display:inline-block;padding:5px 13px;margin-bottom:20px;background:rgba(255,255,255,.04);border:1px solid #252525;border-radius:100px;font-size:12px;color:rgba(255,255,255,.36);font-weight:600}    
-.cta-url strong{color:rgba(255,255,255,.7)}    
-    
-/* WA FLOAT */    
-.wa-float{position:fixed;bottom:22px;right:22px;z-index:300;width:52px;height:52px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:23px;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.35);transition:transform .18s,box-shadow .18s}    
-.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.5)}    
-    
-/* TOAST */    
-.toast{position:fixed;bottom:82px;right:22px;z-index:400;padding:11px 18px;background:#1a1a1a;color:rgba(255,255,255,.8);border:1px solid #2a2a2a;border-radius:10px;font-size:12.5px;font-weight:500;transform:translateY(12px);opacity:0;transition:all .25s;max-width:280px}    
-.toast.show{transform:translateY(0);opacity:1}    
-.toast.success{background:#162416;border-color:#1e3a1e}    
-.toast.error{background:#241616;border-color:#3a1e1e}    
-    
-/* FOOTER */    
-footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}    
-.ft-logo{font-size:13px;font-weight:800;color:rgba(255,255,255,.22);letter-spacing:-.02em;margin-bottom:5px}    
-.ft-sub{font-size:11px;color:rgba(255,255,255,.12)}    
-.ft-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px;margin-top:9px}    
-.ft-links a{font-size:11px;color:rgba(255,255,255,.15);font-weight:500;transition:color .15s}    
-.ft-links a:hover{color:rgba(255,255,255,.4)}    
-.ft-sep{color:#1e1e1e}    
-</style>    
-  
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#f0f9f4}
+::-webkit-scrollbar-thumb{background:#a8d5b9;border-radius:4px}
 
+/* ─── NAV ─── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 28px;height:58px;
+  background:rgba(248,247,244,.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 1px 16px rgba(26,122,74,.06);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:17px;font-weight:800;color:var(--black);letter-spacing:-.02em}
+.nav-logo img{width:34px;height:34px;border-radius:8px;object-fit:cover}
+.nav-logo span{color:var(--green)}
+.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
+.nav-links a{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.01em;transition:color .15s}
+.nav-links a:hover{color:var(--green)}
+.nav-book{
+  padding:9px 20px;
+  background:var(--green);color:#fff;
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
+  border-radius:100px;border:none;
+  transition:background .15s,transform .15s,box-shadow .15s;
+  box-shadow:0 2px 12px rgba(26,122,74,.28);
+}
+.nav-book:hover{background:#155e38;transform:scale(1.03);box-shadow:0 4px 18px rgba(26,122,74,.38)}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* ─── HERO ─── */
+.hero{
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  padding:110px 20px 70px;
+  background:linear-gradient(165deg,var(--cream) 0%,#e8f5ee 60%,var(--cream) 100%);
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;top:-100px;right:-100px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(26,122,74,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-80px;left:-80px;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(26,122,74,.05) 0%,transparent 70%);
+  pointer-events:none;
+}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 16px;
+  border:1.5px solid var(--green-light);
+  border-radius:100px;
+  background:var(--white);
+  font-size:11px;font-weight:700;color:var(--green);
+  letter-spacing:.06em;text-transform:uppercase;
+  margin-bottom:28px;
+  box-shadow:0 2px 12px rgba(26,122,74,.08);
+}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2.4s ease-in-out infinite}
+.headline{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(38px,9vw,82px);
+  font-weight:900;line-height:1.0;
+  letter-spacing:-.03em;
+  color:var(--black);margin-bottom:8px;
+}
+.word-row{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(24px,6vw,54px);
+  font-weight:800;line-height:1.1;
+  letter-spacing:-.03em;margin-bottom:20px;
+  color:var(--muted);
+}
+.word-wrap{display:inline-block;min-width:200px}
+.changing-word{
+  display:inline-block;
+  background:linear-gradient(90deg,var(--green) 0%,#2ecc71 50%,var(--green) 100%);
+  background-size:200% auto;
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  animation:shimmer 3.5s linear infinite;
+}
+.changing-word.fade-in{animation:wordIn .22s ease forwards,shimmer 3.5s linear infinite}
+.changing-word.fade-out{animation:wordOut .22s ease forwards}
+.hero-sub{
+  font-size:clamp(13px,3.5vw,16px);
+  color:var(--muted);font-weight:400;
+  max-width:440px;margin:0 auto 18px;line-height:1.8;
+}
+.pills{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;margin-bottom:30px}
+.pill{
+  padding:5px 13px;
+  border:1.5px solid var(--green-light);
+  border-radius:100px;
+  background:var(--white);
+  font-size:10.5px;font-weight:600;color:var(--green);
+  display:flex;align-items:center;gap:6px;
+  box-shadow:0 1px 8px rgba(26,122,74,.07);
+}
+.pill i{font-size:8px}
+.cta-col{display:flex;flex-direction:column;align-items:stretch;gap:10px;width:100%;max-width:370px}
+.btn-main{
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  padding:16px 22px;
+  background:var(--green);color:#fff;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
+  border-radius:100px;border:none;
+  transition:all .18s;
+  box-shadow:var(--shadow-lg);
+}
+.btn-main:hover{background:#155e38;transform:scale(1.02);box-shadow:0 12px 40px rgba(26,122,74,.3)}
+.btn-ghost{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:15px 22px;
+  background:var(--white);color:var(--green);
+  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
+  border-radius:100px;border:2px solid var(--green-light);
+  transition:all .15s;
+}
+.btn-ghost:hover{border-color:var(--green);background:var(--green-pale)}
+
+/* ─── DIVIDER ─── */
+.divider{height:1px;background:var(--border);margin:0 20px}
+
+/* ─── SECTIONS ─── */
+.wrap{max-width:980px;margin:0 auto;padding:56px 20px}
+.sec-eye{text-align:center;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
+.sec-h{text-align:center;font-family:'Playfair Display',serif;font-size:clamp(24px,6vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:var(--black);margin-bottom:8px}
+.sec-sub{text-align:center;font-size:clamp(12px,3vw,13.5px);color:var(--muted);font-weight:400;line-height:1.75;max-width:420px;margin:0 auto 36px}
+
+/* ─── FILTER ─── */
+.filter-bar{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;margin-bottom:28px}
+.filter-btn{
+  padding:7px 18px;border-radius:100px;
+  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;
+  border:1.5px solid var(--border);color:var(--muted);background:var(--white);
+  cursor:pointer;transition:all .15s;
+}
+.filter-btn:hover,.filter-btn.active{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 2px 12px rgba(26,122,74,.25)}
+
+/* ─── DESTINATION GRID ─── */
+.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.dest-card{position:relative;background:var(--white);overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.dest-card img{width:100%;height:100%;object-fit:cover;display:block;opacity:.75;transition:opacity .4s,transform .5s}
+.dest-card:hover img{opacity:.92;transform:scale(1.06)}
+.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,40,20,.88) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
+.dest-badge{display:inline-block;align-self:flex-start;padding:3px 10px;margin-bottom:6px;background:var(--green);border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#fff;margin-bottom:7px}
+.dest-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.02em}
+.dest-meta{font-size:10px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:400;line-height:1.5}
+.dest-arrow{position:absolute;top:14px;right:14px;width:32px;height:32px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;opacity:0;transition:opacity .2s,transform .2s}
+.dest-card:hover .dest-arrow{opacity:1;transform:translate(2px,-2px)}
+
+/* ─── PACKAGES ─── */
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.pkg-card{background:var(--white);padding:24px;transition:background .18s;position:relative}
+.pkg-card:hover{background:var(--green-pale)}
+.pkg-card.featured{background:linear-gradient(145deg,var(--green-pale),#e8f8ef)}
+.pkg-feat-badge{display:inline-block;padding:4px 10px;margin-bottom:14px;background:var(--green);border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#fff}
+.pkg-icon{width:40px;height:40px;border-radius:11px;background:var(--green-light);border:1.5px solid #c3e6ce;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
+.pkg-name{font-size:14px;font-weight:700;color:var(--black);margin-bottom:4px;letter-spacing:-.02em}
+.pkg-duration{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+.pkg-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.pkg-tag{padding:3px 10px;background:var(--green-light);border-radius:100px;font-size:9.5px;font-weight:600;color:var(--green)}
+.pkg-list{list-style:none;margin-bottom:18px}
+.pkg-list li{font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;line-height:1.5;font-weight:400}
+.pkg-list li:last-child{border-bottom:none}
+.pkg-list li i{font-size:9px;color:var(--green);flex-shrink:0}
+.pkg-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border)}
+.pkg-price-label{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
+.pkg-price{font-size:19px;font-weight:800;color:var(--black);letter-spacing:-.03em}
+.pkg-price span{font-size:10px;font-weight:400;color:var(--muted)}
+.btn-pkg{
+  padding:9px 18px;background:var(--green);color:#fff;
+  border:none;border-radius:100px;
+  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
+  transition:all .15s;flex-shrink:0;
+  box-shadow:0 2px 10px rgba(26,122,74,.22);
+}
+.btn-pkg:hover{background:#155e38;transform:scale(1.04);box-shadow:0 4px 16px rgba(26,122,74,.35)}
+
+/* ─── CALCULATOR ─── */
+.calc-box{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:36px;box-shadow:var(--shadow)}
+.calc-inner{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.calc-title{font-family:'Playfair Display',serif;font-size:clamp(18px,4vw,23px);font-weight:800;color:var(--black);letter-spacing:-.03em;margin-bottom:8px}
+.calc-desc{font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:400;margin-bottom:20px}
+.disc-row{display:flex;gap:8px;flex-wrap:wrap}
+.disc-chip{text-align:center;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:12px;padding:10px 14px}
+.disc-chip .num{font-size:18px;font-weight:800;color:var(--green)}
+.disc-chip .lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.calc-form{display:flex;flex-direction:column;gap:12px}
+.calc-label{font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:5px}
+.calc-select,.calc-input{
+  width:100%;padding:12px 15px;
+  background:var(--cream);border:1.5px solid var(--border);
+  border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;
+  color:var(--black);-webkit-appearance:none;
+  transition:border-color .15s;
+}
+.calc-select option{background:#fff;color:var(--black)}
+.calc-select:focus,.calc-input:focus{outline:none;border-color:var(--green)}
+.calc-input::placeholder{color:var(--muted)}
+.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.calc-btn{
+  width:100%;padding:14px;
+  background:var(--green);color:#fff;
+  border:none;border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
+  cursor:pointer;transition:all .15s;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 3px 14px rgba(26,122,74,.28);
+}
+.calc-btn:hover{background:#155e38;transform:scale(1.01)}
+.calc-result{background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:12px;padding:20px;display:none;margin-top:2px}
+.calc-result.show{display:block}
+.result-lbl{font-size:9px;font-weight:700;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.result-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px;color:var(--muted);font-weight:400}
+.result-row:last-child{border-bottom:none}
+.result-row strong{color:var(--black);font-size:13px;font-weight:700}
+.result-total{margin-top:12px;padding:16px;background:var(--green);border-radius:10px;text-align:center}
+.result-total .amt{font-size:34px;font-weight:800;color:#fff;letter-spacing:-.04em}
+.result-total .lbl{font-size:9px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
+.result-wa{
+  width:100%;margin-top:10px;padding:12px;
+  background:#fff;border:1.5px solid var(--green-light);border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:700;
+  color:var(--green);cursor:pointer;
+  transition:all .15s;display:flex;align-items:center;justify-content:center;gap:7px;
+}
+.result-wa:hover{background:var(--green);color:#fff;border-color:var(--green)}
+@media(max-width:640px){.calc-inner{grid-template-columns:1fr}.calc-row{grid-template-columns:1fr}}
+
+/* ─── FEATURE GRID ─── */
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.feat-card{background:var(--white);padding:24px 22px;transition:background .18s}
+.feat-card:hover{background:var(--green-pale)}
+.feat-icon{width:40px;height:40px;border-radius:11px;background:var(--green-light);border:1.5px solid #c3e6ce;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--green);margin-bottom:12px}
+.feat-title{font-size:13.5px;font-weight:700;color:var(--black);margin-bottom:6px;letter-spacing:-.02em}
+.feat-desc{font-size:12px;color:var(--muted);line-height:1.75;font-weight:400}
+
+/* ─── GEMS ─── */
+.gems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.gem-card{background:var(--white);padding:24px 22px;transition:background .18s}
+.gem-card:hover{background:var(--green-pale)}
+.gem-badge{display:inline-block;padding:3px 10px;margin-bottom:11px;background:var(--green-light);border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--green)}
+.gem-name{font-size:14px;font-weight:700;color:var(--black);margin-bottom:6px;letter-spacing:-.02em}
+.gem-desc{font-size:12px;color:var(--muted);line-height:1.75;font-weight:400;margin-bottom:10px}
+.gem-tip{font-size:11px;color:var(--green);font-weight:600;padding-top:10px;border-top:1px solid var(--border)}
+
+/* ─── STEPS ─── */
+.steps-wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:9px}
+.step{display:flex;align-items:flex-start;gap:14px;padding:20px 22px;background:var(--white);border:1.5px solid var(--border);border-radius:14px;transition:all .18s;box-shadow:0 1px 8px rgba(26,122,74,.05)}
+.step:hover{border-color:var(--green);box-shadow:0 4px 20px rgba(26,122,74,.12)}
+.step-n{font-size:11px;font-weight:800;color:var(--green);letter-spacing:.04em;flex-shrink:0;margin-top:2px;background:var(--green-light);padding:3px 8px;border-radius:6px}
+.step-t{font-size:14px;font-weight:700;color:var(--black);margin-bottom:4px;letter-spacing:-.02em}
+.step-d{font-size:12px;color:var(--muted);line-height:1.65;font-weight:400}
+
+/* ─── TESTIMONIALS ─── */
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.testi-card{background:var(--white);padding:24px;transition:background .18s}
+.testi-card:hover{background:var(--green-pale)}
+.testi-stars{display:flex;gap:2px;margin-bottom:12px}
+.testi-stars i{font-size:11px;color:#f59e0b}
+.testi-text{font-size:12.5px;color:var(--muted);line-height:1.8;font-weight:400;font-style:italic;margin-bottom:16px}
+.testi-author{display:flex;align-items:center;gap:10px}
+.testi-av{width:38px;height:38px;border-radius:50%;background:var(--green-light);border:2px solid #c3e6ce;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:var(--green);flex-shrink:0}
+.testi-name{font-size:13px;font-weight:700;color:var(--black);letter-spacing:-.01em}
+.testi-trip{font-size:10px;color:var(--muted);margin-top:2px}
+
+/* ─── FAQ ─── */
+.faq-list{max-width:580px;margin:0 auto;display:flex;flex-direction:column;gap:7px}
+.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:13px;overflow:hidden;box-shadow:0 1px 6px rgba(26,122,74,.04)}
+.faq-q{padding:17px 20px;font-size:13.5px;font-weight:700;color:var(--black);letter-spacing:-.01em;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;transition:background .15s}
+.faq-q:hover{background:var(--green-pale)}
+.faq-q i{font-size:10px;color:var(--green);flex-shrink:0;transition:transform .2s}
+.faq-item.open .faq-q i{transform:rotate(45deg)}
+.faq-item.open .faq-q{background:var(--green-pale)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
+.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
+.faq-a p{font-size:12.5px;color:var(--muted);line-height:1.75;font-weight:400}
+
+/* ─── BOOKING FORM ─── */
+.form-box{max-width:580px;margin:0 auto;background:var(--white);border:1.5px solid var(--border);border-radius:22px;padding:38px 32px;box-shadow:var(--shadow-lg)}
+.form-title{font-family:'Playfair Display',serif;font-size:clamp(20px,5vw,28px);font-weight:800;color:var(--black);letter-spacing:-.03em;margin-bottom:6px}
+.form-subtitle{font-size:12.5px;color:var(--muted);margin-bottom:22px;line-height:1.65;font-weight:400}
+.form-note{display:flex;align-items:center;gap:9px;padding:11px 15px;margin-bottom:22px;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:11px;font-size:12px;color:var(--green);font-weight:600}
+.form-note i{font-size:10px;flex-shrink:0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.form-full{grid-column:1/-1}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-label{font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.09em;text-transform:uppercase}
+.form-input,.form-select,.form-textarea{
+  padding:12px 15px;background:var(--cream);
+  border:1.5px solid var(--border);border-radius:10px;
+  font-family:'DM Sans',sans-serif;font-size:13px;color:var(--black);
+  transition:border-color .15s;-webkit-appearance:none;resize:none;
+}
+.form-input::placeholder{color:var(--muted)}
+.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--green);background:#fff}
+.form-select option{background:#fff;color:var(--black)}
+.form-input.error,.form-select.error{border-color:#ef4444!important}
+.form-error{font-size:10px;color:#ef4444;display:none}
+.form-error.show{display:block}
+.btn-submit{
+  width:100%;padding:16px;margin-top:6px;
+  background:var(--green);color:#fff;
+  border:none;border-radius:100px;
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
+  cursor:pointer;transition:all .15s;
+  display:flex;align-items:center;justify-content:center;gap:9px;
+  box-shadow:var(--shadow-lg);
+}
+.btn-submit:hover{background:#155e38;transform:scale(1.01)}
+.btn-submit:disabled{opacity:.4;cursor:not-allowed;transform:none}
+@media(max-width:520px){.form-grid{grid-template-columns:1fr}}
+
+/* ─── CONTACT ─── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.contact-card{
+  background:var(--white);padding:24px 22px;
+  transition:all .18s;
+  text-decoration:none;display:block;
+}
+.contact-card:hover{background:var(--green-pale);transform:translateY(-2px)}
+.contact-icon{
+  width:40px;height:40px;border-radius:11px;
+  background:var(--green-light);border:1.5px solid #c3e6ce;
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;color:var(--green);margin-bottom:12px;
+  transition:background .15s;
+}
+.contact-card:hover .contact-icon{background:var(--green);color:#fff}
+.contact-title{font-size:12.5px;font-weight:700;color:var(--black);margin-bottom:5px;letter-spacing:-.01em}
+.contact-val{font-size:12px;color:var(--green);font-weight:700;word-break:break-word;margin-bottom:4px}
+.contact-sub{font-size:10.5px;color:var(--muted);line-height:1.55;font-weight:400}
+
+/* ─── CEO SECTION ─── */
+.ceo-section{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.ceo-inner{max-width:980px;margin:0 auto;padding:60px 20px;display:grid;grid-template-columns:320px 1fr;gap:52px;align-items:center}
+@media(max-width:760px){.ceo-inner{grid-template-columns:1fr;text-align:center}}
+.ceo-card{
+  background:var(--cream);border:1.5px solid var(--border);
+  border-radius:22px;padding:32px 28px;text-align:center;
+  position:relative;overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.ceo-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:80px;
+  background:linear-gradient(135deg,var(--green),#27ae60);
+}
+.ceo-avatar{
+  width:100px;height:100px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green),#27ae60);
+  border:4px solid #fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;color:#fff;font-weight:900;
+  margin:0 auto 16px;
+  position:relative;z-index:1;
+  box-shadow:0 4px 20px rgba(26,122,74,.3);
+  font-family:'Playfair Display',serif;
+}
+.ceo-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--black);letter-spacing:-.03em;margin-bottom:4px}
+.ceo-title{font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+.ceo-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:18px}
+.ceo-badge{padding:4px 12px;background:var(--green-light);border-radius:100px;font-size:10px;font-weight:700;color:var(--green)}
+.ceo-social{display:flex;justify-content:center;gap:10px;margin-top:16px}
+.ceo-social a{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;transition:all .15s;
+  border:1.5px solid var(--border);background:var(--white);color:var(--muted);
+}
+.ceo-social a:hover{background:var(--green);color:#fff;border-color:var(--green);transform:scale(1.1)}
+.ceo-social a.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent}
+.ceo-info{padding:8px 0}
+.ceo-info h2{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,36px);font-weight:900;color:var(--black);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
+.ceo-info h2 span{color:var(--green)}
+.ceo-quote{
+  font-size:15px;color:var(--muted);line-height:1.8;font-weight:400;
+  margin-bottom:22px;
+  padding-left:18px;border-left:3px solid var(--green);
+  font-style:italic;
+}
+.ceo-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
+@media(max-width:760px){.ceo-stats{grid-template-columns:repeat(3,1fr)}}
+.ceo-stat{background:var(--cream);border:1.5px solid var(--border);border-radius:14px;padding:14px 10px;text-align:center}
+.ceo-stat .val{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--green);letter-spacing:-.03em}
+.ceo-stat .lbl{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
+.ceo-about{font-size:13px;color:var(--muted);line-height:1.8;font-weight:400;margin-bottom:20px}
+.ceo-contact-row{display:flex;flex-wrap:wrap;gap:10px}
+.ceo-contact-btn{
+  display:flex;align-items:center;gap:8px;
+  padding:10px 18px;border-radius:100px;
+  font-size:12px;font-weight:700;
+  border:1.5px solid var(--border);background:var(--white);
+  color:var(--black);transition:all .15s;text-decoration:none;
+}
+.ceo-contact-btn:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.ceo-contact-btn.primary{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 2px 12px rgba(26,122,74,.25)}
+.ceo-contact-btn.primary:hover{background:#155e38}
+
+/* ─── BOTTOM CTA ─── */
+.cta-box{
+  max-width:560px;margin:0 auto;padding:48px 32px;
+  background:linear-gradient(135deg,var(--green),#27ae60);
+  border-radius:24px;text-align:center;
+  box-shadow:0 12px 50px rgba(26,122,74,.28);
+}
+.cta-t{font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,32px);font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-bottom:10px;color:#fff}
+.cta-d{font-size:clamp(12px,3vw,14px);color:rgba(255,255,255,.8);font-weight:400;line-height:1.75;max-width:360px;margin:0 auto 22px}
+.cta-url{display:inline-block;padding:6px 16px;margin-bottom:22px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:100px;font-size:12.5px;color:rgba(255,255,255,.85);font-weight:600}
+.cta-url strong{color:#fff}
+.btn-cta-white{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:15px 30px;background:#fff;color:var(--green);
+  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:800;
+  border-radius:100px;border:none;
+  transition:all .15s;box-shadow:0 4px 20px rgba(0,0,0,.15);
+}
+.btn-cta-white:hover{transform:scale(1.03);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+
+/* ─── WA FLOAT ─── */
+.wa-float{
+  position:fixed;bottom:22px;right:22px;z-index:300;
+  width:54px;height:54px;background:#25d366;
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:24px;color:#fff;
+  box-shadow:0 4px 24px rgba(37,211,102,.4);
+  transition:transform .18s,box-shadow .18s;
+  animation:float 3s ease-in-out infinite;
+}
+.wa-float:hover{transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,.55);animation:none}
+
+/* ─── TOAST ─── */
+.toast{
+  position:fixed;bottom:86px;right:22px;z-index:400;
+  padding:12px 20px;background:var(--black);color:#fff;
+  border-radius:12px;font-size:13px;font-weight:500;
+  transform:translateY(12px);opacity:0;
+  transition:all .25s;max-width:290px;
+  box-shadow:0 4px 24px rgba(0,0,0,.18);
+}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.success{background:#0f3820}
+.toast.error{background:#3a1212}
+
+/* ─── FOOTER ─── */
+footer{
+  text-align:center;padding:28px 20px 40px;
+  background:var(--black);color:rgba(255,255,255,.5);
+}
+.ft-logo{
+  font-family:'Playfair Display',serif;
+  font-size:16px;font-weight:800;color:#fff;
+  letter-spacing:-.02em;margin-bottom:5px;
+}
+.ft-sub{font-size:11.5px;color:rgba(255,255,255,.3);margin-bottom:12px}
+.ft-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:18px;margin-top:10px}
+.ft-links a{font-size:11.5px;color:rgba(255,255,255,.3);font-weight:500;transition:color .15s}
+.ft-links a:hover{color:#fff}
+.ft-sep{color:#2a2a2a}
+.ft-copy{font-size:10.5px;color:rgba(255,255,255,.15);margin-top:14px}
+
+/* ─── STATS BAR ─── */
+.stats-bar{background:var(--green);padding:16px 20px}
+.stats-inner{max-width:980px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap}
+.stat-item{text-align:center;color:#fff}
+.stat-item .val{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;letter-spacing:-.03em}
+.stat-item .lbl{font-size:10px;font-weight:600;opacity:.75;text-transform:uppercase;letter-spacing:.07em;margin-top:1px}
+.stat-sep{width:1px;height:34px;background:rgba(255,255,255,.2)}
+@media(max-width:480px){.stat-sep{display:none}}
+</style>
 </head>
 <body>
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Sirinadu <span>Pravasa</span></div>
+  <div class="nav-logo">
+    <img src="/icon.png" alt="Sirinadu Pravasa" onerror="this.style.display='none'"/>
+    Sirinadu <span>Pravasa</span>
+  </div>
   <ul class="nav-links">
     <li><a href="#destinations">Destinations</a></li>
     <li><a href="#packages">Packages</a></li>
-    <li><a href="#gems">Hidden Gems</a></li>
+    <li><a href="#ceo">About CEO</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
   <button class="nav-book" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Book Now</button>
@@ -268,15 +542,15 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
 <div class="hero vis">
   <div class="eyebrow a1">
     <span class="dot"></span>
-    Karnataka · Bengaluru's coastal travel specialists
+    Karnataka · Bengaluru's Coastal Travel Specialists
   </div>
- <h1 class="headline a2">ಸಿರಿನಾಡು ಪ್ರವಾಸ</h1>
+  <h1 class="headline a2">ಸಿರಿನಾಡು ಪ್ರವಾಸ</h1>
   <div class="word-row a2">
     <span class="word-wrap">
       <span class="changing-word fade-in" id="changingWord">ನಿಮ್ಮ ಪ್ರವಾಸ</span>
     </span>
   </div>
-  <p class="hero-sub a3">Coastal Karnataka, Malenadu adventures, bachelor groups, family trips — all from Bengaluru. Budget starts at ₹4,200.</p>
+  <p class="hero-sub a3">Coastal Karnataka, Malenadu adventures, bachelor groups, family trips — all from Bengaluru. Budget starts at ₹2,800.</p>
   <div class="pills a3">
     <span class="pill"><i class="fas fa-check"></i>Budget from ₹2,800</span>
     <span class="pill"><i class="fas fa-check"></i>Gang discounts up to 15%</span>
@@ -286,7 +560,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
   </div>
   <div class="cta-col a4">
     <button class="btn-main" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
-      <i class="fas fa-compass" style="font-size:12px"></i>
+      <i class="fas fa-compass" style="font-size:13px"></i>
       Plan My Trip — Book Now
     </button>
     <button class="btn-ghost" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">
@@ -295,9 +569,22 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
   </div>
 </div>
 
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item"><div class="val">1,200+</div><div class="lbl">Happy Travellers</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><div class="val">6</div><div class="lbl">Destinations</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><div class="val">4.9★</div><div class="lbl">Average Rating</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><div class="val">₹2,800</div><div class="lbl">Starting Price</div></div>
+    <div class="stat-sep"></div>
+    <div class="stat-item"><div class="val">5 Yrs</div><div class="lbl">Experience</div></div>
+  </div>
+</div>
 
-   
-      
+<!-- DESTINATIONS -->
 <section id="destinations" class="wrap">
   <div class="sec-eye">Explore Karnataka</div>
   <h2 class="sec-h">Six stunning destinations</h2>
@@ -312,7 +599,6 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
   </div>
 
   <div class="dest-grid">
-
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Gokarna')">
       <img src="https://images.pexels.com/photos/1450353/pexels-photo-1450353.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Gokarna" loading="lazy"/>
       <div class="dest-overlay">
@@ -322,7 +608,6 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Murudeshwar')">
       <img src="https://images.pexels.com/photos/358229/pexels-photo-358229.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Murudeshwar" loading="lazy"/>
       <div class="dest-overlay">
@@ -332,7 +617,6 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Honnavara')">
       <img src="https://images.pexels.com/photos/248797/pexels-photo-248797.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Honnavar" loading="lazy"/>
       <div class="dest-overlay">
@@ -342,7 +626,6 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Udupi')">
       <img src="https://images.pexels.com/photos/533769/pexels-photo-533769.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Udupi" loading="lazy"/>
       <div class="dest-overlay">
@@ -352,7 +635,6 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-
     <div class="dest-card" data-tags="malenadu budget premium" onclick="scrollToBook('Shivamogga')">
       <img src="https://images.pexels.com/photos/449627/pexels-photo-449627.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Shivamogga" loading="lazy"/>
       <div class="dest-overlay">
@@ -362,7 +644,6 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-
     <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Mangaluru')">
       <img src="https://images.pexels.com/photos/457882/pexels-photo-457882.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Mangaluru" loading="lazy"/>
       <div class="dest-overlay">
@@ -372,12 +653,10 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-
   </div>
 </section>
 
 <div class="divider"></div>
-
 
 <!-- PACKAGES -->
 <section id="packages" class="wrap">
@@ -400,7 +679,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </ul>
       <div class="pkg-footer">
         <div><div class="pkg-price-label">From</div><div class="pkg-price">₹5,499 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Bachelors Beach Vibes','₹5,499')">Book</button>
+        <button class="btn-pkg" onclick="bookPackage('Bachelors Beach Vibes','₹5,499')">Book Now</button>
       </div>
     </div>
     <div class="pkg-card">
@@ -417,7 +696,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </ul>
       <div class="pkg-footer">
         <div><div class="pkg-price-label">From</div><div class="pkg-price">₹3,000 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Coastal Heritage Tour','₹3,000')">Book</button>
+        <button class="btn-pkg" onclick="bookPackage('Coastal Heritage Tour','₹3,000')">Book Now</button>
       </div>
     </div>
     <div class="pkg-card">
@@ -434,7 +713,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </ul>
       <div class="pkg-footer">
         <div><div class="pkg-price-label">From</div><div class="pkg-price">₹4,000 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('South Pilgrimage Circuit','₹4,000')">Book</button>
+        <button class="btn-pkg" onclick="bookPackage('South Pilgrimage Circuit','₹4,000')">Book Now</button>
       </div>
     </div>
     <div class="pkg-card">
@@ -451,7 +730,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </ul>
       <div class="pkg-footer">
         <div><div class="pkg-price-label">From</div><div class="pkg-price">₹2,800 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Malenadu Mist Tour','₹2,800')">Book</button>
+        <button class="btn-pkg" onclick="bookPackage('Malenadu Mist Tour','₹2,800')">Book Now</button>
       </div>
     </div>
     <div class="pkg-card">
@@ -468,7 +747,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </ul>
       <div class="pkg-footer">
         <div><div class="pkg-price-label">From</div><div class="pkg-price">₹8,999 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Grand Coastal Circuit','₹8,999')">Book</button>
+        <button class="btn-pkg" onclick="bookPackage('Grand Coastal Circuit','₹8,999')">Book Now</button>
       </div>
     </div>
     <div class="pkg-card">
@@ -485,7 +764,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       </ul>
       <div class="pkg-footer">
         <div><div class="pkg-price-label">From</div><div class="pkg-price">₹3,500 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Culinary & Culture Trail','₹3,500')">Book</button>
+        <button class="btn-pkg" onclick="bookPackage('Culinary & Culture Trail','₹3,500')">Book Now</button>
       </div>
     </div>
   </div>
@@ -493,8 +772,56 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
 
 <div class="divider"></div>
 
+<!-- GANG CALCULATOR -->
+<section id="calculator" class="wrap">
+  <div class="sec-eye">Gang calculator</div>
+  <h2 class="sec-h">How much for your crew?</h2>
+  <p class="sec-sub">Bigger the group, bigger the savings. Calculate your gang price instantly.</p>
+  <div class="calc-box">
+    <div class="calc-inner">
+      <div>
+        <div class="calc-title">Gang discounts 🤙</div>
+        <p class="calc-desc">Bring your friends and save more. The more the merrier — and cheaper!</p>
+        <div class="disc-row">
+          <div class="disc-chip"><div class="num">5%</div><div class="lbl">5+ friends</div></div>
+          <div class="disc-chip"><div class="num">10%</div><div class="lbl">8+ friends</div></div>
+          <div class="disc-chip"><div class="num">15%</div><div class="lbl">13+ friends</div></div>
+        </div>
+      </div>
+      <div class="calc-form">
+        <div>
+          <label class="calc-label">Choose package</label>
+          <select class="calc-select" id="calcPkg">
+            <option value="5499">Bachelors Beach Vibes — ₹5,499/person</option>
+            <option value="3000">Coastal Heritage Tour — ₹3,000/person</option>
+            <option value="4000">South Pilgrimage Circuit — ₹4,000/person</option>
+            <option value="2800">Malenadu Mist Tour — ₹2,800/person</option>
+            <option value="8999">Grand Coastal Circuit — ₹8,999/person</option>
+            <option value="3500">Culinary & Culture Trail — ₹3,500/person</option>
+          </select>
+        </div>
+        <div>
+          <label class="calc-label">Number of friends</label>
+          <input type="number" class="calc-input" id="calcPax" min="1" max="60" placeholder="e.g. 8"/>
+        </div>
+        <button class="calc-btn" onclick="calcGang()">
+          <i class="fas fa-calculator"></i>Calculate gang price
+        </button>
+        <div class="calc-result" id="calcResult">
+          <div class="result-lbl">Your gang breakdown</div>
+          <div class="result-row">Base price (per person)<strong id="resBase">—</strong></div>
+          <div class="result-row">Group size<strong id="resPax">—</strong></div>
+          <div class="result-row">Gang discount <span id="resDiscPct" style="font-size:11px;color:var(--green)"></span><strong id="resDisc" style="color:#ef4444">—</strong></div>
+          <div class="result-row">Price per person<strong id="resPer">—</strong></div>
+          <div class="result-total"><div class="amt" id="resTotal">—</div><div class="lbl">Total for your gang</div></div>
+          <button class="result-wa" onclick="bookFromCalc()"><i class="fab fa-whatsapp"></i>Book this gang trip on WhatsApp</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-            
+<div class="divider"></div>
 
 <!-- WHY US -->
 <section class="wrap">
@@ -507,7 +834,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
     <div class="feat-card"><div class="feat-icon"><i class="fas fa-camera"></i></div><h3 class="feat-title">GoPro & drone add-on</h3><p class="feat-desc">Add a GoPro or drone cameraperson to any package. Your trip memories, captured professionally.</p></div>
     <div class="feat-card"><div class="feat-icon"><i class="fas fa-shield-halved"></i></div><h3 class="feat-title">Safe & licensed</h3><p class="feat-desc">All adventure activities use certified guides. Karnataka Tourism Department registered agency.</p></div>
     <div class="feat-card"><div class="feat-icon"><i class="fab fa-whatsapp"></i></div><h3 class="feat-title">24/7 WhatsApp support</h3><p class="feat-desc">From first enquiry to the moment you're back home — always available on WhatsApp for anything.</p></div>
-    <div class="feat-card"><div class="feat-icon"><i class="fas fa-leaf"></i></div><h3 class="feat-title">Zero-plastic policy</h3><p class="feat-desc">No plastic on any trip. We partner with local homestays and put money back into coastal communities directly.</p></div>
+    <div class="feat-card"><div class="feat-icon"><i class="fas fa-leaf"></i></div><h3 class="feat-title">Zero-plastic policy</h3><p class="feat-desc">No plastic on any trip. We partner with local homestays and put money back into coastal communities.</p></div>
   </div>
 </section>
 
@@ -529,9 +856,6 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
 </section>
 
 <div class="divider"></div>
-
-
-
 
 <!-- HOW IT WORKS -->
 <section class="wrap">
@@ -581,7 +905,7 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
       <div class="form-group form-full"><label class="form-label">Notes / special requests</label><textarea class="form-textarea" id="f-notes" rows="3" placeholder="Any special requests? Mention FIRST TRIP for 10% off."></textarea></div>
     </div>
     <br/>
-    <button class="btn-submit" id="submitBtn" onclick="handleBooking()"><i class="fab fa-whatsapp" style="font-size:17px"></i>Send booking via WhatsApp</button>
+    <button class="btn-submit" id="submitBtn" onclick="handleBooking()"><i class="fab fa-whatsapp" style="font-size:18px"></i>Send booking via WhatsApp</button>
   </div>
 </section>
 
@@ -607,13 +931,111 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
 <!-- CONTACT -->
 <section id="contact" class="wrap">
   <div class="sec-eye">Get in touch</div>
-  <h2 class="sec-h">We're on WhatsApp</h2>
-  <p class="sec-sub">Based in Bengaluru. Reach us on WhatsApp, phone or email. We respond within 2 hours.</p>
+  <h2 class="sec-h">We're always reachable</h2>
+  <p class="sec-sub">Based in Bengaluru. Reach us on WhatsApp, phone, email or Instagram. We respond within 2 hours.</p>
   <div class="contact-grid">
-    <div class="contact-card"><div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div class="contact-title">WhatsApp</div><div class="contact-val">+91 82963 53437</div><div class="contact-sub">Fastest response. 8 AM – 10 PM daily</div></div>
-    <div class="contact-card"><div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-title">Phone</div><div class="contact-val">8296353437</div><div class="contact-sub">Mon – Sat, 9 AM – 7 PM</div></div>
-    <div class="contact-card"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-title">Email</div><div class="contact-val">sirinadupravasa@gmail.com</div><div class="contact-sub">Replies within 6 hours on working days</div></div>
-    <div class="contact-card"><div class="contact-icon"><i class="fas fa-location-dot"></i></div><div class="contact-title">Office</div><div class="contact-val" style="font-size:11px;line-height:1.65">79/N, Anbalgum, 21st Cross,<br/>Muthuraya Swamy Layout,<br/>Sunkadakatte, Bengaluru – 560091</div><div class="contact-sub">Visit by appointment</div></div>
+    <a class="contact-card" href="https://wa.me/918296353437?text=Hi!%20I%20want%20to%20plan%20a%20trip%20with%20Sirinadu%20Pravasa." target="_blank">
+      <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+      <div class="contact-title">WhatsApp</div>
+      <div class="contact-val">+91 82963 53437</div>
+      <div class="contact-sub">Fastest response · 8 AM – 10 PM daily</div>
+    </a>
+    <a class="contact-card" href="tel:+918296353437">
+      <div class="contact-icon"><i class="fas fa-phone"></i></div>
+      <div class="contact-title">Phone</div>
+      <div class="contact-val">+91 82963 53437</div>
+      <div class="contact-sub">Mon – Sat · 9 AM – 7 PM</div>
+    </a>
+    <a class="contact-card" href="mailto:sirinadu.pravasa@gmail.com">
+      <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+      <div class="contact-title">Email</div>
+      <div class="contact-val">sirinadu.pravasa@gmail.com</div>
+      <div class="contact-sub">Replies within 6 hours on working days</div>
+    </a>
+    <a class="contact-card" href="https://www.instagram.com/sirinadu.pravasa" target="_blank">
+      <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+      <div class="contact-title">Instagram</div>
+      <div class="contact-val">@sirinadu.pravasa</div>
+      <div class="contact-sub">Follow us for trip reels & updates</div>
+    </a>
+    <a class="contact-card" href="https://maps.google.com/?q=Sunkadakatte,Bengaluru" target="_blank" style="grid-column:span 2">
+      <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
+      <div class="contact-title">Office</div>
+      <div class="contact-val" style="font-size:11.5px;line-height:1.7">79/N, Anbalgum, 21st Cross, Muthuraya Swamy Layout, Sunkadakatte, Bengaluru – 560091</div>
+      <div class="contact-sub">Visit by appointment · Click to open in Maps</div>
+    </a>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CEO SECTION -->
+<section id="ceo" class="ceo-section">
+  <div class="ceo-inner">
+    <div class="ceo-card">
+      <div class="ceo-avatar">S</div>
+      <div class="ceo-name">Suresh Kumar</div>
+      <div class="ceo-title">Founder & CEO</div>
+      <div class="ceo-badges">
+        <span class="ceo-badge">Karnataka Tourism Certified</span>
+        <span class="ceo-badge">5+ Years Experience</span>
+        <span class="ceo-badge">Local Expert</span>
+      </div>
+      <p style="font-size:12px;color:var(--muted);line-height:1.7">Bengaluru-based travel entrepreneur passionate about showcasing the best of Karnataka's coast and forest.</p>
+      <div class="ceo-social">
+        <a href="https://wa.me/918296353437" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        <a href="https://www.instagram.com/sirinadu.pravasa" target="_blank" title="Instagram" class="ig"><i class="fab fa-instagram"></i></a>
+        <a href="tel:+918296353437" title="Call"><i class="fas fa-phone"></i></a>
+        <a href="mailto:sirinadu.pravasa@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      </div>
+    </div>
+    <div class="ceo-info">
+      <h2>Meet the person behind every<br/><span>perfect Karnataka trip</span></h2>
+      <p class="ceo-quote">"I started Sirinadu Pravasa because I wanted Bengalureans to truly experience the magic of coastal Karnataka — not just visit, but live it."</p>
+      <div class="ceo-stats">
+        <div class="ceo-stat"><div class="val">1,200+</div><div class="lbl">Travellers Served</div></div>
+        <div class="ceo-stat"><div class="val">4.9★</div><div class="lbl">Average Rating</div></div>
+        <div class="ceo-stat"><div class="val">100%</div><div class="lbl">Safe Trips</div></div>
+      </div>
+      <p class="ceo-about">With over 5 years of experience curating Karnataka coastal and Malenadu tours, Suresh Kumar has built Sirinadu Pravasa from the ground up into one of Bengaluru's most trusted travel brands. A native of coastal Karnataka himself, he brings insider knowledge of every secret beach, hidden trail, and local gem that most agencies never show you. Every trip is personally reviewed and the team is trained to ensure zero-compromise safety and hospitality.</p>
+      <div class="ceo-contact-row">
+        <a href="https://wa.me/918296353437?text=Hi%20Suresh!%20I%20want%20to%20book%20a%20trip." target="_blank" class="ceo-contact-btn primary">
+          <i class="fab fa-whatsapp"></i>Message directly
+        </a>
+        <a href="https://www.instagram.com/sirinadu.pravasa" target="_blank" class="ceo-contact-btn">
+          <i class="fab fa-instagram"></i>Follow on Instagram
+        </a>
+        <a href="tel:+918296353437" class="ceo-contact-btn">
+          <i class="fas fa-phone"></i>+91 82963 53437
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TESTIMONIALS -->
+<section class="wrap">
+  <div class="sec-eye">Reviews</div>
+  <h2 class="sec-h">What travellers say</h2>
+  <p class="sec-sub">Real feedback from real trips. No filters, no fake reviews.</p>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="testi-text">"Scuba diving at Netrani was absolutely life-changing. The team was incredibly professional. Best money I've ever spent on a trip."</p>
+      <div class="testi-author"><div class="testi-av">A</div><div><div class="testi-name">Arjun M.</div><div class="testi-trip">Bachelors Beach Vibes · Gokarna</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="testi-text">"Planned a family trip to Dharmasthala and everything was perfect — hotel, food, transport. Suresh handled every detail. Highly recommend!"</p>
+      <div class="testi-author"><div class="testi-av">P</div><div><div class="testi-name">Priya S.</div><div class="testi-trip">Pilgrimage Circuit · Kukke</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+      <p class="testi-text">"Went as a gang of 14. Got 15% discount, amazing AC bus, and the trip was insane. Devbagh Island at sunrise is something else entirely."</p>
+      <div class="testi-author"><div class="testi-av">R</div><div><div class="testi-name">Rohith K.</div><div class="testi-trip">Grand Coastal Circuit</div></div></div>
+    </div>
   </div>
 </section>
 
@@ -624,10 +1046,10 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
   <div class="cta-box">
     <h2 class="cta-t">Don't just watch reels,<br/>live them</h2>
     <p class="cta-d">No long planning. No calls needed. Fill the form, confirm on WhatsApp, and we handle everything else.</p>
-    <div class="cta-url">sirinadupravasa@gmail.com · <strong>8296353437</strong></div>
+    <div class="cta-url">sirinadu.pravasa@gmail.com · <strong>+91 82963 53437</strong></div>
     <br/>
-    <button class="btn-main" style="display:inline-flex;width:auto;padding:14px 28px" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
-      <i class="fas fa-compass" style="font-size:12px"></i>
+    <button class="btn-cta-white" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+      <i class="fas fa-compass" style="font-size:13px"></i>
       Book your trip — free consultation
     </button>
   </div>
@@ -643,8 +1065,11 @@ footer{text-align:center;padding:24px 20px 36px;border-top:1px solid #161616}
     <a href="#gems">Hidden Gems</a><span class="ft-sep">·</span>
     <a href="#calculator">Gang Calculator</a><span class="ft-sep">·</span>
     <a href="#book">Book Now</a><span class="ft-sep">·</span>
+    <a href="#ceo">About CEO</a><span class="ft-sep">·</span>
+    <a href="https://www.instagram.com/sirinadu.pravasa" target="_blank"><i class="fab fa-instagram"></i> Instagram</a><span class="ft-sep">·</span>
     <a href="#contact">Contact</a>
   </div>
+  <div class="ft-copy">© 2025 Sirinadu Pravasa · Bengaluru · Karnataka Tourism Department Registered</div>
 </footer>
 
 <!-- WhatsApp float -->
@@ -710,9 +1135,9 @@ document.querySelectorAll('.faq-item').forEach(item=>{
 
 // SCROLL REVEAL
 const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ro.unobserve(e.target);}});},{threshold:.05});
-document.querySelectorAll('.dest-card,.pkg-card,.feat-card,.gem-card,.testi-card,.step,.contact-card').forEach((el,i)=>{
-  el.style.opacity='0';el.style.transform='translateY(14px)';
-  el.style.transition=`opacity .55s ${i*.04}s cubic-bezier(.16,1,.3,1),transform .55s ${i*.04}s cubic-bezier(.16,1,.3,1)`;
+document.querySelectorAll('.dest-card,.pkg-card,.feat-card,.gem-card,.testi-card,.step,.contact-card,.ceo-card,.ceo-info').forEach((el,i)=>{
+  el.style.opacity='0';el.style.transform='translateY(16px)';
+  el.style.transition=`opacity .6s ${i*.05}s cubic-bezier(.16,1,.3,1),transform .6s ${i*.05}s cubic-bezier(.16,1,.3,1)`;
   ro.observe(el);
 });
 
@@ -748,12 +1173,20 @@ function handleBooking(){
   const msg=[`🌊 *Sirinadu Pravasa — New Booking*`,``,`👤 *Name:* ${n}`,`📞 *Phone:* ${ph}`,em?`📧 *Email:* ${em}`:'',`📍 *Destination:* ${dest}`,`📅 *Date:* ${date}`,`👥 *Travellers:* ${pax}`,disc||'',budget?`💰 *Package:* ${budget}`:'',notes?`📝 *Notes:* ${notes}`:'',``,`*Your trip, our responsibility! 🌿*`].filter(Boolean).join('\n');
   const btn=document.getElementById('submitBtn');btn.innerHTML='<i class="fas fa-check"></i> Opening WhatsApp...';btn.disabled=true;
   showToast('✓ Opening WhatsApp...','success');
-  setTimeout(()=>{window.open(`https://wa.me/918296353437?text=${encodeURIComponent(msg)}`,'_blank');setTimeout(()=>{btn.innerHTML='<i class="fab fa-whatsapp" style="font-size:17px"></i>Send booking via WhatsApp';btn.disabled=false;},3000);},300);
+  setTimeout(()=>{window.open(`https://wa.me/918296353437?text=${encodeURIComponent(msg)}`,'_blank');setTimeout(()=>{btn.innerHTML='<i class="fab fa-whatsapp" style="font-size:18px"></i>Send booking via WhatsApp';btn.disabled=false;},3000);},300);
 }
-function bookPackage(pkg,price){document.getElementById('f-notes').value=`Interested in: ${pkg} (${price}/person)`;document.getElementById('book').scrollIntoView({behavior:'smooth'});setTimeout(()=>showToast(`📦 ${pkg} added to booking form`,'success'),600);}
-function scrollToBook(dest){const sel=document.getElementById('f-dest');if(sel){for(let o of sel.options){if(o.value.includes(dest)||o.text.includes(dest)){sel.value=o.value;break;}}}document.getElementById('book').scrollIntoView({behavior:'smooth'});}
 
-calcGang();
+function bookPackage(pkg,price){
+  document.getElementById('f-notes').value=`Interested in: ${pkg} (${price}/person)`;
+  document.getElementById('book').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>document.getElementById('f-name').focus(),700);
+}
+
+function scrollToBook(dest){
+  const el=document.getElementById('f-dest');
+  if(el){const opts=[...el.options];const match=opts.find(o=>o.value.toLowerCase().includes(dest.toLowerCase()));if(match)el.value=match.value;}
+  document.getElementById('book').scrollIntoView({behavior:'smooth'});
+}
 </script>
 </body>
 </html>
