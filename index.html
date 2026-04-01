@@ -1,565 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
 <title>Sirinadu Pravasa — Karnataka Coastal & Malenadu Tours</title>
-
-<!-- SEO Meta -->
 <meta name="description" content="Karnataka coastal & Malenadu travel packages from Bengaluru. Budget & Luxury packages. Bachelor groups welcome. Book now!"/>
-<meta name="keywords" content="Karnataka travel, Malenadu tours, coastal Karnataka, travel packages Bengaluru, Sirinadu Pravasa"/>
-<meta name="author" content="Sirinadu Pravasa"/>
-
-<!-- Open Graph (WhatsApp / Facebook Preview) -->
-<meta property="og:title" content="Sirinadu Pravasa — Karnataka Tours"/>
-<meta property="og:description" content="Explore Karnataka’s coastal & Malenadu beauty with budget & luxury packages."/>
-<meta property="og:image" content="/icon.png"/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://yourwebsite.com"/>
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Sirinadu Pravasa — Karnataka Tours"/>
-<meta name="twitter:description" content="Travel Karnataka with curated coastal & Malenadu packages."/>
-<meta name="twitter:image" content="/icon.png"/>
-
-<!-- Theme -->
-<meta name="theme-color" content="#0d0d0d"/>
-
-<!-- Favicon (All Devices & Browsers) -->
-<link rel="icon" href="/icon.png" type="image/png"/>
-<link rel="shortcut icon" href="/icon.png" type="image/png"/>
-
-<!-- Apple -->
-<link rel="apple-touch-icon" sizes="180x180" href="/icon.png"/>
-
-<!-- Android -->
-<link rel="icon" type="image/png" sizes="192x192" href="/icon.png"/>
-
-<!-- Standard sizes -->
-<link rel="icon" type="image/png" sizes="32x32" href="/icon.png"/>
-<link rel="icon" type="image/png" sizes="16x16" href="/icon.png"/>
-
-<!-- Manifest (optional PWA support) -->
-<link rel="manifest" href="/site.webmanifest"/>
-
-<!-- Fonts -->
+<meta name="theme-color" content="#ffffff"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-
-<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
-
-</head>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html,body{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;-webkit-font-smoothing:antialiased}
 *{-webkit-tap-highlight-color:transparent}
-a,button{outline:none;text-decoration:none;color:inherit;cursor:pointer}
-body{font-family:'DM Sans',sans-serif;background:#f8f7f4;color:#1a1a1a;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+button{cursor:pointer;border:none;background:none;font-family:inherit}
 
-/* CSS VARS */
 :root{
-  --green:#1a7a4a;
-  --green-mid:#22954f;  
-  --green-light:#d4edda;
-  --green-pale:#f0f9f4;
-  --black:#0f1a13;
-  --text:#2c2c2c;
-  --muted:#6b7c72;
-  --border:#e2ede7;
-  --white:#fff;
-  --cream:#f8f7f4;
-  --shadow:0 2px 24px rgba(26,122,74,.10);
-  --shadow-lg:0 8px 48px rgba(26,122,74,.16);
+  --green:#1f6b3a;
+  --green2:#2a8c4e;
+  --green-pale:#f0f8f3;
+  --green-light:#d6eedd;
+  --ink:#111814;
+  --ink2:#1a2b1e;
+  --text:#3d4d42;
+  --muted:#7a8c80;
+  --border:#e4ede8;
+  --cream:#f7f9f7;
 }
 
-@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#f7f9f7}
+::-webkit-scrollbar-thumb{background:#b8d9c2;border-radius:2px}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @keyframes shimmer{0%{background-position:-200% center}100%{background-position:200% center}}
+@keyframes blink{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes slide{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 @keyframes wordIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 @keyframes wordOut{from{opacity:1;transform:translateY(0)}to{opacity:0;transform:translateY(-10px)}}
-@keyframes blink{0%,100%{opacity:.3}50%{opacity:1}}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes pulseRing{0%{transform:scale(.9);opacity:.6}70%{transform:scale(1.5);opacity:0}100%{transform:scale(1.5);opacity:0}}
+@keyframes slideUp{from{transform:translateX(-50%) translateY(100%);opacity:0}to{transform:translateX(-50%) translateY(0);opacity:1}}
 
-.vis .a1{animation:fadeUp .7s .05s cubic-bezier(.16,1,.3,1) both}
-.vis .a2{animation:fadeUp .7s .15s cubic-bezier(.16,1,.3,1) both}
-.vis .a3{animation:fadeUp .7s .25s cubic-bezier(.16,1,.3,1) both}
-.vis .a4{animation:fadeUp .7s .35s cubic-bezier(.16,1,.3,1) both}
-.vis .a5{animation:fadeUp .7s .45s cubic-bezier(.16,1,.3,1) both}
-
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:#f0f9f4}
-::-webkit-scrollbar-thumb{background:#a8d5b9;border-radius:4px}
-
-/* ─── NAV ─── */
+/* ── NAV ── */
 nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
+  position:fixed;top:0;left:0;right:0;z-index:500;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 28px;height:58px;
-  background:rgba(248,247,244,.95);
-  backdrop-filter:blur(20px);
+  padding:0 clamp(16px,4vw,48px);height:62px;
+  background:rgba(255,255,255,.93);backdrop-filter:blur(20px);
   border-bottom:1px solid var(--border);
-  box-shadow:0 1px 16px rgba(26,122,74,.06);
+  box-shadow:0 1px 20px rgba(31,107,58,.05);
 }
-.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-size:17px;font-weight:800;color:var(--black);letter-spacing:-.02em}
-.nav-logo img{width:34px;height:34px;border-radius:8px;object-fit:cover}
-.nav-logo span{color:var(--green)}
-.nav-links{display:flex;align-items:center;gap:26px;list-style:none}
-.nav-links a{font-size:12px;font-weight:600;color:var(--muted);letter-spacing:.01em;transition:color .15s}
+.nav-logo{display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--ink)}
+.nav-logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--green),var(--green2));display:flex;align-items:center;justify-content:center;font-size:15px;color:#fff;flex-shrink:0;box-shadow:0 4px 12px rgba(31,107,58,.28)}
+.nav-logo em{color:var(--green);font-style:normal}
+.nav-links{display:flex;align-items:center;gap:30px;list-style:none}
+.nav-links a{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);transition:color .15s}
 .nav-links a:hover{color:var(--green)}
-.nav-book{
-  padding:9px 20px;
-  background:var(--green);color:#fff;
-  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
-  border-radius:100px;border:none;
-  transition:background .15s,transform .15s,box-shadow .15s;
-  box-shadow:0 2px 12px rgba(26,122,74,.28);
-}
-.nav-book:hover{background:#155e38;transform:scale(1.03);box-shadow:0 4px 18px rgba(26,122,74,.38)}
-@media(max-width:640px){.nav-links{display:none}}
+.nav-cta{padding:9px 22px;background:var(--green);color:#fff;font-size:12px;font-weight:700;letter-spacing:.05em;border-radius:100px;transition:all .2s;box-shadow:0 4px 14px rgba(31,107,58,.22)}
+.nav-cta:hover{background:#175430;transform:scale(1.04)}
+@media(max-width:680px){.nav-links{display:none}}
 
-/* ─── HERO ─── */
+/* ── HERO ── */
 .hero{
-  display:flex;flex-direction:column;align-items:center;text-align:center;
-  padding:110px 20px 70px;
-  background:linear-gradient(165deg,var(--cream) 0%,#e8f5ee 60%,var(--cream) 100%);
-  position:relative;overflow:hidden;
+  min-height:100svh;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:80px clamp(16px,5vw,60px) 60px;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse 100% 55% at 50% 100%,rgba(31,107,58,.07) 0%,transparent 70%),
+             radial-gradient(ellipse 55% 40% at 85% 15%,rgba(31,107,58,.04) 0%,transparent 60%),#fff;
 }
-.hero::before{
-  content:'';position:absolute;top:-100px;right:-100px;
-  width:500px;height:500px;
-  background:radial-gradient(circle,rgba(26,122,74,.06) 0%,transparent 70%);
-  pointer-events:none;
-}
-.hero::after{
-  content:'';position:absolute;bottom:-80px;left:-80px;
-  width:400px;height:400px;
-  background:radial-gradient(circle,rgba(26,122,74,.05) 0%,transparent 70%);
-  pointer-events:none;
-}
-.eyebrow{
-  display:inline-flex;align-items:center;gap:8px;
-  padding:6px 16px;
-  border:1.5px solid var(--green-light);
-  border-radius:100px;
-  background:var(--white);
-  font-size:11px;font-weight:700;color:var(--green);
-  letter-spacing:.06em;text-transform:uppercase;
-  margin-bottom:28px;
-  box-shadow:0 2px 12px rgba(26,122,74,.08);
-}
-.dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:blink 2.4s ease-in-out infinite}
-.headline{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(38px,9vw,82px);
-  font-weight:900;line-height:1.0;
-  letter-spacing:-.03em;
-  color:var(--black);margin-bottom:8px;
-}
-.word-row{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(24px,6vw,54px);
-  font-weight:800;line-height:1.1;
-  letter-spacing:-.03em;margin-bottom:20px;
-  color:var(--muted);
-}
-.word-wrap{display:inline-block;min-width:200px}
-.changing-word{
-  display:inline-block;
-  background:linear-gradient(90deg,var(--green) 0%,#2ecc71 50%,var(--green) 100%);
-  background-size:200% auto;
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  animation:shimmer 3.5s linear infinite;
-}
-.changing-word.fade-in{animation:wordIn .22s ease forwards,shimmer 3.5s linear infinite}
+.hero-watermark{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:clamp(90px,17vw,210px);font-weight:700;color:rgba(31,107,58,.04);letter-spacing:.1em;pointer-events:none;user-select:none;white-space:nowrap}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;border:1.5px solid var(--green-light);border-radius:100px;background:var(--green-pale);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green);margin-bottom:32px;animation:fadeUp .7s .1s both}
+.hero-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:blink 2.2s ease infinite}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,13vw,118px);font-weight:700;line-height:.92;letter-spacing:-.03em;color:var(--ink);margin-bottom:14px;animation:fadeUp .8s .2s both}
+.hero-title em{display:block;background:linear-gradient(120deg,var(--green) 0%,var(--green2) 50%,#52c57e 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-style:italic}
+.hero-word-row{font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(18px,4.5vw,42px);color:var(--muted);margin-bottom:28px;animation:fadeUp .8s .3s both;min-height:1.2em}
+.changing-word{display:inline-block;background:linear-gradient(90deg,var(--green) 0%,var(--green2) 50%,var(--green) 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 3s linear infinite}
+.changing-word.fade-in{animation:wordIn .22s ease forwards,shimmer 3s linear infinite}
 .changing-word.fade-out{animation:wordOut .22s ease forwards}
-.hero-sub{
-  font-size:clamp(13px,3.5vw,16px);
-  color:var(--muted);font-weight:400;
-  max-width:440px;margin:0 auto 18px;line-height:1.8;
-}
-.pills{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:7px;margin-bottom:30px}
-.pill{
-  padding:5px 13px;
-  border:1.5px solid var(--green-light);
-  border-radius:100px;
-  background:var(--white);
-  font-size:10.5px;font-weight:600;color:var(--green);
-  display:flex;align-items:center;gap:6px;
-  box-shadow:0 1px 8px rgba(26,122,74,.07);
-}
-.pill i{font-size:8px}
-.cta-col{display:flex;flex-direction:column;align-items:stretch;gap:10px;width:100%;max-width:370px}
-.btn-main{
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  padding:16px 22px;
-  background:var(--green);color:#fff;
-  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
-  border-radius:100px;border:none;
-  transition:all .18s;
-  box-shadow:var(--shadow-lg);
-}
-.btn-main:hover{background:#155e38;transform:scale(1.02);box-shadow:0 12px 40px rgba(26,122,74,.3)}
-.btn-ghost{
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  padding:15px 22px;
-  background:var(--white);color:var(--green);
-  font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;
-  border-radius:100px;border:2px solid var(--green-light);
-  transition:all .15s;
-}
-.btn-ghost:hover{border-color:var(--green);background:var(--green-pale)}
+.hero-sub{font-size:clamp(13px,2.2vw,15.5px);color:var(--muted);max-width:460px;line-height:1.85;margin-bottom:36px;animation:fadeUp .8s .38s both}
+.hero-pills{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:40px;animation:fadeUp .8s .44s both}
+.hero-pill{padding:6px 14px;border:1.5px solid var(--green-light);border-radius:100px;font-size:11px;font-weight:600;color:var(--green);background:var(--green-pale);display:flex;align-items:center;gap:6px}
+.hero-pill i{font-size:9px;opacity:.7}
+.hero-btns{display:flex;flex-direction:column;align-items:stretch;gap:12px;width:100%;max-width:340px;animation:fadeUp .8s .52s both}
+.btn-primary{display:flex;align-items:center;justify-content:center;gap:10px;padding:17px 28px;background:var(--green);color:#fff;font-size:14px;font-weight:700;border-radius:100px;transition:all .2s;box-shadow:0 8px 28px rgba(31,107,58,.28)}
+.btn-primary:hover{background:#175430;transform:scale(1.03);box-shadow:0 12px 36px rgba(31,107,58,.42)}
+.btn-outline{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;background:#fff;color:var(--text);font-size:13px;font-weight:600;border-radius:100px;border:1.5px solid var(--border);transition:all .2s}
+.btn-outline:hover{border-color:var(--green);color:var(--green)}
 
-/* ─── DIVIDER ─── */
-.divider{height:1px;background:var(--border);margin:0 20px}
+/* ── TICKER ── */
+.ticker{overflow:hidden;padding:13px 0;background:var(--green)}
+.ticker-inner{display:flex;white-space:nowrap;animation:slide 22s linear infinite}
+.ticker-item{display:inline-flex;align-items:center;gap:14px;padding:0 28px;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8)}
+.ticker-sep{width:3px;height:3px;background:rgba(255,255,255,.35);border-radius:50%}
 
-/* ─── SECTIONS ─── */
-.wrap{max-width:980px;margin:0 auto;padding:56px 20px}
-.sec-eye{text-align:center;font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--green);margin-bottom:10px}
-.sec-h{text-align:center;font-family:'Playfair Display',serif;font-size:clamp(24px,6vw,36px);font-weight:800;letter-spacing:-.03em;line-height:1.1;color:var(--black);margin-bottom:8px}
-.sec-sub{text-align:center;font-size:clamp(12px,3vw,13.5px);color:var(--muted);font-weight:400;line-height:1.75;max-width:420px;margin:0 auto 36px}
+/* ── SECTIONS ── */
+.sec{max-width:1040px;margin:0 auto;padding:80px clamp(16px,4vw,40px)}
+.sec-tag{display:inline-flex;align-items:center;gap:8px;margin-bottom:14px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green)}
+.sec-tag::before{content:'';display:block;width:18px;height:1.5px;background:var(--green)}
+.sec-h{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5.5vw,50px);font-weight:700;line-height:1.05;letter-spacing:-.02em;color:var(--ink);margin-bottom:10px}
+.sec-h em{color:var(--green);font-style:italic}
+.sec-sub{font-size:clamp(12px,2vw,13.5px);color:var(--muted);line-height:1.85;max-width:440px;margin-bottom:44px}
 
-/* ─── FILTER ─── */
-.filter-bar{display:flex;align-items:center;justify-content:center;gap:7px;flex-wrap:wrap;margin-bottom:28px}
-.filter-btn{
-  padding:7px 18px;border-radius:100px;
-  font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;
-  border:1.5px solid var(--border);color:var(--muted);background:var(--white);
-  cursor:pointer;transition:all .15s;
-}
-.filter-btn:hover,.filter-btn.active{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 2px 12px rgba(26,122,74,.25)}
+/* ── FILTER ── */
+.filter-bar{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:28px}
+.filter-btn{padding:8px 18px;border-radius:100px;font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;border:1.5px solid var(--border);color:var(--muted);background:#fff;transition:all .18s}
+.filter-btn:hover,.filter-btn.active{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 4px 14px rgba(31,107,58,.2)}
 
-/* ─── DESTINATION GRID ─── */
-.dest-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.dest-card{position:relative;background:var(--white);overflow:hidden;cursor:pointer;aspect-ratio:4/3}
-.dest-card img{width:100%;height:100%;object-fit:cover;display:block;opacity:.75;transition:opacity .4s,transform .5s}
-.dest-card:hover img{opacity:.92;transform:scale(1.06)}
-.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,40,20,.88) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:18px}
-.dest-badge{display:inline-block;align-self:flex-start;padding:3px 10px;margin-bottom:6px;background:var(--green);border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#fff;margin-bottom:7px}
-.dest-name{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.02em}
-.dest-meta{font-size:10px;color:rgba(255,255,255,.55);margin-top:4px;font-weight:400;line-height:1.5}
-.dest-arrow{position:absolute;top:14px;right:14px;width:32px;height:32px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;opacity:0;transition:opacity .2s,transform .2s}
-.dest-card:hover .dest-arrow{opacity:1;transform:translate(2px,-2px)}
+/* ── DESTINATIONS ── */
+.dest-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;border-radius:20px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,.08)}
+@media(max-width:680px){.dest-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:430px){.dest-grid{grid-template-columns:1fr}}
+.dest-card{position:relative;aspect-ratio:3/4;overflow:hidden;cursor:pointer;background:#c5d9ca}
+.dest-card:first-child{grid-row:span 2;aspect-ratio:unset}
+.dest-card img{width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .5s,transform .6s cubic-bezier(.16,1,.3,1);display:block}
+.dest-card:hover img{opacity:.88;transform:scale(1.07)}
+.dest-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(5,20,10,.92) 0%,rgba(5,20,10,.12) 55%,transparent 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:20px 18px}
+.dest-badge{display:inline-block;padding:3px 10px;margin-bottom:8px;background:var(--green);border-radius:100px;font-size:8.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#fff;width:fit-content}
+.dest-name{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:5px}
+.dest-card:first-child .dest-name{font-size:26px}
+.dest-meta{font-size:10px;color:rgba(255,255,255,.5);line-height:1.6}
+.dest-arrow{position:absolute;top:13px;right:13px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--green);display:flex;align-items:center;justify-content:center;font-size:10px;opacity:0;transform:translate(3px,-3px);transition:all .28s cubic-bezier(.16,1,.3,1)}
+.dest-card:hover .dest-arrow{opacity:1;transform:translate(0,0)}
 
-/* ─── PACKAGES ─── */
-.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.pkg-card{background:var(--white);padding:24px;transition:background .18s;position:relative}
-.pkg-card:hover{background:var(--green-pale)}
-.pkg-card.featured{background:linear-gradient(145deg,var(--green-pale),#e8f8ef)}
-.pkg-feat-badge{display:inline-block;padding:4px 10px;margin-bottom:14px;background:var(--green);border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#fff}
-.pkg-icon{width:40px;height:40px;border-radius:11px;background:var(--green-light);border:1.5px solid #c3e6ce;display:flex;align-items:center;justify-content:center;font-size:17px;margin-bottom:12px}
-.pkg-name{font-size:14px;font-weight:700;color:var(--black);margin-bottom:4px;letter-spacing:-.02em}
-.pkg-duration{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.05em;text-transform:uppercase;margin-bottom:14px}
+/* ── PACKAGES ── */
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.pkg-card{background:#fff;border:1.5px solid var(--border);border-radius:20px;padding:26px 22px;transition:all .22s;position:relative;overflow:hidden}
+.pkg-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green2));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.pkg-card:hover{border-color:var(--green-light);transform:translateY(-5px);box-shadow:0 16px 40px rgba(31,107,58,.1)}
+.pkg-card:hover::after{transform:scaleX(1)}
+.pkg-card.featured{background:var(--green-pale);border-color:var(--green-light)}
+.pkg-feat-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 11px;margin-bottom:14px;background:var(--green);border-radius:100px;font-size:9px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#fff}
+.pkg-icon{width:46px;height:46px;border-radius:13px;background:var(--green-pale);border:1.5px solid var(--green-light);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:13px}
+.pkg-card.featured .pkg-icon{background:#fff}
+.pkg-name{font-family:'Cormorant Garamond',serif;font-size:21px;font-weight:700;color:var(--ink);margin-bottom:4px;line-height:1.1}
+.pkg-duration{font-size:10px;font-weight:700;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
 .pkg-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
 .pkg-tag{padding:3px 10px;background:var(--green-light);border-radius:100px;font-size:9.5px;font-weight:600;color:var(--green)}
-.pkg-list{list-style:none;margin-bottom:18px}
-.pkg-list li{font-size:12px;color:var(--muted);padding:5px 0;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;line-height:1.5;font-weight:400}
+.pkg-list{list-style:none;margin-bottom:20px}
+.pkg-list li{font-size:12.5px;color:var(--muted);padding:6px 0;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;gap:9px;line-height:1.5}
 .pkg-list li:last-child{border-bottom:none}
-.pkg-list li i{font-size:9px;color:var(--green);flex-shrink:0}
-.pkg-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--border)}
-.pkg-price-label{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:3px}
-.pkg-price{font-size:19px;font-weight:800;color:var(--black);letter-spacing:-.03em}
-.pkg-price span{font-size:10px;font-weight:400;color:var(--muted)}
-.btn-pkg{
-  padding:9px 18px;background:var(--green);color:#fff;
-  border:none;border-radius:100px;
-  font-family:'DM Sans',sans-serif;font-size:12px;font-weight:700;
-  transition:all .15s;flex-shrink:0;
-  box-shadow:0 2px 10px rgba(26,122,74,.22);
-}
-.btn-pkg:hover{background:#155e38;transform:scale(1.04);box-shadow:0 4px 16px rgba(26,122,74,.35)}
+.pkg-list li::before{content:'✓';color:var(--green);font-size:10px;font-weight:800;margin-top:1px;flex-shrink:0}
+.pkg-footer{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1.5px solid var(--border)}
+.pkg-price-label{font-size:9px;font-weight:700;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
+.pkg-price{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:700;color:var(--ink)}
+.pkg-price span{font-size:11px;font-weight:400;color:var(--muted);font-family:'Plus Jakarta Sans',sans-serif}
+.btn-pkg{padding:9px 18px;background:var(--green);color:#fff;border-radius:100px;font-size:11.5px;font-weight:700;transition:all .18s;box-shadow:0 4px 12px rgba(31,107,58,.2)}
+.btn-pkg:hover{background:#175430;transform:scale(1.05);box-shadow:0 6px 18px rgba(31,107,58,.35)}
 
-/* ─── CALCULATOR ─── */
-.calc-box{background:var(--white);border:1.5px solid var(--border);border-radius:20px;padding:36px;box-shadow:var(--shadow)}
-.calc-inner{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
-.calc-title{font-family:'Playfair Display',serif;font-size:clamp(18px,4vw,23px);font-weight:800;color:var(--black);letter-spacing:-.03em;margin-bottom:8px}
-.calc-desc{font-size:12.5px;color:var(--muted);line-height:1.7;font-weight:400;margin-bottom:20px}
-.disc-row{display:flex;gap:8px;flex-wrap:wrap}
-.disc-chip{text-align:center;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:12px;padding:10px 14px}
-.disc-chip .num{font-size:18px;font-weight:800;color:var(--green)}
-.disc-chip .lbl{font-size:9px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
-.calc-form{display:flex;flex-direction:column;gap:12px}
-.calc-label{font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;display:block;margin-bottom:5px}
-.calc-select,.calc-input{
-  width:100%;padding:12px 15px;
-  background:var(--cream);border:1.5px solid var(--border);
-  border-radius:10px;font-family:'DM Sans',sans-serif;font-size:13px;
-  color:var(--black);-webkit-appearance:none;
-  transition:border-color .15s;
-}
-.calc-select option{background:#fff;color:var(--black)}
-.calc-select:focus,.calc-input:focus{outline:none;border-color:var(--green)}
-.calc-input::placeholder{color:var(--muted)}
-.calc-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.calc-btn{
-  width:100%;padding:14px;
-  background:var(--green);color:#fff;
-  border:none;border-radius:10px;
-  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
-  cursor:pointer;transition:all .15s;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  box-shadow:0 3px 14px rgba(26,122,74,.28);
-}
-.calc-btn:hover{background:#155e38;transform:scale(1.01)}
-.calc-result{background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:12px;padding:20px;display:none;margin-top:2px}
-.calc-result.show{display:block}
-.result-lbl{font-size:9px;font-weight:700;color:var(--green);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
-.result-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid var(--border);font-size:12.5px;color:var(--muted);font-weight:400}
-.result-row:last-child{border-bottom:none}
-.result-row strong{color:var(--black);font-size:13px;font-weight:700}
-.result-total{margin-top:12px;padding:16px;background:var(--green);border-radius:10px;text-align:center}
-.result-total .amt{font-size:34px;font-weight:800;color:#fff;letter-spacing:-.04em}
-.result-total .lbl{font-size:9px;color:rgba(255,255,255,.7);text-transform:uppercase;letter-spacing:.08em;margin-top:3px}
-.result-wa{
-  width:100%;margin-top:10px;padding:12px;
-  background:#fff;border:1.5px solid var(--green-light);border-radius:10px;
-  font-family:'DM Sans',sans-serif;font-size:12.5px;font-weight:700;
-  color:var(--green);cursor:pointer;
-  transition:all .15s;display:flex;align-items:center;justify-content:center;gap:7px;
-}
-.result-wa:hover{background:var(--green);color:#fff;border-color:var(--green)}
-@media(max-width:640px){.calc-inner{grid-template-columns:1fr}.calc-row{grid-template-columns:1fr}}
-
-/* ─── FEATURE GRID ─── */
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.feat-card{background:var(--white);padding:24px 22px;transition:background .18s}
+/* ── WHY US ── */
+.why-section{background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:3px;border-radius:20px;overflow:hidden;background:var(--border)}
+.feat-card{background:#fff;padding:28px 22px;transition:background .18s}
 .feat-card:hover{background:var(--green-pale)}
-.feat-icon{width:40px;height:40px;border-radius:11px;background:var(--green-light);border:1.5px solid #c3e6ce;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--green);margin-bottom:12px}
-.feat-title{font-size:13.5px;font-weight:700;color:var(--black);margin-bottom:6px;letter-spacing:-.02em}
-.feat-desc{font-size:12px;color:var(--muted);line-height:1.75;font-weight:400}
+.feat-icon{width:44px;height:44px;border-radius:13px;background:var(--green-pale);border:1.5px solid var(--green-light);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--green);margin-bottom:13px;transition:all .18s}
+.feat-card:hover .feat-icon{background:var(--green);color:#fff}
+.feat-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.feat-desc{font-size:12.5px;color:var(--muted);line-height:1.75}
 
-/* ─── GEMS ─── */
-.gems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.gem-card{background:var(--white);padding:24px 22px;transition:background .18s}
-.gem-card:hover{background:var(--green-pale)}
-.gem-badge{display:inline-block;padding:3px 10px;margin-bottom:11px;background:var(--green-light);border-radius:100px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--green)}
-.gem-name{font-size:14px;font-weight:700;color:var(--black);margin-bottom:6px;letter-spacing:-.02em}
-.gem-desc{font-size:12px;color:var(--muted);line-height:1.75;font-weight:400;margin-bottom:10px}
-.gem-tip{font-size:11px;color:var(--green);font-weight:600;padding-top:10px;border-top:1px solid var(--border)}
+/* ── GEMS ── */
+.gems-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.gem-card{background:#fff;border:1.5px solid var(--border);border-radius:18px;padding:26px 22px;transition:all .22s}
+.gem-card:hover{border-color:var(--green-light);box-shadow:0 12px 32px rgba(31,107,58,.1);transform:translateY(-3px)}
+.gem-badge{display:inline-block;padding:3px 10px;margin-bottom:11px;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:100px;font-size:8.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.gem-name{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:700;color:var(--ink);margin-bottom:7px}
+.gem-desc{font-size:12.5px;color:var(--muted);line-height:1.75;margin-bottom:12px}
+.gem-tip{font-size:11.5px;color:var(--green);font-weight:600;padding-top:11px;border-top:1px solid var(--border)}
 
-/* ─── STEPS ─── */
-.steps-wrap{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:9px}
-.step{display:flex;align-items:flex-start;gap:14px;padding:20px 22px;background:var(--white);border:1.5px solid var(--border);border-radius:14px;transition:all .18s;box-shadow:0 1px 8px rgba(26,122,74,.05)}
-.step:hover{border-color:var(--green);box-shadow:0 4px 20px rgba(26,122,74,.12)}
-.step-n{font-size:11px;font-weight:800;color:var(--green);letter-spacing:.04em;flex-shrink:0;margin-top:2px;background:var(--green-light);padding:3px 8px;border-radius:6px}
-.step-t{font-size:14px;font-weight:700;color:var(--black);margin-bottom:4px;letter-spacing:-.02em}
-.step-d{font-size:12px;color:var(--muted);line-height:1.65;font-weight:400}
+/* ── STEPS ── */
+.steps-wrap{max-width:540px;margin:0 auto;display:flex;flex-direction:column;gap:4px}
+.step{display:flex;align-items:flex-start;gap:18px;padding:22px 24px;background:#fff;border:1.5px solid var(--border);border-radius:16px;transition:all .2s}
+.step:hover{border-color:var(--green-light);box-shadow:0 6px 20px rgba(31,107,58,.08)}
+.step-n{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:700;color:rgba(31,107,58,.18);flex-shrink:0;line-height:1;transition:color .2s}
+.step:hover .step-n{color:var(--green)}
+.step-t{font-size:14.5px;font-weight:700;color:var(--ink);margin-bottom:4px}
+.step-d{font-size:12.5px;color:var(--muted);line-height:1.65}
 
-/* ─── TESTIMONIALS ─── */
-.testi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.testi-card{background:var(--white);padding:24px;transition:background .18s}
-.testi-card:hover{background:var(--green-pale)}
-.testi-stars{display:flex;gap:2px;margin-bottom:12px}
-.testi-stars i{font-size:11px;color:#f59e0b}
-.testi-text{font-size:12.5px;color:var(--muted);line-height:1.8;font-weight:400;font-style:italic;margin-bottom:16px}
-.testi-author{display:flex;align-items:center;gap:10px}
-.testi-av{width:38px;height:38px;border-radius:50%;background:var(--green-light);border:2px solid #c3e6ce;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:800;color:var(--green);flex-shrink:0}
-.testi-name{font-size:13px;font-weight:700;color:var(--black);letter-spacing:-.01em}
-.testi-trip{font-size:10px;color:var(--muted);margin-top:2px}
+/* ── BOOKING FORM ── */
+.form-box{max-width:600px;margin:0 auto;background:#fff;border:1.5px solid var(--border);border-radius:24px;padding:clamp(24px,4vw,44px);box-shadow:0 20px 60px rgba(31,107,58,.08)}
+.form-title{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,4vw,30px);font-weight:700;color:var(--ink);margin-bottom:5px}
+.form-subtitle{font-size:13px;color:var(--muted);margin-bottom:22px;line-height:1.65}
+.form-promo{display:flex;align-items:center;gap:10px;padding:12px 16px;margin-bottom:24px;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:12px;font-size:12px;color:var(--green);font-weight:700}
+.form-promo i{flex-shrink:0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+@media(max-width:500px){.form-grid{grid-template-columns:1fr}}
+.form-full{grid-column:1/-1}
+.form-group{display:flex;flex-direction:column;gap:6px}
+.form-label{font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.11em;text-transform:uppercase}
+.form-input,.form-select,.form-textarea{padding:12px 15px;background:var(--cream);border:1.5px solid var(--border);border-radius:11px;font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;color:var(--ink);transition:border-color .15s;-webkit-appearance:none;resize:none}
+.form-input::placeholder{color:rgba(26,26,26,.25)}
+.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--green);background:#fff}
+.form-select option{background:#fff;color:var(--ink)}
+.form-input.error,.form-select.error{border-color:#e53e3e}
+.form-error{font-size:10px;color:#e53e3e;display:none}
+.form-error.show{display:block}
+.btn-submit{width:100%;padding:16px;margin-top:6px;background:linear-gradient(135deg,#25d366,#1aab52);color:#fff;border-radius:100px;font-size:14px;font-weight:700;transition:all .2s;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 8px 24px rgba(37,211,102,.28)}
+.btn-submit:hover{transform:scale(1.02);box-shadow:0 12px 32px rgba(37,211,102,.42)}
+.btn-submit:disabled{opacity:.4;cursor:not-allowed;transform:none}
 
-/* ─── FAQ ─── */
-.faq-list{max-width:580px;margin:0 auto;display:flex;flex-direction:column;gap:7px}
-.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:13px;overflow:hidden;box-shadow:0 1px 6px rgba(26,122,74,.04)}
-.faq-q{padding:17px 20px;font-size:13.5px;font-weight:700;color:var(--black);letter-spacing:-.01em;display:flex;align-items:center;justify-content:space-between;gap:10px;cursor:pointer;transition:background .15s}
+/* ── FAQ ── */
+.faq-section{background:var(--cream);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.faq-list{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:6px}
+.faq-item{background:#fff;border:1.5px solid var(--border);border-radius:14px;overflow:hidden}
+.faq-q{padding:17px 20px;font-size:13.5px;font-weight:700;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:12px;cursor:pointer;transition:background .15s}
 .faq-q:hover{background:var(--green-pale)}
 .faq-q i{font-size:10px;color:var(--green);flex-shrink:0;transition:transform .2s}
 .faq-item.open .faq-q i{transform:rotate(45deg)}
 .faq-item.open .faq-q{background:var(--green-pale)}
 .faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s ease}
-.faq-item.open .faq-a{max-height:200px;padding:0 20px 16px}
-.faq-a p{font-size:12.5px;color:var(--muted);line-height:1.75;font-weight:400}
+.faq-item.open .faq-a{max-height:300px;padding:0 20px 16px}
+.faq-a p{font-size:13px;color:var(--muted);line-height:1.8}
 
-/* ─── BOOKING FORM ─── */
-.form-box{max-width:580px;margin:0 auto;background:var(--white);border:1.5px solid var(--border);border-radius:22px;padding:38px 32px;box-shadow:var(--shadow-lg)}
-.form-title{font-family:'Playfair Display',serif;font-size:clamp(20px,5vw,28px);font-weight:800;color:var(--black);letter-spacing:-.03em;margin-bottom:6px}
-.form-subtitle{font-size:12.5px;color:var(--muted);margin-bottom:22px;line-height:1.65;font-weight:400}
-.form-note{display:flex;align-items:center;gap:9px;padding:11px 15px;margin-bottom:22px;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:11px;font-size:12px;color:var(--green);font-weight:600}
-.form-note i{font-size:10px;flex-shrink:0}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.form-full{grid-column:1/-1}
-.form-group{display:flex;flex-direction:column;gap:6px}
-.form-label{font-size:9.5px;font-weight:700;color:var(--muted);letter-spacing:.09em;text-transform:uppercase}
-.form-input,.form-select,.form-textarea{
-  padding:12px 15px;background:var(--cream);
-  border:1.5px solid var(--border);border-radius:10px;
-  font-family:'DM Sans',sans-serif;font-size:13px;color:var(--black);
-  transition:border-color .15s;-webkit-appearance:none;resize:none;
-}
-.form-input::placeholder{color:var(--muted)}
-.form-input:focus,.form-select:focus,.form-textarea:focus{outline:none;border-color:var(--green);background:#fff}
-.form-select option{background:#fff;color:var(--black)}
-.form-input.error,.form-select.error{border-color:#ef4444!important}
-.form-error{font-size:10px;color:#ef4444;display:none}
-.form-error.show{display:block}
-.btn-submit{
-  width:100%;padding:16px;margin-top:6px;
-  background:var(--green);color:#fff;
-  border:none;border-radius:100px;
-  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;
-  cursor:pointer;transition:all .15s;
-  display:flex;align-items:center;justify-content:center;gap:9px;
-  box-shadow:var(--shadow-lg);
-}
-.btn-submit:hover{background:#155e38;transform:scale(1.01)}
-.btn-submit:disabled{opacity:.4;cursor:not-allowed;transform:none}
-@media(max-width:520px){.form-grid{grid-template-columns:1fr}}
-
-/* ─── CONTACT ─── */
-.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:2px;background:var(--border);border:1px solid var(--border);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
-.contact-card{
-  background:var(--white);padding:24px 22px;
-  transition:all .18s;
-  text-decoration:none;display:block;
-}
-.contact-card:hover{background:var(--green-pale);transform:translateY(-2px)}
-.contact-icon{
-  width:40px;height:40px;border-radius:11px;
-  background:var(--green-light);border:1.5px solid #c3e6ce;
-  display:flex;align-items:center;justify-content:center;
-  font-size:15px;color:var(--green);margin-bottom:12px;
-  transition:background .15s;
-}
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:3px;border-radius:20px;overflow:hidden;background:var(--border);box-shadow:0 4px 24px rgba(0,0,0,.06)}
+.contact-card{background:#fff;padding:26px 20px;transition:all .18s;display:block}
+.contact-card:hover{background:var(--green-pale)}
+.contact-icon{width:44px;height:44px;border-radius:12px;background:var(--green-pale);border:1.5px solid var(--green-light);display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--green);margin-bottom:13px;transition:all .18s}
 .contact-card:hover .contact-icon{background:var(--green);color:#fff}
-.contact-title{font-size:12.5px;font-weight:700;color:var(--black);margin-bottom:5px;letter-spacing:-.01em}
-.contact-val{font-size:12px;color:var(--green);font-weight:700;word-break:break-word;margin-bottom:4px}
-.contact-sub{font-size:10.5px;color:var(--muted);line-height:1.55;font-weight:400}
+.contact-title{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.07em;text-transform:uppercase;margin-bottom:6px}
+.contact-val{font-size:14px;color:var(--ink);font-weight:700;word-break:break-word;margin-bottom:4px}
+.contact-sub{font-size:11px;color:var(--muted);line-height:1.55}
 
-/* ─── CEO SECTION ─── */
-.ceo-section{background:var(--white);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.ceo-inner{max-width:980px;margin:0 auto;padding:60px 20px;display:grid;grid-template-columns:320px 1fr;gap:52px;align-items:center}
+/* ── CEO SECTION ── */
+.ceo-section{background:var(--ink2)}
+.ceo-inner{max-width:1000px;margin:0 auto;padding:80px clamp(16px,4vw,40px);display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:center}
 @media(max-width:760px){.ceo-inner{grid-template-columns:1fr;text-align:center}}
-.ceo-card{
-  background:var(--cream);border:1.5px solid var(--border);
-  border-radius:22px;padding:32px 28px;text-align:center;
-  position:relative;overflow:hidden;
-  box-shadow:var(--shadow);
-}
-.ceo-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:80px;
-  background:linear-gradient(135deg,var(--green),#27ae60);
-}
-.ceo-avatar{
-  width:100px;height:100px;border-radius:50%;
-  background:linear-gradient(135deg,var(--green),#27ae60);
-  border:4px solid #fff;
-  display:flex;align-items:center;justify-content:center;
-  font-size:36px;color:#fff;font-weight:900;
-  margin:0 auto 16px;
-  position:relative;z-index:1;
-  box-shadow:0 4px 20px rgba(26,122,74,.3);
-  font-family:'Playfair Display',serif;
-}
-.ceo-name{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--black);letter-spacing:-.03em;margin-bottom:4px}
-.ceo-title{font-size:11px;font-weight:700;color:var(--green);text-transform:uppercase;letter-spacing:.1em;margin-bottom:16px}
+.ceo-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:22px;padding:32px 26px;text-align:center;position:relative;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.25)}
+.ceo-card::before{content:'';position:absolute;top:0;left:0;right:0;height:86px;background:linear-gradient(135deg,var(--green),var(--green2))}
+.ceo-avatar{width:96px;height:96px;border-radius:50%;background:linear-gradient(135deg,var(--green),var(--green2));border:4px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:700;color:#fff;margin:0 auto 16px;position:relative;z-index:1;box-shadow:0 6px 24px rgba(0,0,0,.25)}
+.ceo-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff;margin-bottom:4px}
+.ceo-role{font-size:10px;font-weight:700;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.12em;margin-bottom:16px}
 .ceo-badges{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-bottom:18px}
-.ceo-badge{padding:4px 12px;background:var(--green-light);border-radius:100px;font-size:10px;font-weight:700;color:var(--green)}
-.ceo-social{display:flex;justify-content:center;gap:10px;margin-top:16px}
-.ceo-social a{
-  width:36px;height:36px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:14px;transition:all .15s;
-  border:1.5px solid var(--border);background:var(--white);color:var(--muted);
-}
-.ceo-social a:hover{background:var(--green);color:#fff;border-color:var(--green);transform:scale(1.1)}
-.ceo-social a.ig:hover{background:linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);border-color:transparent}
-.ceo-info{padding:8px 0}
-.ceo-info h2{font-family:'Playfair Display',serif;font-size:clamp(26px,5vw,36px);font-weight:900;color:var(--black);letter-spacing:-.03em;line-height:1.1;margin-bottom:16px}
-.ceo-info h2 span{color:var(--green)}
-.ceo-quote{
-  font-size:15px;color:var(--muted);line-height:1.8;font-weight:400;
-  margin-bottom:22px;
-  padding-left:18px;border-left:3px solid var(--green);
-  font-style:italic;
-}
-.ceo-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:24px}
-@media(max-width:760px){.ceo-stats{grid-template-columns:repeat(3,1fr)}}
-.ceo-stat{background:var(--cream);border:1.5px solid var(--border);border-radius:14px;padding:14px 10px;text-align:center}
-.ceo-stat .val{font-family:'Playfair Display',serif;font-size:22px;font-weight:800;color:var(--green);letter-spacing:-.03em}
-.ceo-stat .lbl{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-top:3px}
-.ceo-about{font-size:13px;color:var(--muted);line-height:1.8;font-weight:400;margin-bottom:20px}
-.ceo-contact-row{display:flex;flex-wrap:wrap;gap:10px}
-.ceo-contact-btn{
-  display:flex;align-items:center;gap:8px;
-  padding:10px 18px;border-radius:100px;
-  font-size:12px;font-weight:700;
-  border:1.5px solid var(--border);background:var(--white);
-  color:var(--black);transition:all .15s;text-decoration:none;
-}
-.ceo-contact-btn:hover{background:var(--green);color:#fff;border-color:var(--green)}
-.ceo-contact-btn.primary{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 2px 12px rgba(26,122,74,.25)}
-.ceo-contact-btn.primary:hover{background:#155e38}
+.ceo-badge{padding:4px 11px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:100px;font-size:10px;font-weight:600;color:rgba(255,255,255,.55)}
+.ceo-social{display:flex;justify-content:center;gap:9px;margin-top:16px}
+.ceo-social a{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35);transition:all .18s}
+.ceo-social a:hover{background:var(--green);color:#fff;border-color:var(--green)}
+.ceo-info h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,40px);font-weight:700;color:#fff;letter-spacing:-.02em;line-height:1.05;margin-bottom:16px}
+.ceo-info h2 em{color:rgba(255,255,255,.4);font-style:italic}
+.ceo-quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:15.5px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:22px;padding-left:18px;border-left:2px solid var(--green)}
+.ceo-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.ceo-stat{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:14px 10px;text-align:center}
+.ceo-stat .val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:700;color:#fff}
+.ceo-stat .lbl{font-size:9.5px;color:rgba(255,255,255,.28);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-top:2px}
+.ceo-about{font-size:13.5px;color:rgba(255,255,255,.38);line-height:1.8;margin-bottom:22px}
+.ceo-btns{display:flex;flex-wrap:wrap;gap:10px}
+.ceo-btn{display:flex;align-items:center;gap:8px;padding:11px 20px;border-radius:100px;font-size:12px;font-weight:700;border:1.5px solid rgba(255,255,255,.1);color:rgba(255,255,255,.45);transition:all .18s}
+.ceo-btn:hover{border-color:rgba(255,255,255,.22);color:#fff}
+.ceo-btn.primary{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 4px 14px rgba(31,107,58,.4)}
+.ceo-btn.primary:hover{background:var(--green2)}
 
-/* ─── BOTTOM CTA ─── */
-.cta-box{
-  max-width:560px;margin:0 auto;padding:48px 32px;
-  background:linear-gradient(135deg,var(--green),#27ae60);
-  border-radius:24px;text-align:center;
-  box-shadow:0 12px 50px rgba(26,122,74,.28);
-}
-.cta-t{font-family:'Playfair Display',serif;font-size:clamp(22px,6vw,32px);font-weight:900;letter-spacing:-.04em;line-height:1.1;margin-bottom:10px;color:#fff}
-.cta-d{font-size:clamp(12px,3vw,14px);color:rgba(255,255,255,.8);font-weight:400;line-height:1.75;max-width:360px;margin:0 auto 22px}
-.cta-url{display:inline-block;padding:6px 16px;margin-bottom:22px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.25);border-radius:100px;font-size:12.5px;color:rgba(255,255,255,.85);font-weight:600}
-.cta-url strong{color:#fff}
-.btn-cta-white{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:15px 30px;background:#fff;color:var(--green);
-  font-family:'DM Sans',sans-serif;font-size:14px;font-weight:800;
-  border-radius:100px;border:none;
-  transition:all .15s;box-shadow:0 4px 20px rgba(0,0,0,.15);
-}
-.btn-cta-white:hover{transform:scale(1.03);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+/* ── BOTTOM CTA ── */
+.cta-section{padding:0 clamp(16px,4vw,40px) 100px}
+.cta-box{max-width:660px;margin:0 auto;padding:clamp(40px,6vw,68px) clamp(24px,5vw,60px);background:linear-gradient(135deg,var(--green) 0%,var(--green2) 100%);border-radius:28px;text-align:center;box-shadow:0 24px 72px rgba(31,107,58,.28);position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 10%,rgba(255,255,255,.1) 0%,transparent 60%);pointer-events:none}
+.cta-t{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,44px);font-weight:700;letter-spacing:-.03em;line-height:1.05;margin-bottom:12px;color:#fff}
+.cta-t em{font-style:italic;opacity:.65}
+.cta-d{font-size:clamp(12px,2.5vw,14px);color:rgba(255,255,255,.7);line-height:1.8;max-width:380px;margin:0 auto 24px}
+.cta-contact{display:inline-block;padding:7px 18px;margin-bottom:24px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);border-radius:100px;font-size:12.5px;color:rgba(255,255,255,.8);font-weight:600}
+.cta-contact strong{color:#fff}
+.btn-cta-white{display:inline-flex;align-items:center;gap:10px;padding:16px 34px;background:#fff;color:var(--green);font-size:14px;font-weight:700;border-radius:100px;transition:all .2s;box-shadow:0 8px 24px rgba(0,0,0,.14)}
+.btn-cta-white:hover{transform:scale(1.04);box-shadow:0 12px 36px rgba(0,0,0,.2)}
 
-/* ─── WA FLOAT ─── */
-.wa-float{
-  position:fixed;bottom:22px;right:22px;z-index:300;
-  width:54px;height:54px;background:#25d366;
-  border-radius:50%;display:flex;align-items:center;justify-content:center;
-  font-size:24px;color:#fff;
-  box-shadow:0 4px 24px rgba(37,211,102,.4);
-  transition:transform .18s,box-shadow .18s;
-  animation:float 3s ease-in-out infinite;
-}
-.wa-float:hover{transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,.55);animation:none}
+/* ── FOOTER ── */
+footer{background:var(--ink2);color:rgba(255,255,255,.3);text-align:center;padding:40px clamp(16px,4vw,40px) 100px}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:6px}
+.ft-logo em{color:rgba(255,255,255,.35);font-style:italic}
+.ft-sub{font-size:11px;color:rgba(255,255,255,.2);margin-bottom:18px;line-height:1.65}
+.ft-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:22px;margin-bottom:18px}
+.ft-links a{font-size:11.5px;color:rgba(255,255,255,.28);font-weight:600;transition:color .15s}
+.ft-links a:hover{color:rgba(255,255,255,.8)}
+.ft-copy{font-size:10px;color:rgba(255,255,255,.1);letter-spacing:.04em}
 
-/* ─── TOAST ─── */
-.toast{
-  position:fixed;bottom:86px;right:22px;z-index:400;
-  padding:12px 20px;background:var(--black);color:#fff;
-  border-radius:12px;font-size:13px;font-weight:500;
-  transform:translateY(12px);opacity:0;
-  transition:all .25s;max-width:290px;
-  box-shadow:0 4px 24px rgba(0,0,0,.18);
+/* ── DIVIDER ── */
+.divider{height:1px;background:var(--border)}
+.divider.dark{background:rgba(255,255,255,.06)}
+
+/* ────────────────────────────────────────
+   FLOATING CONTACT PILL  (replaces WA bubble)
+   A slim pill docked at bottom-centre.
+   Hides near top of page, reveals on scroll.
+──────────────────────────────────────── */
+.cp{
+  position:fixed;bottom:20px;left:50%;
+  transform:translateX(-50%) translateY(120%);
+  z-index:600;
+  display:flex;align-items:stretch;
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:100px;
+  box-shadow:0 8px 40px rgba(0,0,0,.12),0 2px 8px rgba(0,0,0,.06);
+  overflow:hidden;
+  transition:transform .4s cubic-bezier(.16,1,.3,1),box-shadow .2s;
+  animation:slideUp .6s 1.4s cubic-bezier(.16,1,.3,1) both;
 }
+.cp:hover{box-shadow:0 12px 48px rgba(0,0,0,.16)}
+.cp-brand{
+  display:flex;align-items:center;gap:9px;
+  padding:12px 18px 12px 16px;
+  border-right:1px solid var(--border);
+  background:var(--green-pale);
+}
+.cp-brand-dot{
+  position:relative;width:8px;height:8px;flex-shrink:0;
+}
+.cp-brand-dot span{
+  display:block;width:8px;height:8px;border-radius:50%;background:#22c55e;
+}
+.cp-brand-dot::after{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  border:2px solid rgba(34,197,94,.35);
+  animation:pulseRing 2s ease-out infinite;
+}
+.cp-brand-label{font-size:12px;font-weight:700;color:var(--ink);white-space:nowrap;letter-spacing:-.01em}
+.cp-brand-label small{display:block;font-size:9px;font-weight:600;color:var(--muted);letter-spacing:.03em;text-transform:uppercase;margin-top:1px}
+.cp-actions{display:flex;align-items:stretch}
+.cp-action{
+  display:flex;align-items:center;gap:7px;
+  padding:0 16px;font-size:12px;font-weight:700;
+  color:var(--muted);border-right:1px solid var(--border);
+  transition:all .15s;white-space:nowrap;
+}
+.cp-action:last-child{border-right:none;padding-right:18px}
+.cp-action:hover{background:var(--green-pale);color:var(--green)}
+.cp-action.wa{color:#16a34a}
+.cp-action.wa:hover{background:#f0fdf4;color:#15803d}
+.cp-action i{font-size:14px}
+@media(max-width:560px){
+  .cp-brand-label small,.cp-brand-label{font-size:11px}
+  .cp-action span{display:none}
+  .cp-action{padding:0 13px}
+  .cp-action:last-child{padding-right:14px}
+  .cp-brand{padding:12px 13px 12px 14px}
+}
+
+/* ── TOAST ── */
+.toast{position:fixed;bottom:88px;right:20px;z-index:700;padding:12px 20px;background:var(--ink);color:#fff;border-radius:12px;font-size:13px;font-weight:500;transform:translateY(12px);opacity:0;transition:all .25s;max-width:280px;box-shadow:0 6px 24px rgba(0,0,0,.15);border:1px solid rgba(255,255,255,.06)}
 .toast.show{transform:translateY(0);opacity:1}
-.toast.success{background:#0f3820}
-.toast.error{background:#3a1212}
+.toast.success{background:#0a2010;border-color:rgba(37,211,102,.2)}
+.toast.error{background:#200a0a;border-color:rgba(239,68,68,.2)}
 
-/* ─── FOOTER ─── */
-footer{
-  text-align:center;padding:28px 20px 40px;
-  background:var(--black);color:rgba(255,255,255,.5);
-}
-.ft-logo{
-  font-family:'Playfair Display',serif;
-  font-size:16px;font-weight:800;color:#fff;
-  letter-spacing:-.02em;margin-bottom:5px;
-}
-.ft-sub{font-size:11.5px;color:rgba(255,255,255,.3);margin-bottom:12px}
-.ft-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:18px;margin-top:10px}
-.ft-links a{font-size:11.5px;color:rgba(255,255,255,.3);font-weight:500;transition:color .15s}
-.ft-links a:hover{color:#fff}
-.ft-sep{color:#2a2a2a}
-.ft-copy{font-size:10.5px;color:rgba(255,255,255,.15);margin-top:14px}
-
-/* ─── STATS BAR ─── */
-.stats-bar{background:var(--green);padding:16px 20px}
-.stats-inner{max-width:980px;margin:0 auto;display:flex;justify-content:center;align-items:center;gap:40px;flex-wrap:wrap}
-.stat-item{text-align:center;color:#fff}
-.stat-item .val{font-family:'Playfair Display',serif;font-size:24px;font-weight:900;letter-spacing:-.03em}
-.stat-item .lbl{font-size:10px;font-weight:600;opacity:.75;text-transform:uppercase;letter-spacing:.07em;margin-top:1px}
-.stat-sep{width:1px;height:34px;background:rgba(255,255,255,.2)}
-@media(max-width:480px){.stat-sep{display:none}}
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
+.reveal.vis{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
@@ -567,57 +350,76 @@ footer{
 <!-- NAV -->
 <nav>
   <div class="nav-logo">
-    <img src="/icon.png" alt="Sirinadu Pravasa" onerror="this.style.display='none'"/>
-    Sirinadu <span>Pravasa</span>
+    <div class="nav-logo-mark">🌿</div>
+    Sirinadu <em>Pravasa</em>
   </div>
   <ul class="nav-links">
     <li><a href="#destinations">Destinations</a></li>
     <li><a href="#packages">Packages</a></li>
+    <li><a href="#gems">Hidden Gems</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <button class="nav-book" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Book Now</button>
+  <button class="nav-cta" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">Book Now</button>
 </nav>
 
 <!-- HERO -->
-<div class="hero vis">
-  <div class="eyebrow a1">
-    <span class="dot"></span>
-    Karnataka · Bengaluru's Coastal Travel Specialists
+<section class="hero">
+  <div class="hero-watermark">ಕರ್ನಾಟಕ</div>
+  <div class="hero-badge">
+    <span class="hero-dot"></span>
+    Karnataka · Bengaluru's Coastal Specialists
   </div>
-  <h1 class="headline a2">ಸಿರಿನಾಡು ಪ್ರವಾಸ</h1>
-  <div class="word-row a2">
-    <span class="word-wrap">
-      <span class="changing-word fade-in" id="changingWord">ನಿಮ್ಮ ಪ್ರವಾಸ</span>
-    </span>
+  <h1 class="hero-title">
+    ಸಿರಿನಾಡು
+    <em>ಪ್ರವಾಸ</em>
+  </h1>
+  <div class="hero-word-row">
+    <span id="changingWord" class="changing-word fade-in">ನಿಮ್ಮ ಪ್ರವಾಸ</span>
   </div>
-  <p class="hero-sub a3">Coastal Karnataka, Malenadu adventures, bachelor groups, family trips — all from Bengaluru. Budget starts at ₹4,200.</p>
-  <div class="pills a3">
-    <span class="pill"><i class="fas fa-check"></i>Budget from ₹4,200</span>
-    
-    <span class="pill"><i class="fas fa-check"></i>AC pickup, Bengaluru</span>
-    <span class="pill"><i class="fas fa-check"></i>Scuba diving included</span>
-    <span class="pill"><i class="fas fa-check"></i>24/7 WhatsApp support</span>
+  <p class="hero-sub">Coastal Karnataka, Malenadu adventures, bachelor groups, family trips — all from Bengaluru. Budget starts at ₹2,800.</p>
+  <div class="hero-pills">
+    <span class="hero-pill"><i class="fas fa-check"></i>Budget from ₹2,800</span>
+    <span class="hero-pill"><i class="fas fa-check"></i>AC pickup · Bengaluru</span>
+    <span class="hero-pill"><i class="fas fa-check"></i>Scuba diving included</span>
+    <span class="hero-pill"><i class="fas fa-check"></i>24/7 WhatsApp support</span>
   </div>
-  <div class="cta-col a4">
-    <button class="btn-main" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
-      <i class="fas fa-compass" style="font-size:13px"></i>
-      Plan My Trip — Book Now
+  <div class="hero-btns">
+    <button class="btn-primary" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
+      <i class="fas fa-compass" style="font-size:13px"></i> Plan My Trip — Book Now
     </button>
-    <button class="btn-ghost" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">
+    <button class="btn-outline" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">
       See all packages <i class="fas fa-arrow-down" style="font-size:10px"></i>
     </button>
   </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span class="ticker-item">Gokarna Om Beach<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Murudeshwar Scuba<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Honnavara Mangroves<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Netrani Island<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Agumbe Sunset<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Jog Falls Trek<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Half Moon Beach<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Devbagh Island<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Gokarna Om Beach<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Murudeshwar Scuba<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Honnavara Mangroves<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Netrani Island<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Agumbe Sunset<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Jog Falls Trek<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Half Moon Beach<span class="ticker-sep"></span></span>
+    <span class="ticker-item">Devbagh Island<span class="ticker-sep"></span></span>
+  </div>
 </div>
 
-
-
-
 <!-- DESTINATIONS -->
-<section id="destinations" class="wrap">
-  <div class="sec-eye">Explore Karnataka</div>
-  <h2 class="sec-h">Six stunning destinations</h2>
+<section id="destinations" class="sec">
+  <div class="sec-tag">Explore Karnataka</div>
+  <h2 class="sec-h">Six <em>stunning</em> destinations</h2>
   <p class="sec-sub">Coastal beaches, misty waterfalls, and everything in between — we cover them all.</p>
-
   <div class="filter-bar">
     <button class="filter-btn active" data-filter="all">All</button>
     <button class="filter-btn" data-filter="coastal">Coastal</button>
@@ -625,60 +427,35 @@ footer{
     <button class="filter-btn" data-filter="budget">Budget</button>
     <button class="filter-btn" data-filter="premium">Premium</button>
   </div>
-
   <div class="dest-grid">
-    <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Gokarna')">
+    <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Gokarna')">
       <img src="https://i.ibb.co/6R1H82Nw/download.jpg" alt="Gokarna" loading="lazy"/>
-      <div class="dest-overlay">
-        <span class="dest-badge">Coastal</span>
-        <div class="dest-name">Gokarna — Om Beach</div>
-        <div class="dest-meta">Beach trek · Cafe hangout · Night bonfire</div>
-      </div>
+      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Gokarna — Om Beach</div><div class="dest-meta">Beach trek · Cafe hangout · Night bonfire</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-    <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Murudeshwar')">
+    <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Murudeshwar')">
       <img src="https://i.ibb.co/VYcNJM1j/images.jpg" alt="Murudeshwar" loading="lazy"/>
-      <div class="dest-overlay">
-        <span class="dest-badge">Coastal</span>
-        <div class="dest-name">Murudeshwar</div>
-        <div class="dest-meta">Scuba diving · Netrani Island · Giant Shiva</div>
-      </div>
+      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Murudeshwar</div><div class="dest-meta">Scuba diving · Netrani Island · Giant Shiva</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-    <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Honnavara')">
+    <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Honnavara')">
       <img src="https://i.ibb.co/dHTLz2L/images-1.jpg" alt="Honnavar" loading="lazy"/>
-      <div class="dest-overlay">
-        <span class="dest-badge">Coastal</span>
-        <div class="dest-name">Honnavara Mangroves</div>
-        <div class="dest-meta">Backwater boating · Best for Instagram reels</div>
-      </div>
+      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Honnavara Mangroves</div><div class="dest-meta">Backwater boating · Instagram reels</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-    <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Udupi')">
+    <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Udupi')">
       <img src="https://i.ibb.co/JwFTGx3G/images-3.jpg" alt="Udupi" loading="lazy"/>
-      <div class="dest-overlay">
-        <span class="dest-badge">Coastal</span>
-        <div class="dest-name">Udupi & Malpe Beach</div>
-        <div class="dest-meta">St. Mary's Island · Water sports · Sea walk</div>
-      </div>
+      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Udupi & Malpe Beach</div><div class="dest-meta">St. Mary's Island · Water sports · Sea walk</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-    <div class="dest-card" data-tags="malenadu budget premium" onclick="scrollToBook('Shivamogga')">
+    <div class="dest-card reveal" data-tags="malenadu budget premium" onclick="scrollToBook('Shivamogga')">
       <img src="https://i.ibb.co/nsCGGzcb/images-4.jpg" alt="Shivamogga" loading="lazy"/>
-      <div class="dest-overlay">
-        <span class="dest-badge">Malenadu</span>
-        <div class="dest-name">Shivamogga & Jog Falls</div>
-        <div class="dest-meta">Trekking · Bird watching · Forest homestay</div>
-      </div>
+      <div class="dest-overlay"><span class="dest-badge">Malenadu</span><div class="dest-name">Shivamogga & Jog Falls</div><div class="dest-meta">Trekking · Bird watching · Forest homestay</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
-    <div class="dest-card" data-tags="coastal budget premium" onclick="scrollToBook('Mangaluru')">
+    <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Mangaluru')">
       <img src="https://i.ibb.co/21335zfh/images-5.jpg" alt="Mangaluru" loading="lazy"/>
-      <div class="dest-overlay">
-        <span class="dest-badge">Coastal</span>
-        <div class="dest-name">Mangaluru</div>
-        <div class="dest-meta">Surfing · Night life · Seafood trail</div>
-      </div>
+      <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Mangaluru</div><div class="dest-meta">Surfing · Night life · Seafood trail</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
   </div>
@@ -687,297 +464,125 @@ footer{
 <div class="divider"></div>
 
 <!-- PACKAGES -->
-<section id="packages" class="wrap">
-  <div class="sec-eye">What we offer</div>
-  <h2 class="sec-h">Six ready-to-book packages</h2>
+<section id="packages" class="sec">
+  <div class="sec-tag">What we offer</div>
+  <h2 class="sec-h">Six <em>ready-to-book</em> packages</h2>
   <p class="sec-sub">AC transport from Bengaluru, accommodation, guided activities and WhatsApp support — all included.</p>
   <div class="pkg-grid">
-    <div class="pkg-card featured">
-      <div class="pkg-feat-badge">Most popular</div>
+    <div class="pkg-card featured reveal">
+      <div class="pkg-feat-badge"><i class="fas fa-fire" style="font-size:8px"></i> Most popular</div>
       <div class="pkg-icon">🏄</div>
       <div class="pkg-name">Bachelors Beach Vibes</div>
       <div class="pkg-duration">3 Days / 2 Nights</div>
       <div class="pkg-tags"><span class="pkg-tag">Gokarna</span><span class="pkg-tag">Murudeshwar</span><span class="pkg-tag">Honnavara</span><span class="pkg-tag">Udupi</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Om Beach & Kudle Beach trek</li>
-        <li><i class="fas fa-check"></i>Scuba diving at Netrani Island</li>
-        <li><i class="fas fa-check"></i>Honnavara mangrove boating</li>
-        <li><i class="fas fa-check"></i>St. Mary's Island + water sports</li>
-        <li><i class="fas fa-check"></i>Beach bonfire night camp</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹5,499 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Bachelors Beach Vibes','₹5,499')">Book Now</button>
-      </div>
+      <ul class="pkg-list"><li>Om Beach & Kudle Beach trek</li><li>Scuba diving at Netrani Island</li><li>Honnavara mangrove boating</li><li>St. Mary's Island + water sports</li><li>Beach bonfire night camp</li></ul>
+      <div class="pkg-footer"><div><div class="pkg-price-label">From</div><div class="pkg-price">₹5,499 <span>/ person</span></div></div><button class="btn-pkg" onclick="bookPackage('Bachelors Beach Vibes','₹5,499')">Book Now</button></div>
     </div>
-    <div class="pkg-card">
+    <div class="pkg-card reveal">
       <div class="pkg-icon">🏛️</div>
       <div class="pkg-name">Coastal Heritage Tour</div>
       <div class="pkg-duration">2 Days / 1 Night</div>
       <div class="pkg-tags"><span class="pkg-tag">Udupi</span><span class="pkg-tag">Mangaluru</span><span class="pkg-tag">Kapu</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Udupi Sri Krishna Temple</li>
-        <li><i class="fas fa-check"></i>Malpe Beach sea walk</li>
-        <li><i class="fas fa-check"></i>St. Mary's Island boat ride</li>
-        <li><i class="fas fa-check"></i>Kapu lighthouse sunset</li>
-        <li><i class="fas fa-check"></i>Local Tulu Nadu seafood</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹3,000 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Coastal Heritage Tour','₹3,000')">Book Now</button>
-      </div>
+      <ul class="pkg-list"><li>Udupi Sri Krishna Temple</li><li>Malpe Beach sea walk</li><li>St. Mary's Island boat ride</li><li>Kapu lighthouse sunset</li><li>Local Tulu Nadu seafood</li></ul>
+      <div class="pkg-footer"><div><div class="pkg-price-label">From</div><div class="pkg-price">₹3,000 <span>/ person</span></div></div><button class="btn-pkg" onclick="bookPackage('Coastal Heritage Tour','₹3,000')">Book Now</button></div>
     </div>
-    <div class="pkg-card">
+    <div class="pkg-card reveal">
       <div class="pkg-icon">🙏</div>
       <div class="pkg-name">South Pilgrimage Circuit</div>
       <div class="pkg-duration">3 Days / 2 Nights</div>
       <div class="pkg-tags"><span class="pkg-tag">Mangaluru</span><span class="pkg-tag">Kukke</span><span class="pkg-tag">Dharmasthala</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Kukke Subramanya Temple</li>
-        <li><i class="fas fa-check"></i>Dharmasthala shrine</li>
-        <li><i class="fas fa-check"></i>Mangaladevi Temple</li>
-        <li><i class="fas fa-check"></i>Pilikula nature reserve</li>
-        <li><i class="fas fa-check"></i>Yakshagana cultural show</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹4,000 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('South Pilgrimage Circuit','₹4,000')">Book Now</button>
-      </div>
+      <ul class="pkg-list"><li>Kukke Subramanya Temple</li><li>Dharmasthala shrine</li><li>Mangaladevi Temple</li><li>Pilikula nature reserve</li><li>Yakshagana cultural show</li></ul>
+      <div class="pkg-footer"><div><div class="pkg-price-label">From</div><div class="pkg-price">₹4,000 <span>/ person</span></div></div><button class="btn-pkg" onclick="bookPackage('South Pilgrimage Circuit','₹4,000')">Book Now</button></div>
     </div>
-    <div class="pkg-card">
+    <div class="pkg-card reveal">
       <div class="pkg-icon">🌿</div>
       <div class="pkg-name">Malenadu Mist Tour</div>
       <div class="pkg-duration">3 Days / 2 Nights</div>
       <div class="pkg-tags"><span class="pkg-tag">Shivamogga</span><span class="pkg-tag">Jog Falls</span><span class="pkg-tag">Agumbe</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Jog Falls trek & swimming</li>
-        <li><i class="fas fa-check"></i>Agumbe rainforest sunset</li>
-        <li><i class="fas fa-check"></i>Sakrebyle elephant camp</li>
-        <li><i class="fas fa-check"></i>Kodachadri off-road jeep</li>
-        <li><i class="fas fa-check"></i>Forest homestay stay</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹2,800 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Malenadu Mist Tour','₹2,800')">Book Now</button>
-      </div>
+      <ul class="pkg-list"><li>Jog Falls trek & swimming</li><li>Agumbe rainforest sunset</li><li>Sakrebyle elephant camp</li><li>Kodachadri off-road jeep</li><li>Forest homestay stay</li></ul>
+      <div class="pkg-footer"><div><div class="pkg-price-label">From</div><div class="pkg-price">₹2,800 <span>/ person</span></div></div><button class="btn-pkg" onclick="bookPackage('Malenadu Mist Tour','₹2,800')">Book Now</button></div>
     </div>
-    <div class="pkg-card">
+    <div class="pkg-card reveal">
       <div class="pkg-icon">🗺️</div>
       <div class="pkg-name">Grand Coastal Circuit</div>
       <div class="pkg-duration">5 Days / 4 Nights</div>
       <div class="pkg-tags"><span class="pkg-tag">All Districts</span><span class="pkg-tag">Full Circuit</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>All 4 districts covered</li>
-        <li><i class="fas fa-check"></i>Scuba + water sports + trek</li>
-        <li><i class="fas fa-check"></i>Devbagh Island, Gokarna</li>
-        <li><i class="fas fa-check"></i>Honnavara + Jog Falls combo</li>
-        <li><i class="fas fa-check"></i>GoPro photography add-on</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹8,999 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Grand Coastal Circuit','₹8,999')">Book Now</button>
-      </div>
+      <ul class="pkg-list"><li>All 4 districts covered</li><li>Scuba + water sports + trek</li><li>Devbagh Island, Gokarna</li><li>Honnavara + Jog Falls combo</li><li>GoPro photography add-on</li></ul>
+      <div class="pkg-footer"><div><div class="pkg-price-label">From</div><div class="pkg-price">₹8,999 <span>/ person</span></div></div><button class="btn-pkg" onclick="bookPackage('Grand Coastal Circuit','₹8,999')">Book Now</button></div>
     </div>
-    <div class="pkg-card">
+    <div class="pkg-card reveal">
       <div class="pkg-icon">🍜</div>
       <div class="pkg-name">Culinary & Culture Trail</div>
       <div class="pkg-duration">2 Days / 1 Night</div>
       <div class="pkg-tags"><span class="pkg-tag">Udupi</span><span class="pkg-tag">Mangaluru</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Coastal seafood food trail</li>
-        <li><i class="fas fa-check"></i>Yakshagana performance</li>
-        <li><i class="fas fa-check"></i>Kambala traditional sport</li>
-        <li><i class="fas fa-check"></i>Mangaluru night life</li>
-        <li><i class="fas fa-check"></i>Floating cafe experience</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹3,500 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Culinary & Culture Trail','₹3,500')">Book Now</button>
-      </div>
+      <ul class="pkg-list"><li>Coastal seafood food trail</li><li>Yakshagana performance</li><li>Kambala traditional sport</li><li>Mangaluru night life</li><li>Floating cafe experience</li></ul>
+      <div class="pkg-footer"><div><div class="pkg-price-label">From</div><div class="pkg-price">₹3,500 <span>/ person</span></div></div><button class="btn-pkg" onclick="bookPackage('Culinary & Culture Trail','₹3,500')">Book Now</button></div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
-
-
-
-<!-- PACKAGES -->
-<section id="packages" class="wrap">
-  <div class="sec-eye">What we offer</div>
-  <h2 class="sec-h">Six ready-to-book packages</h2>
-  <p class="sec-sub">AC transport from Bengaluru, accommodation, guided activities and WhatsApp support — all included.</p>
-  <div class="pkg-grid">
-    <div class="pkg-card featured">
-      <div class="pkg-feat-badge">Most popular</div>
-      <div class="pkg-icon">🏄</div>
-      <div class="pkg-name">Bachelors Beach Vibes</div>
-      <div class="pkg-duration">3 Days / 2 Nights</div>
-      <div class="pkg-tags"><span class="pkg-tag">Gokarna</span><span class="pkg-tag">Murudeshwar</span><span class="pkg-tag">Honnavara</span><span class="pkg-tag">Udupi</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Om Beach & Kudle Beach trek</li>
-        <li><i class="fas fa-check"></i>Scuba diving at Netrani Island</li>
-        <li><i class="fas fa-check"></i>Honnavara mangrove boating</li>
-        <li><i class="fas fa-check"></i>St. Mary's Island + water sports</li>
-        <li><i class="fas fa-check"></i>Beach bonfire night camp</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹5,499 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Bachelors Beach Vibes','₹5,499')">Book Now</button>
-      </div>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-icon">🏛️</div>
-      <div class="pkg-name">Coastal Heritage Tour</div>
-      <div class="pkg-duration">2 Days / 1 Night</div>
-      <div class="pkg-tags"><span class="pkg-tag">Udupi</span><span class="pkg-tag">Mangaluru</span><span class="pkg-tag">Kapu</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Udupi Sri Krishna Temple</li>
-        <li><i class="fas fa-check"></i>Malpe Beach sea walk</li>
-        <li><i class="fas fa-check"></i>St. Mary's Island boat ride</li>
-        <li><i class="fas fa-check"></i>Kapu lighthouse sunset</li>
-        <li><i class="fas fa-check"></i>Local Tulu Nadu seafood</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹3,000 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Coastal Heritage Tour','₹3,000')">Book Now</button>
-      </div>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-icon">🙏</div>
-      <div class="pkg-name">South Pilgrimage Circuit</div>
-      <div class="pkg-duration">3 Days / 2 Nights</div>
-      <div class="pkg-tags"><span class="pkg-tag">Mangaluru</span><span class="pkg-tag">Kukke</span><span class="pkg-tag">Dharmasthala</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Kukke Subramanya Temple</li>
-        <li><i class="fas fa-check"></i>Dharmasthala shrine</li>
-        <li><i class="fas fa-check"></i>Mangaladevi Temple</li>
-        <li><i class="fas fa-check"></i>Pilikula nature reserve</li>
-        <li><i class="fas fa-check"></i>Yakshagana cultural show</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹4,000 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('South Pilgrimage Circuit','₹4,000')">Book Now</button>
-      </div>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-icon">🌿</div>
-      <div class="pkg-name">Malenadu Mist Tour</div>
-      <div class="pkg-duration">3 Days / 2 Nights</div>
-      <div class="pkg-tags"><span class="pkg-tag">Shivamogga</span><span class="pkg-tag">Jog Falls</span><span class="pkg-tag">Agumbe</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Jog Falls trek & swimming</li>
-        <li><i class="fas fa-check"></i>Agumbe rainforest sunset</li>
-        <li><i class="fas fa-check"></i>Sakrebyle elephant camp</li>
-        <li><i class="fas fa-check"></i>Kodachadri off-road jeep</li>
-        <li><i class="fas fa-check"></i>Forest homestay stay</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹2,800 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Malenadu Mist Tour','₹2,800')">Book Now</button>
-      </div>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-icon">🗺️</div>
-      <div class="pkg-name">Grand Coastal Circuit</div>
-      <div class="pkg-duration">5 Days / 4 Nights</div>
-      <div class="pkg-tags"><span class="pkg-tag">All Districts</span><span class="pkg-tag">Full Circuit</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>All 4 districts covered</li>
-        <li><i class="fas fa-check"></i>Scuba + water sports + trek</li>
-        <li><i class="fas fa-check"></i>Devbagh Island, Gokarna</li>
-        <li><i class="fas fa-check"></i>Honnavara + Jog Falls combo</li>
-        <li><i class="fas fa-check"></i>GoPro photography add-on</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹8,999 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Grand Coastal Circuit','₹8,999')">Book Now</button>
-      </div>
-    </div>
-    <div class="pkg-card">
-      <div class="pkg-icon">🍜</div>
-      <div class="pkg-name">Culinary & Culture Trail</div>
-      <div class="pkg-duration">2 Days / 1 Night</div>
-      <div class="pkg-tags"><span class="pkg-tag">Udupi</span><span class="pkg-tag">Mangaluru</span></div>
-      <ul class="pkg-list">
-        <li><i class="fas fa-check"></i>Coastal seafood food trail</li>
-        <li><i class="fas fa-check"></i>Yakshagana performance</li>
-        <li><i class="fas fa-check"></i>Kambala traditional sport</li>
-        <li><i class="fas fa-check"></i>Mangaluru night life</li>
-        <li><i class="fas fa-check"></i>Floating cafe experience</li>
-      </ul>
-      <div class="pkg-footer">
-        <div><div class="pkg-price-label">From</div><div class="pkg-price">₹3,500 <span>/ person</span></div></div>
-        <button class="btn-pkg" onclick="bookPackage('Culinary & Culture Trail','₹3,500')">Book Now</button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-
-
-
 
 <!-- WHY US -->
-<section class="wrap">
-  <div class="sec-eye">Why choose us</div>
-  <h2 class="sec-h">Everything in one trip</h2>
-  <p class="sec-sub">Don't just watch reels — live them. Here's what makes Sirinadu Pravasa different.</p>
-  <div class="feat-grid">
-    <div class="feat-card"><div class="feat-icon"><i class="fas fa-wallet"></i></div><h3 class="feat-title">Budget-first pricing</h3><p class="feat-desc">Economy options from ₹2,800/person. Premium at ₹8,999. Zero hidden charges — what you see is what you pay.</p></div>
-    <div class="feat-card"><div class="feat-icon"><i class="fas fa-bus"></i></div><h3 class="feat-title">AC pickup, Bengaluru</h3><p class="feat-desc">Pickup from Majestic, Yeshwanthpur, or Goraguntepalya. Overnight travel saves you a full day of the trip.</p></div>
-    <div class="feat-card"><div class="feat-icon"><i class="fas fa-camera"></i></div><h3 class="feat-title">GoPro & drone add-on</h3><p class="feat-desc">Add a GoPro or drone cameraperson to any package. Your trip memories, captured professionally.</p></div>
-    <div class="feat-card"><div class="feat-icon"><i class="fas fa-shield-halved"></i></div><h3 class="feat-title">Safe & licensed</h3><p class="feat-desc">All adventure activities use certified guides. Karnataka Tourism Department registered agency.</p></div>
-    <div class="feat-card"><div class="feat-icon"><i class="fab fa-whatsapp"></i></div><h3 class="feat-title">24/7 WhatsApp support</h3><p class="feat-desc">From first enquiry to the moment you're back home — always available on WhatsApp for anything.</p></div>
-    <div class="feat-card"><div class="feat-icon"><i class="fas fa-leaf"></i></div><h3 class="feat-title">Zero-plastic policy</h3><p class="feat-desc">No plastic on any trip. We partner with local homestays and put money back into coastal communities.</p></div>
+<section class="why-section">
+  <div class="sec">
+    <div class="sec-tag">Why choose us</div>
+    <h2 class="sec-h">Everything in <em>one trip</em></h2>
+    <p class="sec-sub">Don't just watch reels — live them. Here's what makes Sirinadu Pravasa different.</p>
+    <div class="feat-grid">
+      <div class="feat-card reveal"><div class="feat-icon"><i class="fas fa-wallet"></i></div><h3 class="feat-title">Budget-first pricing</h3><p class="feat-desc">Economy options from ₹2,800/person. Premium at ₹8,999. Zero hidden charges — what you see is what you pay.</p></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="fas fa-bus"></i></div><h3 class="feat-title">AC pickup, Bengaluru</h3><p class="feat-desc">Pickup from Majestic, Yeshwanthpur, or Goraguntepalya. Overnight travel saves you a full day of the trip.</p></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="fas fa-camera"></i></div><h3 class="feat-title">GoPro & drone add-on</h3><p class="feat-desc">Add a GoPro or drone cameraperson to any package. Your trip memories, captured professionally.</p></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="fas fa-shield-halved"></i></div><h3 class="feat-title">Safe & licensed</h3><p class="feat-desc">All adventure activities use certified guides. Karnataka Tourism Department registered agency.</p></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="fab fa-whatsapp"></i></div><h3 class="feat-title">24/7 WhatsApp support</h3><p class="feat-desc">From first enquiry to the moment you're back home — always available on WhatsApp for anything.</p></div>
+      <div class="feat-card reveal"><div class="feat-icon"><i class="fas fa-leaf"></i></div><h3 class="feat-title">Zero-plastic policy</h3><p class="feat-desc">No plastic on any trip. We partner with local homestays and put money back into coastal communities.</p></div>
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <!-- HIDDEN GEMS -->
-<section id="gems" class="wrap">
-  <div class="sec-eye">Beyond the obvious</div>
-  <h2 class="sec-h">Karnataka's hidden gems</h2>
+<section id="gems" class="sec">
+  <div class="sec-tag">Beyond the obvious</div>
+  <h2 class="sec-h">Karnataka's <em>hidden gems</em></h2>
   <p class="sec-sub">Secret beaches and untouched spots most travel agencies don't even know about. We do.</p>
   <div class="gems-grid">
-    <div class="gem-card"><span class="gem-badge">Secret spot</span><div class="gem-name">Devbagh Island</div><div class="gem-desc">A sandbar island near Karwar accessible only by boat. Crystal-clear water, zero crowds, perfect for photography.</div><div class="gem-tip">💡 Best for Instagram reels — golden hour is surreal here</div></div>
-    <div class="gem-card"><span class="gem-badge">Hidden beach</span><div class="gem-name">Half Moon Beach, Gokarna</div><div class="gem-desc">A tiny crescent beach only reachable by a 30-min cliff walk. No roads, no vehicles — pure coastal solitude.</div><div class="gem-tip">💡 We know the trail — most tourists miss this entirely</div></div>
-    <div class="gem-card"><span class="gem-badge">Eco treasure</span><div class="gem-name">Sharavathi Backwaters</div><div class="gem-desc">Mangrove forests where the river meets the sea. Rare birds, total silence, and surreal boat rides at dawn.</div><div class="gem-tip">💡 Early morning boat ride — you'll never forget it</div></div>
-    <div class="gem-card"><span class="gem-badge">Viewpoint</span><div class="gem-name">Agumbe Sunset Point</div><div class="gem-desc">The "Cherrapunji of South India." Watch the sun set over the Western Ghats in the most spectacular view in Karnataka.</div><div class="gem-tip">💡 Arrive 1 hour early — gets crowded at the very end</div></div>
-    <div class="gem-card"><span class="gem-badge">Dive site</span><div class="gem-name">Netrani Island</div><div class="gem-desc">Karnataka's best scuba diving spot. Vibrant coral reefs, sea turtles, and excellent visibility year-round.</div><div class="gem-tip">💡 First-timers welcome — certified instructors on every dive</div></div>
-    <div class="gem-card"><span class="gem-badge">Blue flag</span><div class="gem-name">Padubidri Beach</div><div class="gem-desc">One of India's cleanest Blue Flag certified beaches. Rarely crowded, clean facilities, and a stunning long shoreline.</div><div class="gem-tip">💡 Swim safely — lifeguards on duty all day</div></div>
+    <div class="gem-card reveal"><span class="gem-badge">Secret spot</span><div class="gem-name">Devbagh Island</div><div class="gem-desc">A sandbar island near Karwar accessible only by boat. Crystal-clear water, zero crowds, perfect for photography.</div><div class="gem-tip">💡 Best for Instagram reels — golden hour is surreal here</div></div>
+    <div class="gem-card reveal"><span class="gem-badge">Hidden beach</span><div class="gem-name">Half Moon Beach, Gokarna</div><div class="gem-desc">A tiny crescent beach only reachable by a 30-min cliff walk. No roads, no vehicles — pure coastal solitude.</div><div class="gem-tip">💡 We know the trail — most tourists miss this entirely</div></div>
+    <div class="gem-card reveal"><span class="gem-badge">Eco treasure</span><div class="gem-name">Sharavathi Backwaters</div><div class="gem-desc">Mangrove forests where the river meets the sea. Rare birds, total silence, and surreal boat rides at dawn.</div><div class="gem-tip">💡 Early morning boat ride — you'll never forget it</div></div>
+    <div class="gem-card reveal"><span class="gem-badge">Viewpoint</span><div class="gem-name">Agumbe Sunset Point</div><div class="gem-desc">The "Cherrapunji of South India." Watch the sun set over the Western Ghats in the most spectacular view in Karnataka.</div><div class="gem-tip">💡 Arrive 1 hour early — gets crowded at the very end</div></div>
+    <div class="gem-card reveal"><span class="gem-badge">Dive site</span><div class="gem-name">Netrani Island</div><div class="gem-desc">Karnataka's best scuba diving spot. Vibrant coral reefs, sea turtles, and excellent visibility year-round.</div><div class="gem-tip">💡 First-timers welcome — certified instructors on every dive</div></div>
+    <div class="gem-card reveal"><span class="gem-badge">Blue flag</span><div class="gem-name">Padubidri Beach</div><div class="gem-desc">One of India's cleanest Blue Flag certified beaches. Rarely crowded, clean facilities, and a stunning long shoreline.</div><div class="gem-tip">💡 Swim safely — lifeguards on duty all day</div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <!-- HOW IT WORKS -->
-<section class="wrap">
-  <div class="sec-eye">How it works</div>
-  <h2 class="sec-h">Booked in 4 steps</h2>
+<section class="sec">
+  <div class="sec-tag">How it works</div>
+  <h2 class="sec-h">Booked in <em>4 steps</em></h2>
   <p class="sec-sub">No long calls. No complicated forms. Fill in the details and WhatsApp confirms everything.</p>
   <div class="steps-wrap">
-    <div class="step"><div class="step-n">01</div><div><div class="step-t">Choose a package</div><div class="step-d">Browse packages above or use the gang calculator to find the right fit for your group size and budget.</div></div></div>
-    <div class="step"><div class="step-n">02</div><div><div class="step-t">Fill the booking form</div><div class="step-d">Enter your name, destination, date and group size. The form sends everything directly to our WhatsApp.</div></div></div>
-    <div class="step"><div class="step-n">03</div><div><div class="step-t">Pay 50% advance</div><div class="step-d">Confirm with 50% advance via Google Pay, PhonePe, or bank transfer. Remaining balance on trip day.</div></div></div>
-    <div class="step"><div class="step-n">04</div><div><div class="step-t">Pack & go</div><div class="step-d">We handle vehicle, hotel, guide and activities. You just show up at the pickup point and enjoy.</div></div></div>
+    <div class="step reveal"><div class="step-n">01</div><div><div class="step-t">Choose a package</div><div class="step-d">Browse packages above or ask us on WhatsApp to find the right fit for your group size and budget.</div></div></div>
+    <div class="step reveal"><div class="step-n">02</div><div><div class="step-t">Fill the booking form</div><div class="step-d">Enter your name, destination, date and group size. The form sends everything directly to our WhatsApp.</div></div></div>
+    <div class="step reveal"><div class="step-n">03</div><div><div class="step-t">Pay 50% advance</div><div class="step-d">Confirm with 50% advance via Google Pay, PhonePe, or bank transfer. Remaining balance on trip day.</div></div></div>
+    <div class="step reveal"><div class="step-n">04</div><div><div class="step-t">Pack & go</div><div class="step-d">We handle vehicle, hotel, guide and activities. You just show up at the pickup point and enjoy.</div></div></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <!-- BOOKING FORM -->
-<section id="book" class="wrap">
-  <div class="sec-eye">Get started</div>
-  <h2 class="sec-h">Book your trip</h2>
+<section id="book" class="sec">
+  <div class="sec-tag">Get started</div>
+  <h2 class="sec-h">Book your <em>trip</em></h2>
   <p class="sec-sub">Fill in the details and we'll confirm your booking on WhatsApp within 2 hours.</p>
   <div class="form-box">
-    <div class="form-title">Book your first trip &<br/>get 10% off</div>
+    <div class="form-title">Book your first trip & get 10% off</div>
     <div class="form-subtitle">Mention "FIRST TRIP" in notes and we'll apply 10% off any package automatically.</div>
-    <div class="form-note"><i class="fas fa-tag"></i>First-timer offer — mention "FIRST TRIP" in notes for 10% off any package.</div>
+    <div class="form-promo"><i class="fas fa-tag"></i>First-timer offer — mention "FIRST TRIP" in notes for 10% off.</div>
     <div class="form-grid">
       <div class="form-group"><label class="form-label">Full name *</label><input type="text" class="form-input" id="f-name" placeholder="Your name"/><span class="form-error" id="err-name">Please enter your name</span></div>
       <div class="form-group"><label class="form-label">Phone number *</label><input type="tel" class="form-input" id="f-phone" placeholder="+91 XXXXX XXXXX"/><span class="form-error" id="err-phone">Please enter a valid phone number</span></div>
@@ -1002,153 +607,162 @@ footer{
       <div class="form-group form-full"><label class="form-label">Notes / special requests</label><textarea class="form-textarea" id="f-notes" rows="3" placeholder="Any special requests? Mention FIRST TRIP for 10% off."></textarea></div>
     </div>
     <br/>
-    <button class="btn-submit" id="submitBtn" onclick="handleBooking()"><i class="fab fa-whatsapp" style="font-size:18px"></i>Send booking via WhatsApp</button>
+    <button class="btn-submit" id="submitBtn" onclick="handleBooking()">
+      <i class="fab fa-whatsapp" style="font-size:18px"></i> Send booking via WhatsApp
+    </button>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <!-- FAQ -->
-<section class="wrap">
-  <div class="sec-eye">FAQ</div>
-  <h2 class="sec-h">Common questions</h2>
-  <p class="sec-sub">Straight answers, no fluff.</p>
-  <div class="faq-list">
-    <div class="faq-item"><div class="faq-q">What's the booking and cancellation policy? <i class="fas fa-plus"></i></div><div class="faq-a"><p>50% advance to confirm. Cancellations: 7+ days before = 80% refund. 3–6 days = 50% refund. Last 48 hours = no refund. Adventure activities cancelled due to weather = that portion refunded.</p></div></div>
-    <div class="faq-item"><div class="faq-q">Do I need experience for scuba diving? <i class="fas fa-plus"></i></div><div class="faq-a"><p>No experience needed. Certified instructors give a full briefing before every dive. Age 10+ and basic swimming ability required. Medical conditions must be disclosed in advance.</p></div></div>
-    <div class="faq-item"><div class="faq-q">What documents do I need to carry? <i class="fas fa-plus"></i></div><div class="faq-a"><p>Every traveller must carry a valid government ID — Aadhaar Card, Driving License, or Passport. Mandatory for hotel check-ins and adventure activity registration.</p></div></div>
-    <div class="faq-item"><div class="faq-q">Are meals included in the package? <i class="fas fa-plus"></i></div><div class="faq-a"><p>Economy packages include breakfast only. Premium packages include all meals (Breakfast, Lunch, Dinner). All food features authentic local coastal cuisine including seafood and Tulu Nadu dishes.</p></div></div>
-    <div class="faq-item"><div class="faq-q">Is the trip suitable for mixed groups? <i class="fas fa-plus"></i></div><div class="faq-a"><p>All packages welcome mixed groups, solo travellers, boys-only and girls-only groups. Safe, comfortable accommodation with proper room configurations for every group type.</p></div></div>
-    <div class="faq-item"><div class="faq-q">What vehicle is used for transport? <i class="fas fa-plus"></i></div><div class="faq-a"><p>AC Tempo Travellers (12–14 seats) and Innova/Ertiga for smaller groups. Pickup from Bengaluru Majestic, Yeshwanthpur, and Goraguntepalya. Overnight departure ~10 PM reaches coast by morning.</p></div></div>
+<section class="faq-section">
+  <div class="sec">
+    <div class="sec-tag">FAQ</div>
+    <h2 class="sec-h">Common <em>questions</em></h2>
+    <p class="sec-sub">Straight answers, no fluff.</p>
+    <div class="faq-list">
+      <div class="faq-item reveal"><div class="faq-q">What's the booking and cancellation policy? <i class="fas fa-plus"></i></div><div class="faq-a"><p>50% advance to confirm. Cancellations: 7+ days before = 80% refund. 3–6 days = 50% refund. Last 48 hours = no refund. Adventure activities cancelled due to weather = that portion refunded.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-q">Do I need experience for scuba diving? <i class="fas fa-plus"></i></div><div class="faq-a"><p>No experience needed. Certified instructors give a full briefing before every dive. Age 10+ and basic swimming ability required. Medical conditions must be disclosed in advance.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-q">What documents do I need to carry? <i class="fas fa-plus"></i></div><div class="faq-a"><p>Every traveller must carry a valid government ID — Aadhaar Card, Driving License, or Passport. Mandatory for hotel check-ins and adventure activity registration.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-q">Are meals included in the package? <i class="fas fa-plus"></i></div><div class="faq-a"><p>Economy packages include breakfast only. Premium packages include all meals (Breakfast, Lunch, Dinner). All food features authentic local coastal cuisine including seafood and Tulu Nadu dishes.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-q">Is the trip suitable for mixed groups? <i class="fas fa-plus"></i></div><div class="faq-a"><p>All packages welcome mixed groups, solo travellers, boys-only and girls-only groups. Safe, comfortable accommodation with proper room configurations for every group type.</p></div></div>
+      <div class="faq-item reveal"><div class="faq-q">What vehicle is used for transport? <i class="fas fa-plus"></i></div><div class="faq-a"><p>AC Tempo Travellers (12–14 seats) and Innova/Ertiga for smaller groups. Pickup from Bengaluru Majestic, Yeshwanthpur, and Goraguntepalya. Overnight departure ~10 PM reaches coast by morning.</p></div></div>
+    </div>
   </div>
 </section>
 
 <div class="divider"></div>
 
 <!-- CONTACT -->
-<section id="contact" class="wrap">
-  <div class="sec-eye">Get in touch</div>
-  <h2 class="sec-h">We're always reachable</h2>
+<section id="contact" class="sec">
+  <div class="sec-tag">Get in touch</div>
+  <h2 class="sec-h">We're always <em>reachable</em></h2>
   <p class="sec-sub">Based in Bengaluru. Reach us on WhatsApp, phone, email or Instagram. We respond within 2 hours.</p>
   <div class="contact-grid">
-    <a class="contact-card" href="https://wa.me/918296353437?text=Hi!%20I%20want%20to%20plan%20a%20trip%20with%20Sirinadu%20Pravasa." target="_blank">
-      <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
-      <div class="contact-title">WhatsApp</div>
-      <div class="contact-val">+91 82963 53437</div>
-      <div class="contact-sub">Fastest response · 8 AM – 10 PM daily</div>
+    <a class="contact-card reveal" href="https://wa.me/918296353437?text=Hi!%20I%20want%20to%20plan%20a%20trip%20with%20Sirinadu%20Pravasa." target="_blank">
+      <div class="contact-icon"><i class="fab fa-whatsapp"></i></div><div class="contact-title">WhatsApp</div><div class="contact-val">+91 82963 53437</div><div class="contact-sub">Fastest response · 8 AM – 10 PM daily</div>
     </a>
-    <a class="contact-card" href="tel:+918296353437">
-      <div class="contact-icon"><i class="fas fa-phone"></i></div>
-      <div class="contact-title">Phone</div>
-      <div class="contact-val">+91 82963 53437</div>
-      <div class="contact-sub">Mon – Sat · 9 AM – 7 PM</div>
+    <a class="contact-card reveal" href="tel:+918296353437">
+      <div class="contact-icon"><i class="fas fa-phone"></i></div><div class="contact-title">Phone</div><div class="contact-val">+91 82963 53437</div><div class="contact-sub">Mon – Sat · 9 AM – 7 PM</div>
     </a>
-    <a class="contact-card" href="mailto:sirinadupravasa@gmail.com">
-      <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-      <div class="contact-title">Email</div>
-      <div class="contact-val">sirinadupravasa@gmail.com</div>
-      <div class="contact-sub">Replies within 6 hours on working days</div>
+    <a class="contact-card reveal" href="https://www.instagram.com/sirinadupravasa" target="_blank">
+      <div class="contact-icon"><i class="fab fa-instagram"></i></div><div class="contact-title">Instagram</div><div class="contact-val">@sirinadupravasa</div><div class="contact-sub">Follow us for trip reels & updates</div>
     </a>
-    <a class="contact-card" href="https://www.instagram.com/sirinadupravasa" target="_blank">
-      <div class="contact-icon"><i class="fab fa-instagram"></i></div>
-      <div class="contact-title">Instagram</div>
-      <div class="contact-val">@sirinadupravasa</div>
-      <div class="contact-sub">Follow us for trip reels & updates</div>
-    </a>
-    <a class="contact-card" href="https://maps.google.com/?q=Sunkadakatte,Bengaluru" target="_blank" style="grid-column:span 2">
-      <div class="contact-icon"><i class="fas fa-location-dot"></i></div>
-      <div class="contact-title">Office</div>
-      <div class="contact-val" style="font-size:11.5px;line-height:1.7">79/N, Anbalgum, 21st Cross, Muthuraya Swamy Layout, Sunkadakatte, Bengaluru – 560091</div>
-      <div class="contact-sub">Visit by appointment · Click to open in Maps</div>
+    <a class="contact-card reveal" href="https://maps.google.com/?q=Sunkadakatte,Bengaluru" target="_blank">
+      <div class="contact-icon"><i class="fas fa-location-dot"></i></div><div class="contact-title">Office</div><div class="contact-val" style="font-size:13px;line-height:1.55">79/N, Anbalgum, Sunkadakatte, Bengaluru – 560091</div><div class="contact-sub">Visit by appointment · Click for Maps</div>
     </a>
   </div>
 </section>
 
-<div class="divider"></div>
+<div class="divider dark"></div>
 
+<!-- CEO -->
+<section class="ceo-section">
+  <div class="ceo-inner">
+    <div class="ceo-card reveal">
+      <div class="ceo-avatar">S</div>
+      <div class="ceo-name">Suresh Kumar</div>
+      <div class="ceo-role">Founder & Lead Guide</div>
+      <div class="ceo-badges"><span class="ceo-badge">Karnataka Native</span><span class="ceo-badge">Certified Diver</span><span class="ceo-badge">Trek Leader</span></div>
+      <div class="ceo-social">
+        <a href="https://www.instagram.com/sirinadupravasa" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/918296353437" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="tel:+918296353437"><i class="fas fa-phone"></i></a>
+      </div>
+    </div>
+    <div class="ceo-info reveal">
+      <h2>Built by someone who <em>lives these routes</em></h2>
+      <p class="ceo-quote">Every trail, every beach, every hidden spot — I've walked them before I take you there. That's my promise.</p>
+      <div class="ceo-stats">
+        <div class="ceo-stat"><div class="val">500+</div><div class="lbl">Travellers</div></div>
+        <div class="ceo-stat"><div class="val">6+</div><div class="lbl">Years</div></div>
+        <div class="ceo-stat"><div class="val">100%</div><div class="lbl">Trip success</div></div>
+      </div>
+      <p class="ceo-about">Born and raised in coastal Karnataka, I started Sirinadu Pravasa to share these landscapes with Bengaluru friends who couldn't find a trustworthy, affordable way to explore them. Today, we've taken 500+ travellers across the coast and Malenadu — and we're just getting started.</p>
+      <div class="ceo-btns">
+        <a class="ceo-btn primary" href="https://wa.me/918296353437" target="_blank"><i class="fab fa-whatsapp"></i> Chat on WhatsApp</a>
+        <a class="ceo-btn" href="tel:+918296353437"><i class="fas fa-phone"></i> Call us</a>
+        <a class="ceo-btn" href="https://www.instagram.com/sirinadupravasa" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider dark"></div>
 
 <!-- BOTTOM CTA -->
-<section class="wrap">
+<div class="cta-section" style="padding-top:80px;background:var(--ink2)">
   <div class="cta-box">
-    <h2 class="cta-t">Don't just watch reels,<br/>live them</h2>
+    <h2 class="cta-t">Don't just watch reels,<br/><em>live them</em></h2>
     <p class="cta-d">No long planning. No calls needed. Fill the form, confirm on WhatsApp, and we handle everything else.</p>
-    <div class="cta-url">sirinadu.pravasa@gmail.com · <strong>+91 82963 53437</strong></div>
+    <div class="cta-contact">sirinadupravasa@gmail.com · <strong>+91 82963 53437</strong></div>
     <br/>
     <button class="btn-cta-white" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
-      <i class="fas fa-compass" style="font-size:13px"></i>
-      Book your trip — free consultation
+      <i class="fas fa-compass"></i> Book your trip — free consultation
     </button>
   </div>
-</section>
+</div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="ft-logo">Sirinadu Pravasa</div>
+  <div class="ft-logo">Sirinadu <em>Pravasa</em></div>
   <div class="ft-sub">Your trip, our responsibility · Karnataka Coastal & Malenadu Tours · Bengaluru</div>
   <div class="ft-links">
-    <a href="#destinations">Destinations</a><span class="ft-sep">·</span>
-    <a href="#packages">Packages</a><span class="ft-sep">·</span>
-    <a href="#gems">Hidden Gems</a><span class="ft-sep">·</span>
-    
-    <a href="#book">Book Now</a><span class="ft-sep">·</span>
-   
-    <a href="https://www.instagram.com/sirinadupravasa" target="_blank"><i class="fab fa-instagram"></i> Instagram</a><span class="ft-sep">·</span>
+    <a href="#destinations">Destinations</a>
+    <a href="#packages">Packages</a>
+    <a href="#gems">Hidden Gems</a>
+    <a href="#book">Book Now</a>
+    <a href="https://www.instagram.com/sirinadupravasa" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
     <a href="#contact">Contact</a>
   </div>
-  <div class="ft-copy">Sirinadu Pravasa · Bengaluru · Karnataka Tourism </div>
+  <div class="ft-copy">© 2025 Sirinadu Pravasa · Bengaluru · Karnataka Tourism</div>
 </footer>
 
-<!-- WhatsApp float -->
-<a class="wa-float" href="https://wa.me/918296353437?text=Hi!%20I%20want%20to%20plan%20a%20trip%20with%20Sirinadu%20Pravasa." target="_blank">
-  <i class="fab fa-whatsapp"></i>
-</a>
+<!-- ── FLOATING CONTACT PILL ── -->
+<div class="cp" id="cp">
+  <div class="cp-brand">
+    <div class="cp-brand-dot"><span></span></div>
+    <div class="cp-brand-label">
+      Sirinadu Pravasa
+      <small>We're online · Reply in &lt;2 hrs</small>
+    </div>
+  </div>
+  <div class="cp-actions">
+    <a class="cp-action wa" href="https://wa.me/918296353437?text=Hi!%20I%20want%20to%20plan%20a%20trip%20with%20Sirinadu%20Pravasa." target="_blank">
+      <i class="fab fa-whatsapp"></i><span>WhatsApp</span>
+    </a>
+    <a class="cp-action" href="tel:+918296353437">
+      <i class="fas fa-phone"></i><span>Call</span>
+    </a>
+    <a class="cp-action" href="https://www.instagram.com/sirinadupravasa" target="_blank">
+      <i class="fab fa-instagram"></i><span>Instagram</span>
+    </a>
+  </div>
+</div>
 
 <div class="toast" id="toast"></div>
 
 <script>
 // WORD CYCLE
-const WORDS=["ನಿಮ್ಮ ಪ್ರವಾಸ","ನಮ್ಮ ಜವಾಬ್ದಾರಿ!"];
+const WORDS=["ನಿಮ್ಮ ಪ್ರವಾಸ","ನಮ್ಮ ಜವಾಬ್ದಾರಿ!","Your Journey","Our Responsibility!"];
 let wordIdx=0;
 function cycleWord(){
   const el=document.getElementById('changingWord');
   el.classList.remove('fade-in');el.classList.add('fade-out');
   setTimeout(()=>{wordIdx=(wordIdx+1)%WORDS.length;el.textContent=WORDS[wordIdx];el.classList.remove('fade-out');el.classList.add('fade-in');},220);
 }
-setInterval(cycleWord,2200);
+setInterval(cycleWord,2400);
 
 // FILTER
 document.querySelectorAll('.filter-btn').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
     const f=btn.dataset.filter;
     document.querySelectorAll('.dest-card').forEach(c=>{c.style.display=(f==='all'||c.dataset.tags.includes(f))?'block':'none';});
   });
 });
-
-// CALCULATOR
-function calcGang(){
-  const rawVal=document.getElementById('calcPkg').value;
-  const base=parseInt(rawVal)||5499;
-  const pax=parseInt(document.getElementById('calcPax').value)||1;
-  let discPct=0;
-  if(pax>=13)discPct=15;else if(pax>=8)discPct=10;else if(pax>=5)discPct=5;
-  const discAmt=Math.round(base*discPct/100);
-  const perPerson=base-discAmt;
-  const total=perPerson*pax;
-  document.getElementById('resBase').textContent='₹'+base.toLocaleString('en-IN');
-  document.getElementById('resPax').textContent=pax+' friends 🤙';
-  document.getElementById('resDiscPct').textContent=discPct>0?`(${discPct}% off!)`:'(5+ friends for discount)';
-  document.getElementById('resDisc').textContent=discAmt>0?'-₹'+discAmt.toLocaleString('en-IN'):'₹0';
-  document.getElementById('resPer').textContent='₹'+perPerson.toLocaleString('en-IN');
-  document.getElementById('resTotal').textContent='₹'+total.toLocaleString('en-IN');
-  document.getElementById('calcResult').classList.add('show');
-}
-function bookFromCalc(){
-  const pax=document.getElementById('calcPax').value||'?';
-  const pkgText=document.getElementById('calcPkg').options[document.getElementById('calcPkg').selectedIndex].text;
-  const msg=`🌊 *Sirinadu Pravasa — Gang Booking*\n\n📦 Package: ${pkgText}\n👥 Group: ${pax} friends\n\nPlease confirm the gang price! 🙏`;
-  window.open(`https://wa.me/918296353437?text=${encodeURIComponent(msg)}`,'_blank');
-}
 
 // FAQ
 document.querySelectorAll('.faq-item').forEach(item=>{
@@ -1160,17 +774,34 @@ document.querySelectorAll('.faq-item').forEach(item=>{
 });
 
 // SCROLL REVEAL
-const ro=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';ro.unobserve(e.target);}});},{threshold:.05});
-document.querySelectorAll('.dest-card,.pkg-card,.feat-card,.gem-card,.testi-card,.step,.contact-card,.ceo-card,.ceo-info').forEach((el,i)=>{
-  el.style.opacity='0';el.style.transform='translateY(16px)';
-  el.style.transition=`opacity .6s ${i*.05}s cubic-bezier(.16,1,.3,1),transform .6s ${i*.05}s cubic-bezier(.16,1,.3,1)`;
-  ro.observe(el);
-});
+const ro=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('vis'),i*55);ro.unobserve(e.target);}});
+},{threshold:.07});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// FLOATING PILL — hide near top, show after scrolling
+const cp=document.getElementById('cp');
+window.addEventListener('scroll',()=>{
+  const y=window.scrollY;
+  cp.style.transform=`translateX(-50%) translateY(${y<100?'140%':'0'})`;
+  cp.style.transition='transform .4s cubic-bezier(.16,1,.3,1)';
+},{passive:true});
 
 // TOAST
 function showToast(msg,type=''){const t=document.getElementById('toast');t.textContent=msg;t.className='toast show '+type;setTimeout(()=>t.classList.remove('show'),3200);}
 
-// VALIDATION
+// helpers
+function scrollToBook(dest){
+  const sel=document.getElementById('f-dest');
+  for(let i=0;i<sel.options.length;i++){if(sel.options[i].text.toLowerCase().includes(dest.toLowerCase())){sel.selectedIndex=i;break;}}
+  document.getElementById('book').scrollIntoView({behavior:'smooth'});
+}
+function bookPackage(pkg,price){
+  document.getElementById('f-notes').value=`Interested in: ${pkg} (${price}/person)`;
+  document.getElementById('book').scrollIntoView({behavior:'smooth'});
+}
+
+// VALIDATION + BOOKING
 function validate(){
   let ok=true;
   [{id:'f-name',err:'err-name',check:v=>v.trim().length>=2},{id:'f-phone',err:'err-phone',check:v=>/^[\d\s\+\-]{10,14}$/.test(v.trim())},{id:'f-dest',err:'err-dest',check:v=>v!==''},{id:'f-date',err:'err-date',check:v=>v!==''},{id:'f-pax',err:'err-pax',check:v=>parseInt(v)>=1}].forEach(({id,err,check})=>{
@@ -1182,36 +813,14 @@ function validate(){
   else{em.classList.remove('error');ee.classList.remove('show');}
   return ok;
 }
-
-// BOOKING
 function handleBooking(){
   if(!validate()){showToast('⚠ Fill all required fields','error');return;}
-  const n=document.getElementById('f-name').value.trim();
-  const ph=document.getElementById('f-phone').value.trim();
-  const em=document.getElementById('f-email').value.trim();
-  const dest=document.getElementById('f-dest').value;
-  const date=document.getElementById('f-date').value;
-  const pax=document.getElementById('f-pax').value;
-  const budget=document.getElementById('f-budget').value;
-  const notes=document.getElementById('f-notes').value.trim();
-  let disc='';const p=parseInt(pax);
-  if(p>=13)disc='🎉 15% gang discount eligible!';else if(p>=8)disc='🎉 10% gang discount eligible!';else if(p>=5)disc='🎉 5% gang discount eligible!';
+  const n=document.getElementById('f-name').value.trim(),ph=document.getElementById('f-phone').value.trim(),em=document.getElementById('f-email').value.trim(),dest=document.getElementById('f-dest').value,date=document.getElementById('f-date').value,pax=document.getElementById('f-pax').value,budget=document.getElementById('f-budget').value,notes=document.getElementById('f-notes').value.trim();
+  let disc='';const p=parseInt(pax);if(p>=13)disc='🎉 15% gang discount eligible!';else if(p>=8)disc='🎉 10% gang discount eligible!';else if(p>=5)disc='🎉 5% gang discount eligible!';
   const msg=[`🌊 *Sirinadu Pravasa — New Booking*`,``,`👤 *Name:* ${n}`,`📞 *Phone:* ${ph}`,em?`📧 *Email:* ${em}`:'',`📍 *Destination:* ${dest}`,`📅 *Date:* ${date}`,`👥 *Travellers:* ${pax}`,disc||'',budget?`💰 *Package:* ${budget}`:'',notes?`📝 *Notes:* ${notes}`:'',``,`*Your trip, our responsibility! 🌿*`].filter(Boolean).join('\n');
   const btn=document.getElementById('submitBtn');btn.innerHTML='<i class="fas fa-check"></i> Opening WhatsApp...';btn.disabled=true;
   showToast('✓ Opening WhatsApp...','success');
-  setTimeout(()=>{window.open(`https://wa.me/918296353437?text=${encodeURIComponent(msg)}`,'_blank');setTimeout(()=>{btn.innerHTML='<i class="fab fa-whatsapp" style="font-size:18px"></i>Send booking via WhatsApp';btn.disabled=false;},3000);},300);
-}
-
-function bookPackage(pkg,price){
-  document.getElementById('f-notes').value=`Interested in: ${pkg} (${price}/person)`;
-  document.getElementById('book').scrollIntoView({behavior:'smooth'});
-  setTimeout(()=>document.getElementById('f-name').focus(),700);
-}
-
-function scrollToBook(dest){
-  const el=document.getElementById('f-dest');
-  if(el){const opts=[...el.options];const match=opts.find(o=>o.value.toLowerCase().includes(dest.toLowerCase()));if(match)el.value=match.value;}
-  document.getElementById('book').scrollIntoView({behavior:'smooth'});
+  setTimeout(()=>{window.open(`https://wa.me/918296353437?text=${encodeURIComponent(msg)}`,'_blank');setTimeout(()=>{btn.innerHTML='<i class="fab fa-whatsapp" style="font-size:18px"></i> Send booking via WhatsApp';btn.disabled=false;},3000);},300);
 }
 </script>
 </body>
