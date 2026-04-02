@@ -23,29 +23,14 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  /* simpler, no heavy grain/cursor for performance */
-  .grain {
-    display: none;
-  }
-
-  /* minimal custom cursor (only desktop, but disabled on touch to avoid lag) */
-  @media (pointer: fine) {
-    body {
-      cursor: default;
-    }
-    a, button, .reel-card, .featured-item {
-      cursor: pointer;
-    }
-  }
-
-  /* navigation - clean */
+  /* navigation */
   nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    padding: 1.2rem 1.5rem;
+    padding: 1rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -79,7 +64,7 @@
     padding: 0.4rem 0.9rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.7rem;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.02em;
     text-decoration: none;
     border-radius: 40px;
@@ -102,7 +87,7 @@
     color: #b89a6e;
   }
 
-  /* hero - clean and fast */
+  /* hero section */
   #hero {
     min-height: 90vh;
     padding: 7rem 1.5rem 4rem;
@@ -144,12 +129,31 @@
     color: #b89a6e;
   }
 
+  /* typing animation container */
+  .hero-name-wrapper {
+    min-height: 5rem;
+    margin-bottom: 1rem;
+  }
+
   .hero-name {
     font-family: 'Playfair Display', serif;
     font-size: clamp(2rem, 7vw, 3.8rem);
     font-weight: 500;
     color: #f0ece3;
-    margin-bottom: 1.2rem;
+    display: inline-block;
+  }
+
+  .typed-cursor {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 7vw, 3.8rem);
+    font-weight: 400;
+    color: #b89a6e;
+    animation: blink 0.8s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
   }
 
   .hero-sub {
@@ -172,17 +176,19 @@
     padding: 0.8rem 1.8rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
-    font-weight: 500;
+    font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
     border: none;
     border-radius: 40px;
     transition: all 0.2s;
+    display: inline-block;
   }
 
   .btn-primary:hover {
     background: #9f7e56;
+    transform: translateY(-2px);
   }
 
   .btn-ghost {
@@ -192,7 +198,7 @@
     padding: 0.8rem 1.8rem;
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.05em;
     text-transform: uppercase;
     text-decoration: none;
@@ -211,6 +217,7 @@
   .btn-ghost:hover {
     border-color: #b89a6e;
     color: #b89a6e;
+    transform: translateY(-2px);
   }
 
   /* sections */
@@ -252,7 +259,7 @@
     color: #b89a6e;
   }
 
-  /* about with image - lighter */
+  /* about */
   .about-inner {
     display: flex;
     flex-direction: column;
@@ -263,13 +270,13 @@
 
   .about-visual {
     width: 100%;
-    max-width: 320px;
+    max-width: 280px;
     margin: 0 auto;
   }
 
   .about-frame {
     aspect-ratio: 1 / 1;
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
     border: 1px solid rgba(200,196,184,0.15);
   }
@@ -317,7 +324,7 @@
     border-radius: 40px;
   }
 
-  /* stats - minimal */
+  /* stats */
   #stats {
     background: #11110f;
     padding: 3rem 1.5rem;
@@ -354,7 +361,7 @@
     margin-top: 0.3rem;
   }
 
-  /* content grid - simpler, no hover heavy transforms */
+  /* reels grid */
   .reels-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -414,11 +421,7 @@
     color: #b89a6e;
   }
 
-  .reel-play {
-    display: none;
-  }
-
-  /* featured list */
+  /* featured */
   .featured-list {
     max-width: 900px;
     margin: 2rem auto 0;
@@ -502,11 +505,9 @@
     font-size: 0.85rem;
     font-style: italic;
     color: #a9a59b;
-    border-left: none;
-    padding-left: 0;
   }
 
-  /* collab */
+  /* collab + inline button */
   #collab {
     text-align: center;
     background: #11110f;
@@ -525,84 +526,106 @@
     font-style: italic;
   }
 
-  /* contact */
-  .contact-inner {
-    max-width: 1000px;
+  .inline-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .subscribe-btn {
+    background: transparent;
+    border: 1px solid rgba(184,154,110,0.5);
+    color: #e2dfd7;
+    padding: 0.7rem 1.6rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 40px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+  }
+
+  .subscribe-btn svg {
+    width: 16px;
+    height: 16px;
+    fill: none;
+    stroke: currentColor;
+  }
+
+  .subscribe-btn:hover {
+    background: rgba(184,154,110,0.15);
+    border-color: #b89a6e;
+    color: #b89a6e;
+    transform: translateY(-2px);
+  }
+
+  /* contact section simplified: only social links, no form */
+  .contact-simple {
+    max-width: 700px;
     margin: 0 auto;
+    text-align: center;
+  }
+
+  .social-links-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem 0;
+  }
+
+  .social-circle {
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    transition: transform 0.2s;
   }
 
-  .contact-link {
+  .social-circle:hover {
+    transform: translateY(-4px);
+  }
+
+  .social-icon-bg {
+    width: 70px;
+    height: 70px;
+    background: #1a1a17;
+    border-radius: 50%;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 0;
-    text-decoration: none;
-    color: #e2dfd7;
-    border-bottom: 1px solid rgba(200,196,184,0.08);
-    transition: 0.2s;
+    justify-content: center;
+    border: 1px solid rgba(184,154,110,0.3);
+    transition: all 0.2s;
   }
 
-  .contact-link-icon svg {
-    width: 20px;
-    height: 20px;
-    stroke: #b89a6e;
-  }
-
-  .contact-link-label {
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    color: #8a867c;
-  }
-
-  .contact-link-val {
-    font-size: 0.9rem;
-    font-weight: 400;
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .form-group label {
-    display: block;
-    font-size: 0.7rem;
-    letter-spacing: 0.1em;
-    color: #a9a59b;
-    margin-bottom: 0.4rem;
-  }
-
-  .form-group input, .form-group textarea {
-    width: 100%;
-    background: #1a1a17;
-    border: 1px solid #2e2e2b;
-    padding: 0.8rem;
-    color: #e2dfd7;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.85rem;
-    border-radius: 12px;
-    outline: none;
-  }
-
-  .form-group input:focus, .form-group textarea:focus {
+  .social-circle:hover .social-icon-bg {
     border-color: #b89a6e;
+    background: rgba(184,154,110,0.1);
   }
 
-  .form-submit {
-    background: #b89a6e;
-    border: none;
-    padding: 0.8rem;
-    width: 100%;
-    font-family: 'Inter', sans-serif;
-    font-weight: 500;
-    font-size: 0.75rem;
+  .social-icon-bg svg {
+    width: 30px;
+    height: 30px;
+    stroke: #cbc6bb;
+  }
+
+  .social-circle span {
+    font-size: 0.7rem;
     letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: #0c0c0a;
-    border-radius: 40px;
-    cursor: pointer;
+    color: #a9a59b;
+  }
+
+  .social-sub {
+    font-size: 0.7rem;
+    color: #b89a6e;
+    margin-top: 0.2rem;
   }
 
   /* footer */
@@ -625,19 +648,7 @@
     color: #8a867c;
   }
 
-  .footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-  }
-
-  .footer-links a {
-    font-size: 0.7rem;
-    color: #a9a59b;
-    text-decoration: none;
-  }
-
-  /* loader simplified */
+  /* loader */
   .loader {
     position: fixed;
     inset: 0;
@@ -681,7 +692,7 @@
     to { width: 100%; }
   }
 
-  /* simple scroll reveal */
+  /* fade up animation */
   .fade-up {
     opacity: 0;
     transform: translateY(20px);
@@ -710,12 +721,6 @@
     .reels-grid {
       grid-template-columns: repeat(3, 1fr);
       gap: 1.2rem;
-    }
-    .contact-inner {
-      flex-direction: row;
-    }
-    .contact-left, .contact-form {
-      flex: 1;
     }
   }
 </style>
@@ -752,7 +757,10 @@
   <section id="hero">
     <p class="hero-eyebrow">Reality Creator</p>
     <h1 class="hero-title">Real Stories.<br><em>Real Emotions.</em></h1>
-    <h2 class="hero-name">Hi, I'm Thajju.</h2>
+    <div class="hero-name-wrapper">
+      <span class="hero-name" id="typedName"></span>
+      <span class="typed-cursor" id="typedCursor">|</span>
+    </div>
     <p class="hero-sub">I create content that reflects real life — the feelings we hide, the moments we live, the truths no one speaks out loud.</p>
     <div class="hero-cta">
       <a href="#content" class="btn-primary">Watch My Stories</a>
@@ -794,18 +802,14 @@
   </section>
 
   <section id="content">
-    <div class="content-header">
-      <div><p class="section-tag">Reality Reels</p><h2 class="section-title">Stories that<br><em>stayed with you.</em></h2></div>
-    </div>
+    <div><p class="section-tag">Reality Reels</p><h2 class="section-title">Stories that<br><em>stayed with you.</em></h2></div>
     <div class="reels-grid" id="reelsGrid"></div>
   </section>
 
   <section id="featured">
-    <div class="featured-inner">
-      <p class="section-tag">Most Powerful</p>
-      <h2 class="section-title">Reels that<br><em>changed something.</em></h2>
-      <div class="featured-list" id="featuredList"></div>
-    </div>
+    <p class="section-tag">Most Powerful</p>
+    <h2 class="section-title">Reels that<br><em>changed something.</em></h2>
+    <div class="featured-list" id="featuredList"></div>
   </section>
 
   <section id="quotes">
@@ -824,28 +828,38 @@
     <div class="collab-inner">
       <p class="section-tag" style="justify-content: center;">Collaborations</p>
       <h2 class="collab-tagline fade-up">If your brand believes in<br><em>real stories</em>, let's work together.</h2>
-      <p class="collab-sub fade-up" style="color:#a9a59b; max-width:500px; margin:1rem auto;">I partner with brands that value authenticity over perfection.</p>
-      <a href="#contact" class="btn-primary" style="display:inline-block; margin-top:1rem;">Start a Conversation →</a>
+      <p class="collab-sub fade-up" style="color:#a9a59b; max-width:500px; margin:0 auto 1.5rem;">I partner with brands that value authenticity over perfection.</p>
+      <!-- inline button to contact section (no form) -->
+      <div class="inline-buttons">
+        <a href="#contact" class="subscribe-btn" style="background:#b89a6e; color:#0c0c0a; border:none;">Let's Collaborate →</a>
+      </div>
     </div>
   </section>
 
+  <!-- contact section: no form, only social subscribe buttons -->
   <section id="contact">
-    <div class="contact-inner">
-      <div class="contact-left fade-up">
-        <p class="section-tag">Let's Connect</p>
-        <h2 class="section-title">Find me<br>where <em>stories live.</em></h2>
-        <div class="contact-info">
-          <a href="https://instagram.com/thajuuu7" target="_blank" class="contact-link"><div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg></div><div><span class="contact-link-label">Instagram</span><div class="contact-link-val">@thajuuu7</div></div></a>
-          <a href="https://youtube.com/@thajju" target="_blank" class="contact-link"><div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></div><div><span class="contact-link-label">YouTube</span><div class="contact-link-val">@thajju</div></div></a>
-          <a href="mailto:hello@thajju.com" class="contact-link"><div class="contact-link-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></div><div><span class="contact-link-label">Email</span><div class="contact-link-val">hello@thajju.com</div></div></a>
-        </div>
+    <div class="contact-simple">
+      <p class="section-tag" style="justify-content: center;">Connect & Subscribe</p>
+      <h2 class="section-title">Follow <em>my journey</em></h2>
+      <div class="social-links-row">
+        <a href="https://instagram.com/thajuuu7" target="_blank" class="social-circle">
+          <div class="social-icon-bg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+          </div>
+          <span>Instagram</span>
+          <span class="social-sub">@thajuuu7 · 500K+</span>
+        </a>
+        <a href="https://youtube.com/@thajju" target="_blank" class="social-circle">
+          <div class="social-icon-bg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+          </div>
+          <span>YouTube</span>
+          <span class="social-sub">Subscribe · @thajju</span>
+        </a>
       </div>
-      <div class="contact-form fade-up">
-        <p class="section-tag">Send a Message</p>
-        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Who are you?"></div>
-        <div class="form-group"><label>Email Address</label><input type="email" placeholder="Where can I reach you?"></div>
-        <div class="form-group"><label>Your Story</label><textarea rows="3" placeholder="Tell me what's on your mind..."></textarea></div>
-        <button class="form-submit"><span>Send the Message →</span></button>
+      <p class="quote-small" style="margin-top: 2rem;">Reach out for collabs via DM or email — let's create something real.</p>
+      <div class="inline-buttons" style="margin-top: 1rem;">
+        <a href="mailto:hello@thajju.com" class="subscribe-btn">Email me →</a>
       </div>
     </div>
   </section>
@@ -858,7 +872,78 @@
 </footer>
 
 <script>
-  // simple count animation
+  // Typing animation for name
+  const nameText = "Hi, I'm Thajju.";
+  const typedNameSpan = document.getElementById('typedName');
+  const cursorSpan = document.getElementById('typedCursor');
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeEffect() {
+    if (!isDeleting && charIndex <= nameText.length) {
+      typedNameSpan.textContent = nameText.substring(0, charIndex);
+      charIndex++;
+      setTimeout(typeEffect, 100);
+    } else if (isDeleting && charIndex >= 0) {
+      typedNameSpan.textContent = nameText.substring(0, charIndex);
+      charIndex--;
+      setTimeout(typeEffect, 50);
+    } else if (!isDeleting && charIndex > nameText.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 2000);
+    } else if (isDeleting && charIndex < 0) {
+      isDeleting = false;
+      charIndex = 0;
+      setTimeout(typeEffect, 500);
+    }
+  }
+  setTimeout(() => { typeEffect(); }, 500);
+
+  // Build reels and featured
+  const reelsData = [
+    { title: '"When no one understands you"', views: '2.1M Views' },
+    { title: '"The person you became after pain"', views: '1.8M Views' },
+    { title: '"Missing someone who\'s still there"', views: '3.4M Views' },
+    { title: '"Smiling through the hardest days"', views: '900K Views' },
+    { title: '"What they never say out loud"', views: '1.2M Views' },
+    { title: '"The friendship you lost to time"', views: '2.7M Views' }
+  ];
+  const featuredData = [
+    { num:'01', title:'"The weight of being misunderstood"', desc:'A reel about silent nights when you carry everything alone.' },
+    { num:'02', title:'"The last goodbye you never got"', desc:'For the goodbyes that happened without warning — still ache.' },
+    { num:'03', title:'"Growing up means letting go"', desc:'For dreams set aside, childhood cut short.' }
+  ];
+
+  function buildReels() {
+    const container = document.getElementById('reelsGrid');
+    if(!container) return;
+    reelsData.forEach((item, idx) => {
+      const card = document.createElement('div');
+      card.className = 'reel-card fade-up';
+      card.innerHTML = `
+        <div class="reel-thumb-bg"><span class="reel-thumb-letter">0${idx+1}</span></div>
+        <div class="reel-overlay"><h3 class="reel-title">${item.title}</h3><p class="reel-meta">${item.views}</p></div>
+      `;
+      container.appendChild(card);
+    });
+  }
+
+  function buildFeatured() {
+    const container = document.getElementById('featuredList');
+    if(!container) return;
+    featuredData.forEach(item => {
+      const div = document.createElement('div');
+      div.className = 'featured-item fade-up';
+      div.innerHTML = `
+        <div class="featured-num">${item.num}</div>
+        <div><h3 class="featured-title">${item.title}</h3><p class="featured-desc">${item.desc}</p></div>
+        <div class="featured-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      `;
+      container.appendChild(div);
+    });
+  }
+
+  // number counter
   function animateNumbers() {
     document.querySelectorAll('.stat-num').forEach(el => {
       let raw = el.getAttribute('data-count');
@@ -875,57 +960,11 @@
     });
   }
 
-  // generate reel cards & featured dynamically
-  const reelsData = [
-    { title: '"When no one understands you"', views: '2.1M Views' },
-    { title: '"The person you became after pain"', views: '1.8M Views' },
-    { title: '"Missing someone who\'s still there"', views: '3.4M Views' },
-    { title: '"Smiling through the hardest days"', views: '900K Views' },
-    { title: '"What they never say out loud"', views: '1.2M Views' },
-    { title: '"The friendship you lost to time"', views: '2.7M Views' }
-  ];
-  const featuredData = [
-    { num:'01', title:'"The weight of being misunderstood"', desc:'A reel about silent nights when you carry everything alone.' },
-    { num:'02', title:'"The last goodbye you never got"', desc:'For the goodbyes that happened without warning — still ache.' },
-    { num:'03', title:'"Growing up means letting go"', desc:'For dreams set aside, childhood cut short.' }
-  ];
-  function buildReels() {
-    const container = document.getElementById('reelsGrid');
-    if(!container) return;
-    reelsData.forEach((item, idx) => {
-      const card = document.createElement('div');
-      card.className = 'reel-card fade-up';
-      card.innerHTML = `
-        <div class="reel-thumb-bg"><span class="reel-thumb-letter">0${idx+1}</span></div>
-        <div class="reel-overlay"><h3 class="reel-title">${item.title}</h3><p class="reel-meta">${item.views}</p></div>
-      `;
-      container.appendChild(card);
-    });
-  }
-  function buildFeatured() {
-    const container = document.getElementById('featuredList');
-    if(!container) return;
-    featuredData.forEach(item => {
-      const div = document.createElement('div');
-      div.className = 'featured-item fade-up';
-      div.innerHTML = `
-        <div class="featured-num">${item.num}</div>
-        <div><h3 class="featured-title">${item.title}</h3><p class="featured-desc">${item.desc}</p></div>
-        <div class="featured-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-      `;
-      container.appendChild(div);
-    });
-  }
-
-  // scroll reveal (simple)
+  // scroll reveal
   function revealOnScroll() {
-    const elements = document.querySelectorAll('.fade-up');
-    elements.forEach(el => {
+    document.querySelectorAll('.fade-up').forEach(el => {
       const rect = el.getBoundingClientRect();
-      const windowHeight = window.innerHeight;
-      if(rect.top < windowHeight - 80) {
-        el.classList.add('visible');
-      }
+      if(rect.top < window.innerHeight - 80) el.classList.add('visible');
     });
   }
 
