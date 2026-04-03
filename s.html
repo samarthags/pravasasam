@@ -12,6 +12,9 @@
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      /* Remove tap highlight on ALL elements */
+      -webkit-tap-highlight-color: transparent;
+      -webkit-touch-callout: none;
     }
 
     body {
@@ -33,7 +36,7 @@
       --light-grey: #d4d4d4;
       --off-white: #f0f0f0;
       --white: #ffffff;
-      --accent-gold: #9e9e9e; /* cool grey accent, no warm tones */
+      --accent-gold: #9e9e9e;
     }
 
     /* navigation */
@@ -70,6 +73,7 @@
       gap: 0.75rem;
     }
 
+    /* ── BOX buttons (no circle / pill) ── */
     .social-nav-btn {
       background: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.15);
@@ -80,11 +84,13 @@
       font-weight: 600;
       letter-spacing: 0.02em;
       text-decoration: none;
-      border-radius: 40px;
+      border-radius: 4px; /* box, not pill */
       transition: all 0.25s cubic-bezier(0.2, 0.9, 0.4, 1.1);
       display: flex;
       align-items: center;
       gap: 6px;
+      outline: none;
+      user-select: none;
     }
 
     .social-nav-btn svg {
@@ -99,6 +105,11 @@
       border-color: #ffffff;
       color: #000000;
       transform: translateY(-2px);
+    }
+
+    .social-nav-btn:active {
+      transform: translateY(0);
+      background: #e0e0e0;
     }
 
     /* hero section */
@@ -183,6 +194,7 @@
       gap: 1rem;
     }
 
+    /* ── PRIMARY BUTTON — box ── */
     .btn-primary {
       background: #ffffff;
       color: #000000;
@@ -194,9 +206,11 @@
       text-transform: uppercase;
       text-decoration: none;
       border: none;
-      border-radius: 40px;
+      border-radius: 4px; /* box */
       transition: all 0.25s ease;
       display: inline-block;
+      outline: none;
+      user-select: none;
     }
 
     .btn-primary:hover {
@@ -205,6 +219,12 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
 
+    .btn-primary:active {
+      transform: translateY(0);
+      background: #b8b8b8;
+    }
+
+    /* ── GHOST BUTTON — box ── */
     .btn-ghost {
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.3);
@@ -216,11 +236,13 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
       text-decoration: none;
-      border-radius: 40px;
+      border-radius: 4px; /* box */
       display: flex;
       align-items: center;
       gap: 8px;
       transition: all 0.25s;
+      outline: none;
+      user-select: none;
     }
 
     .btn-ghost svg {
@@ -233,6 +255,11 @@
       color: #ffffff;
       background: rgba(255,255,255,0.05);
       transform: translateY(-2px);
+    }
+
+    .btn-ghost:active {
+      transform: translateY(0);
+      background: rgba(255,255,255,0.08);
     }
 
     /* sections */
@@ -291,7 +318,7 @@
 
     .about-frame {
       aspect-ratio: 1 / 1;
-      border-radius: 20px;
+      border-radius: 6px; /* box, slight rounding */
       overflow: hidden;
       border: 1px solid rgba(255, 255, 255, 0.12);
       filter: grayscale(100%);
@@ -342,7 +369,7 @@
       letter-spacing: 0.05em;
       text-transform: uppercase;
       color: #b0b0b0;
-      border-radius: 40px;
+      border-radius: 3px; /* box tag */
       transition: all 0.2s;
     }
 
@@ -399,7 +426,7 @@
 
     .reel-card {
       background: #0f0f0f;
-      border-radius: 18px;
+      border-radius: 6px; /* box */
       overflow: hidden;
       aspect-ratio: 9 / 14;
       position: relative;
@@ -552,7 +579,7 @@
       color: #aaaaaa;
     }
 
-    /* collab + inline button */
+    /* collab */
     #collab {
       text-align: center;
       background: #050505;
@@ -579,6 +606,7 @@
       margin-top: 2rem;
     }
 
+    /* ── SUBSCRIBE / INLINE BUTTON — box ── */
     .subscribe-btn {
       background: transparent;
       border: 1px solid rgba(255, 255, 255, 0.35);
@@ -589,11 +617,13 @@
       font-weight: 600;
       letter-spacing: 0.05em;
       text-decoration: none;
-      border-radius: 40px;
+      border-radius: 4px; /* box */
       display: inline-flex;
       align-items: center;
       gap: 8px;
       transition: all 0.25s;
+      outline: none;
+      user-select: none;
     }
 
     .subscribe-btn svg {
@@ -610,7 +640,12 @@
       transform: translateY(-2px);
     }
 
-    /* contact simplified - monochrome */
+    .subscribe-btn:active {
+      transform: translateY(0);
+      background: #e0e0e0;
+    }
+
+    /* contact */
     .contact-simple {
       max-width: 700px;
       margin: 0 auto;
@@ -632,17 +667,20 @@
       gap: 0.5rem;
       text-decoration: none;
       transition: transform 0.2s;
+      outline: none;
+      user-select: none;
     }
 
     .social-circle:hover {
       transform: translateY(-5px);
     }
 
+    /* ── SOCIAL ICON — BOX, not circle ── */
     .social-icon-bg {
       width: 70px;
       height: 70px;
       background: #111111;
-      border-radius: 50%;
+      border-radius: 6px; /* box, not 50% */
       display: flex;
       align-items: center;
       justify-content: center;
@@ -789,18 +827,21 @@
 </head>
 <body>
 
-
+<div id="loader" class="loader">
+  <span class="loader-name">Thajju</span>
+  <div class="loader-bar-track"><div class="loader-bar"></div></div>
+</div>
 
 <nav>
   <a href="#" class="nav-logo">Thajju</a>
   <div class="nav-buttons">
     <a href="https://instagram.com/thajuuu7" target="_blank" class="social-nav-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
-      
+      Instagram
     </a>
     <a href="https://youtube.com/@thajuuu" target="_blank" class="social-nav-btn">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-      
+      YouTube
     </a>
   </div>
 </nav>
@@ -817,8 +858,8 @@
     <div class="hero-cta">
       <a href="https://instagram.com/thajuuu7" class="btn-primary">Follow on Instagram</a>
       <a href="https://youtube.com/@thajuuu" target="_blank" class="btn-ghost">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
-       Subscribe
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg>
+        Subscribe
       </a>
     </div>
   </section>
@@ -845,6 +886,28 @@
     </div>
   </section>
 
+  <section id="stats">
+    <div class="stats-grid">
+      <div class="stat-item fade-up">
+        <div class="stat-num" data-count="50">0K+</div>
+        <div class="stat-label">Instagram Followers</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-num" data-count="10">0K+</div>
+        <div class="stat-label">YouTube Subscribers</div>
+      </div>
+      <div class="stat-item fade-up">
+        <div class="stat-num" data-count="100">0+</div>
+        <div class="stat-label">Reels Created</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="featured">
+    <p class="section-tag">Featured Work</p>
+    <h2 class="section-title">Stories that <em>stayed.</em></h2>
+    <div class="featured-list" id="featuredList"></div>
+  </section>
 
   <section id="quotes">
     <div class="quote-carousel">
@@ -876,27 +939,36 @@
       <div class="social-links-row">
         <a href="https://instagram.com/thajuuu7" target="_blank" class="social-circle">
           <div class="social-icon-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg></div>
-          <span>Instagram</span><span class="social-sub">@thajuuu7 · </span>
+          <span>Instagram</span>
+          <span class="social-sub">@thajuuu7</span>
         </a>
         <a href="https://youtube.com/@thajuuu" target="_blank" class="social-circle">
           <div class="social-icon-bg"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/></svg></div>
-          <span>YouTube</span><span class="social-sub">Subscribe · @thaju</span>
+          <span>YouTube</span>
+          <span class="social-sub">@thajuuu</span>
         </a>
       </div>
       <p class="quote-small" style="margin-top: 2rem;">Reach out for collabs via DM or email — let's create something real.</p>
-      <div class="inline-buttons" style="margin-top: 1rem;"><a href="mailto:thajumnglr@gmail.com" class="subscribe-btn">Email me →</a></div>
+      <div class="inline-buttons" style="margin-top: 1rem;">
+        <a href="mailto:thajuuu@gmail.com" class="subscribe-btn">Email me →</a>
+      </div>
     </div>
   </section>
 </main>
 
 <footer>
   <span class="footer-brand">Thajju</span>
-  <div A small gift from Samartha Gs</div>
-  <div class="footer-links"><a href="https://instagram.com/thajuuu7">Instagram</a><a href="https://youtube.com/@thajuuu">YouTube</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+  <div class="footer-copy">A small gift from Samartha Gs</div>
+  <div class="footer-links">
+    <a href="https://instagram.com/thajuuu7">Instagram</a>
+    <a href="https://youtube.com/@thajuuu">YouTube</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
 </footer>
 
 <script>
-  // Typing animation for name
+  // Typing animation
   const nameText = "Hi, I'm Thajju.";
   const typedNameSpan = document.getElementById('typedName');
   const cursorSpan = document.getElementById('typedCursor');
@@ -923,32 +995,22 @@
   }
   setTimeout(() => { typeEffect(); }, 500);
 
-  
+  // Featured list
   const featuredData = [
     { num:'01', title:'"The weight of being misunderstood"', desc:'A reel about silent nights when you carry everything alone.' },
     { num:'02', title:'"The last goodbye you never got"', desc:'For the goodbyes that happened without warning — still ache.' },
     { num:'03', title:'"Growing up means letting go"', desc:'For dreams set aside, childhood cut short.' }
   ];
 
-  function buildReels() {
-    const container = document.getElementById('reelsGrid');
-    if(!container) return;
-    reelsData.forEach((item, idx) => {
-      const card = document.createElement('div');
-      card.className = 'reel-card fade-up';
-      card.innerHTML = `<div class="reel-thumb-bg"><span class="reel-thumb-letter">0${idx+1}</span></div>
-        <div class="reel-overlay"><h3 class="reel-title">${item.title}</h3><p class="reel-meta">${item.views}</p></div>`;
-      container.appendChild(card);
-    });
-  }
-
   function buildFeatured() {
     const container = document.getElementById('featuredList');
-    if(!container) return;
+    if (!container) return;
     featuredData.forEach(item => {
       const div = document.createElement('div');
       div.className = 'featured-item fade-up';
-      div.innerHTML = `<div class="featured-num">${item.num}</div><div><h3 class="featured-title">${item.title}</h3><p class="featured-desc">${item.desc}</p></div>
+      div.innerHTML = `
+        <div class="featured-num">${item.num}</div>
+        <div><h3 class="featured-title">${item.title}</h3><p class="featured-desc">${item.desc}</p></div>
         <div class="featured-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>`;
       container.appendChild(div);
     });
@@ -956,16 +1018,16 @@
 
   function animateNumbers() {
     document.querySelectorAll('.stat-num').forEach(el => {
-      let raw = el.getAttribute('data-count');
-      if(!raw) return;
-      let target = parseInt(raw);
-      let suffix = el.innerText.includes('K+') ? 'K+' : (el.innerText.includes('M+') ? 'M+' : '+');
+      const raw = el.getAttribute('data-count');
+      if (!raw) return;
+      const target = parseInt(raw);
+      const suffix = el.innerText.includes('K+') ? 'K+' : (el.innerText.includes('M+') ? 'M+' : '+');
       let current = 0;
-      let step = Math.ceil(target / 45);
-      let timer = setInterval(() => {
+      const step = Math.ceil(target / 45);
+      const timer = setInterval(() => {
         current = Math.min(current + step, target);
         el.innerText = current + suffix;
-        if(current >= target) clearInterval(timer);
+        if (current >= target) clearInterval(timer);
       }, 25);
     });
   }
@@ -973,12 +1035,11 @@
   function revealOnScroll() {
     document.querySelectorAll('.fade-up').forEach(el => {
       const rect = el.getBoundingClientRect();
-      if(rect.top < window.innerHeight - 80) el.classList.add('visible');
+      if (rect.top < window.innerHeight - 80) el.classList.add('visible');
     });
   }
 
   window.addEventListener('load', () => {
-    buildReels();
     buildFeatured();
     setTimeout(() => {
       document.getElementById('loader')?.classList.add('done');
@@ -989,9 +1050,9 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         const targetId = this.getAttribute('href');
-        if(targetId && targetId !== '#') {
+        if (targetId && targetId !== '#') {
           const target = document.querySelector(targetId);
-          if(target) {
+          if (target) {
             e.preventDefault();
             target.scrollIntoView({ behavior: 'smooth' });
           }
