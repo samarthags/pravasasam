@@ -530,6 +530,24 @@ footer{
 /* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
 .reveal.vis{opacity:1;transform:translateY(0)}
+
+/* ── IMAGE LOADING SKELETON ── */
+@keyframes skeletonShimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
+.img-wrap{position:relative;width:100%;height:100%;overflow:hidden;background:#e8f0eb}
+.img-wrap::before{
+  content:'';position:absolute;inset:0;z-index:2;
+  background:linear-gradient(90deg,#e8f0eb 25%,#d2e6d8 50%,#e8f0eb 75%);
+  background-size:800px 100%;
+  animation:skeletonShimmer 1.4s ease infinite;
+  transition:opacity .4s ease;
+}
+.img-wrap.loaded::before{opacity:0;pointer-events:none}
+.img-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease}
+.img-wrap.loaded img{opacity:1}
+/* dest-card already has its own img styles — override for wrapped images */
+.dest-card .img-wrap img{opacity:0;transform:none}
+.dest-card .img-wrap.loaded img{opacity:.7}
+.dest-card:hover .img-wrap.loaded img{opacity:.88}
 </style>
 </head>
 <body>
@@ -599,7 +617,6 @@ footer{
       <div class="trending-label-wrap">
         <div>
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px">
-            <span class="trending-fire-badge"><i class="fas fa-fire"></i> Now Trending</span>
             <span class="trending-views"><i class="fas fa-circle" style="font-size:6px"></i> Most Booked This Season</span>
           </div>
           <h2 class="trending-main-title">
@@ -847,32 +864,32 @@ footer{
   </div>
   <div class="dest-grid">
     <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Gokarna')">
-      <img src="https://i.ibb.co/0RJsV5kx/IMG-20260405-WA0008.jpg" alt="Gokarna Om Beach Karnataka" loading="lazy"/>
+      <div class="img-wrap"><img src="https://i.ibb.co/0RJsV5kx/IMG-20260405-WA0008.jpg" alt="Gokarna Om Beach Karnataka"/></div>
       <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Gokarna — Om Beach</div><div class="dest-meta">Beach trek · Cafe hangout · Night bonfire</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
     <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Murudeshwar')">
-      <img src="https://i.ibb.co/pBYw9VvN/IMG-20260405-WA0012.jpg" alt="Murudeshwar scuba diving Karnataka" loading="lazy"/>
+      <div class="img-wrap"><img src="https://i.ibb.co/pBYw9VvN/IMG-20260405-WA0012.jpg" alt="Murudeshwar scuba diving Karnataka"/></div>
       <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Murudeshwar</div><div class="dest-meta">Scuba diving · Netrani Island · Giant Shiva</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
     <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Honnavara')">
-      <img src="https://i.ibb.co/dHTLz2L/images-1.jpg" alt="Honnavara mangrove boating Karnataka" loading="lazy"/>
+      <div class="img-wrap"><img src="https://i.ibb.co/dHTLz2L/images-1.jpg" alt="Honnavara mangrove boating Karnataka"/></div>
       <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Honnavara Mangroves</div><div class="dest-meta">Backwater boating · Aghanaashini River</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
     <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Udupi')">
-      <img src="https://i.ibb.co/skJQgxJ/IMG-20260405-WA0006.jpg" alt="Udupi Malpe Beach Karnataka" loading="lazy"/>
+      <div class="img-wrap"><img src="https://i.ibb.co/skJQgxJ/IMG-20260405-WA0006.jpg" alt="Udupi Malpe Beach Karnataka"/></div>
       <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Udupi & Malpe Beach</div><div class="dest-meta">St. Mary's Island · Water sports · Sea walk</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
     <div class="dest-card reveal" data-tags="malenadu budget premium" onclick="scrollToBook('Shivamogga')">
-      <img src="https://i.ibb.co/nsCGGzcb/images-4.jpg" alt="Shivamogga Jog Falls Karnataka" loading="lazy"/>
+      <div class="img-wrap"><img src="https://i.ibb.co/nsCGGzcb/images-4.jpg" alt="Shivamogga Jog Falls Karnataka"/></div>
       <div class="dest-overlay"><span class="dest-badge">Malenadu</span><div class="dest-name">Shivamogga & Jog Falls</div><div class="dest-meta">Trekking · Bird watching · Forest homestay</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
     <div class="dest-card reveal" data-tags="coastal budget premium" onclick="scrollToBook('Mangaluru')">
-      <img src="https://i.ibb.co/xSv8NfPs/IMG-20260405-WA0010.jpg" alt="Mangaluru Karnataka" loading="lazy"/>
+      <div class="img-wrap"><img src="https://i.ibb.co/xSv8NfPs/IMG-20260405-WA0010.jpg" alt="Mangaluru Karnataka"/></div>
       <div class="dest-overlay"><span class="dest-badge">Coastal</span><div class="dest-name">Mangaluru</div><div class="dest-meta">Surfing · Night life · Seafood trail</div></div>
       <div class="dest-arrow"><i class="fas fa-arrow-up-right"></i></div>
     </div>
@@ -1367,7 +1384,7 @@ footer{
   <div class="cta-box">
     <h2 class="cta-t">Don't just watch reels,<br/><em>live them</em></h2>
     <p class="cta-d">No long planning. No calls needed. Fill the form, confirm on WhatsApp, and we handle everything else.</p>
-    <div class="cta-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="3d4e544f54535c59484d4f5c4b5c4e5c7d5a505c5451135e5250">[email&#160;protected]</a> · <strong>+91 98458 39517</strong></div>
+    <div class="cta-contact"><a href="mailto:sirinadupravasa@gmail.com">sirinadupravasa@gmail.com</a> · <strong>+91 98458 39517</strong></div>
     <br/>
     <button class="btn-cta-white" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
       <i class="fas fa-compass"></i> Book your trip — free consultation
@@ -1440,7 +1457,7 @@ footer{
           <div class="ft-ci-icon"><i class="fas fa-envelope"></i></div>
           <div class="ft-ci-body">
             <div class="ft-ci-label">Email</div>
-            <div class="ft-ci-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="43302a312a2d2227363331223522302203242e222a2f6d202c2e">[email&#160;protected]</a></div>
+            <div class="ft-ci-val"><a href="mailto:sirinadupravasa@gmail.com" style="color:inherit">sirinadupravasa@gmail.com</a></div>
           </div>
         </div>
         <div class="ft-contact-item">
@@ -1497,7 +1514,17 @@ footer{
 
 <div class="toast" id="toast"></div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+// IMAGE SKELETON LOADER
+function initImgWrap(wrap){
+  const img=wrap.querySelector('img');
+  if(!img)return;
+  function onLoad(){wrap.classList.add('loaded');}
+  if(img.complete&&img.naturalWidth>0){onLoad();}
+  else{img.addEventListener('load',onLoad);img.addEventListener('error',onLoad);}
+}
+document.querySelectorAll('.img-wrap').forEach(initImgWrap);
+
 // WORD CYCLE
 const WORDS=["ನಿಮ್ಮ ಪ್ರವಾಸ","ನಮ್ಮ ಜವಾಬ್ದಾರಿ!","Your Journey","Our Responsibility!","Coastal Karnataka","Awaits You!"];
 let wordIdx=0;
@@ -1582,4 +1609,3 @@ function handleBooking(){
 </script>
 </body>
 </html>
-   
