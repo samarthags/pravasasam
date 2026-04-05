@@ -1381,7 +1381,7 @@ footer{
   <div class="cta-box">
     <h2 class="cta-t">Don't just watch reels,<br/><em>live them</em></h2>
     <p class="cta-d">No long planning. No calls needed. Fill the form, confirm on WhatsApp, and we handle everything else.</p>
-    <div class="cta-contact"><a href="mailto:sirinadupravasa@gmail.com">sirinadupravasa@gmail.com</a> · <strong>+91 98458 39517</strong></div>
+    <div class="cta-contact"><a href="/cdn-cgi/l/email-protection#98ebf1eaf1f6f9fcede8eaf9eef9ebf9d8fff5f9f1f4b6fbf7f5"><span class="__cf_email__" data-cfemail="f88b918a9196999c8d888a998e998b99b89f95999194d69b9795">[email&#160;protected]</span></a> · <strong>+91 98458 39517</strong></div>
     <br/>
     <button class="btn-cta-white" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
       <i class="fas fa-compass"></i> Book your trip — free consultation
@@ -1454,7 +1454,7 @@ footer{
           <div class="ft-ci-icon"><i class="fas fa-envelope"></i></div>
           <div class="ft-ci-body">
             <div class="ft-ci-label">Email</div>
-            <div class="ft-ci-val"><a href="mailto:sirinadupravasa@gmail.com" style="color:inherit">sirinadupravasa@gmail.com</a></div>
+            <div class="ft-ci-val"><a href="/cdn-cgi/l/email-protection#cebda7bca7a0afaabbbebcafb8afbdaf8ea9a3afa7a2e0ada1a3" style="color:inherit"><span class="__cf_email__" data-cfemail="582b312a3136393c2d282a392e392b39183f35393134763b3735">[email&#160;protected]</span></a></div>
           </div>
         </div>
         <div class="ft-contact-item">
@@ -1475,7 +1475,8 @@ footer{
 
     </div><!-- ft-top -->
 
-    
+    <div class="ft-bottom">
+      <div class="ft-copy" <strong>Sirinadu Pravasa</strong> · Bengaluru, Karnataka · Designed &amp; Developed by <a href="https://www.instagram.com/samarthaags" target="_blank" style="color:inherit;text-decoration:underline;cursor:pointer">Samartha Gs</a></div>
       <div class="ft-bottom-links">
         <a href="#poornakutira">Poornakutira</a>
         <a href="#destinations">Destinations</a>
@@ -1510,7 +1511,7 @@ footer{
 
 <div class="toast" id="toast"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // IMAGE SKELETON LOADER
 function initImgWrap(wrap){
   const img=wrap.querySelector('img');
@@ -1594,6 +1595,7 @@ function handleBooking(){
   if(!validate()){showToast('⚠ Fill all required fields','error');return;}
   const n=document.getElementById('f-name').value.trim(),ph=document.getElementById('f-phone').value.trim(),em=document.getElementById('f-email').value.trim(),dest=document.getElementById('f-dest').value,date=document.getElementById('f-date').value,pax=document.getElementById('f-pax').value,budget=document.getElementById('f-budget').value,notes=document.getElementById('f-notes').value.trim();
   let disc='';const p=parseInt(pax);if(p>=13)disc='🎉 15% gang discount eligible!';else if(p>=8)disc='🎉 10% gang discount eligible!';else if(p>=5)disc='🎉 5% gang discount eligible!';
+  const msg=`🌿 *New Booking — Sirinadu Pravasa*\n\n👤 Name: ${n}\n📞 Phone: ${ph}${em?'\n📧 Email: '+em:''}\n📍 Destination: ${dest}\n📅 Date: ${date}\n👥 People: ${pax}${budget?'\n💰 Budget: '+budget:''}${notes?'\n📝 Notes: '+notes:''}${disc?'\n\n'+disc:''}\n\n_Sent from sirinadupravasa.in_`;
   const btn=document.getElementById('submitBtn');
   btn.innerHTML='<i class="fas fa-check"></i> Booking sent!';
   btn.disabled=true;
