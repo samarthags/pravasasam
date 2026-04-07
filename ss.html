@@ -1,0 +1,1066 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACK BULL — Men's Collections, Sagara</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #0a0a0a;
+  --deep: #111111;
+  --card: #161616;
+  --border: #242424;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --gold-dim: rgba(201,168,76,0.15);
+  --white: #f5f0e8;
+  --muted: #888;
+  --red: #c0392b;
+  --green: #4CAF50;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+  cursor: none;
+}
+
+/* ─── CURSOR ─── */
+.cursor {
+  position: fixed; width: 10px; height: 10px;
+  background: var(--gold); border-radius: 50%;
+  pointer-events: none; z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, background 0.3s;
+}
+.cursor-ring {
+  position: fixed; width: 36px; height: 36px;
+  border: 1px solid var(--gold); border-radius: 50%;
+  pointer-events: none; z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s, height 0.3s, opacity 0.3s;
+  opacity: 0.6;
+}
+.cursor.click { transform: translate(-50%,-50%) scale(0.7); background: var(--gold-light); }
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gold); }
+
+/* ─── SCROLL PROGRESS ─── */
+#scroll-progress {
+  position: fixed; top: 0; left: 0; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  z-index: 9997; width: 0%; transition: width 0.1s linear;
+}
+
+/* ─── NAV ─── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 48px;
+  background: linear-gradient(to bottom, rgba(10,10,10,0.98) 0%, transparent 100%);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  transition: padding 0.4s, background 0.4s;
+}
+nav.scrolled {
+  padding: 14px 48px;
+  background: rgba(10,10,10,0.97);
+  border-bottom-color: rgba(201,168,76,0.25);
+}
+.nav-logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: 4px;
+  color: var(--white); text-decoration: none;
+  display: flex; align-items: center; gap: 10px;
+}
+.nav-logo span { color: var(--gold); }
+.nav-logo i { font-size: 18px; color: var(--gold); }
+.nav-links { display: flex; gap: 36px; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  transition: color 0.3s; position: relative;
+  display: flex; align-items: center; gap: 6px;
+}
+.nav-links a i { font-size: 10px; }
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 100%;
+  height: 1px; background: var(--gold); transition: right 0.3s ease;
+}
+.nav-links a:hover { color: var(--white); }
+.nav-links a:hover::after { right: 0; }
+.nav-cta { display: flex; align-items: center; gap: 16px; }
+.btn-nav {
+  padding: 10px 24px; border: 1px solid var(--gold);
+  color: var(--gold); background: transparent;
+  font-family: 'DM Sans', sans-serif; font-size: 11px;
+  letter-spacing: 2px; text-transform: uppercase; text-decoration: none;
+  cursor: none; position: relative; overflow: hidden; transition: color 0.4s;
+  display: flex; align-items: center; gap: 8px;
+}
+.btn-nav::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gold); transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.btn-nav:hover { color: var(--black); }
+.btn-nav:hover::before { transform: translateX(0); }
+.btn-nav i, .btn-nav span { position: relative; z-index: 1; }
+
+/* ─── HAMBURGER ─── */
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: none; background: none; border: none; padding: 4px;
+}
+.hamburger span { width: 24px; height: 1px; background: var(--white); transition: all 0.3s; display: block; }
+
+/* ─── HERO ─── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 0 48px 80px; position: relative; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 70% 30%, rgba(201,168,76,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(192,57,43,0.06) 0%, transparent 50%),
+    linear-gradient(160deg, #0a0a0a 0%, #111 50%, #0a0a0a 100%);
+}
+.hero-noise {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+.hero-line {
+  position: absolute; top: 0; left: 48px;
+  width: 1px; height: 0;
+  background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+  animation: lineGrow 1.5s 0.5s ease forwards;
+}
+@keyframes lineGrow { to { height: 60%; } }
+
+.hero-tag {
+  position: relative; font-size: 11px; letter-spacing: 4px;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 20px;
+  opacity: 0; animation: fadeUp 0.8s 0.8s ease forwards;
+  display: flex; align-items: center; gap: 10px;
+}
+.hero-tag i { font-size: 10px; }
+
+.hero-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(72px, 12vw, 160px);
+  line-height: 0.9; letter-spacing: 2px;
+  position: relative; opacity: 0;
+  animation: fadeUp 0.9s 1s ease forwards;
+}
+.hero-title .gold { color: var(--gold); }
+.hero-title .outline { -webkit-text-stroke: 1px var(--white); color: transparent; }
+
+.hero-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(16px, 2vw, 22px); font-style: italic;
+  color: var(--muted); margin-top: 20px;
+  opacity: 0; animation: fadeUp 0.8s 1.2s ease forwards;
+}
+
+.hero-actions {
+  display: flex; align-items: center; gap: 24px; margin-top: 48px;
+  opacity: 0; animation: fadeUp 0.8s 1.4s ease forwards;
+}
+.btn-primary {
+  padding: 16px 40px; background: var(--gold); color: var(--black);
+  border: none; font-family: 'DM Sans', sans-serif; font-size: 12px;
+  font-weight: 500; letter-spacing: 3px; text-transform: uppercase;
+  text-decoration: none; cursor: none; position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: color 0.4s;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--black); transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.btn-primary:hover { color: var(--gold); }
+.btn-primary:hover::before { transform: translateX(0); }
+.btn-primary i, .btn-primary span { position: relative; z-index: 1; }
+
+.btn-ghost {
+  padding: 16px 40px; background: transparent; color: var(--white);
+  border: 1px solid rgba(245,240,232,0.3);
+  font-family: 'DM Sans', sans-serif; font-size: 12px;
+  letter-spacing: 3px; text-transform: uppercase; text-decoration: none;
+  cursor: none; position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; gap: 10px;
+  transition: color 0.4s, border-color 0.4s;
+}
+.btn-ghost::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(245,240,232,0.08);
+  transform: translateY(101%); transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.btn-ghost:hover { border-color: rgba(245,240,232,0.6); }
+.btn-ghost:hover::before { transform: translateY(0); }
+.btn-ghost i, .btn-ghost span { position: relative; z-index: 1; }
+
+.hero-scroll {
+  position: absolute; right: 48px; bottom: 80px;
+  writing-mode: vertical-lr; font-size: 10px; letter-spacing: 3px;
+  text-transform: uppercase; color: var(--muted);
+  display: flex; align-items: center; gap: 12px;
+  opacity: 0; animation: fadeUp 0.8s 1.8s ease forwards;
+}
+.hero-scroll::before {
+  content: ''; width: 1px; height: 50px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollPulse 2s infinite;
+}
+@keyframes scrollPulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+.hero-stats {
+  position: absolute; right: 48px; top: 50%;
+  transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 32px;
+  opacity: 0; animation: fadeIn 1s 1.6s ease forwards;
+}
+.stat { text-align: right; }
+.stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 36px; color: var(--gold); line-height: 1; }
+.stat-label { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+.rating-badge {
+  position: absolute; bottom: 48px; right: 180px;
+  display: flex; align-items: center; gap: 12px;
+  background: rgba(10,10,10,0.85); border: 1px solid rgba(201,168,76,0.3);
+  padding: 14px 20px; backdrop-filter: blur(10px);
+  opacity: 0; animation: fadeUp 0.8s 2s ease forwards;
+}
+.rating-stars { color: var(--gold); font-size: 13px; }
+.rating-num { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold); line-height: 1; }
+.rating-sub { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ─── MARQUEE ─── */
+.marquee-wrap {
+  overflow: hidden; border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border); background: var(--deep); padding: 14px 0;
+}
+.marquee-track {
+  display: flex; white-space: nowrap;
+  animation: marquee 25s linear infinite;
+}
+.marquee-track span {
+  font-family: 'Bebas Neue', sans-serif; font-size: 13px;
+  letter-spacing: 5px; color: var(--muted); padding: 0 32px;
+  display: flex; align-items: center; gap: 12px;
+}
+.marquee-track span i { color: var(--gold); font-size: 10px; }
+.marquee-track span.gold { color: var(--gold); }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ─── SECTIONS ─── */
+section { padding: 100px 48px; }
+.section-label {
+  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label i { font-size: 10px; }
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(42px, 6vw, 80px); line-height: 0.95; letter-spacing: 1px;
+}
+
+/* ─── COLLECTIONS ─── */
+#collections { background: var(--black); }
+.collections-header {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 60px;
+}
+.collections-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+}
+.col-card {
+  position: relative; height: 480px; overflow: hidden;
+  cursor: none; background: var(--card);
+}
+.col-card:first-child { grid-row: span 2; height: 100%; }
+.col-card-bg {
+  position: absolute; inset: 0;
+  transition: transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.col-card:hover .col-card-bg { transform: scale(1.05); }
+
+.col-card-icon {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 90px; opacity: 0.07; color: var(--gold);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.col-card:hover .col-card-icon { opacity: 0.13; transform: translate(-50%, -52%) scale(1.1); }
+
+.col-card-content {
+  position: absolute; bottom: 0; left: 0; right: 0; padding: 32px;
+  background: linear-gradient(to top, rgba(10,10,10,0.97) 0%, transparent 100%);
+  transform: translateY(20px); transition: transform 0.4s ease;
+}
+.col-card:hover .col-card-content { transform: translateY(0); }
+
+.col-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; border: 1px solid var(--gold);
+  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 12px;
+}
+.col-name { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 2px; }
+.col-desc {
+  font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.6;
+  opacity: 0; transform: translateY(10px); transition: all 0.4s 0.1s ease;
+}
+.col-card:hover .col-desc { opacity: 1; transform: translateY(0); }
+
+.col-arrow {
+  position: absolute; top: 28px; right: 28px;
+  width: 40px; height: 40px; border: 1px solid rgba(245,240,232,0.2);
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+  opacity: 0; transform: translate(10px, -10px); transition: all 0.4s ease;
+}
+.col-card:hover .col-arrow { opacity: 1; transform: translate(0, 0); }
+
+/* ─── ABOUT ─── */
+#about {
+  background: var(--deep);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 80px; align-items: center;
+}
+.about-visual { position: relative; height: 500px; }
+.about-frame {
+  position: absolute; inset: 0; border: 1px solid var(--border);
+  background: var(--card); display: flex; align-items: center; justify-content: center;
+}
+.about-logo-big {
+  font-family: 'Bebas Neue', sans-serif; font-size: 140px;
+  color: transparent; -webkit-text-stroke: 1px rgba(201,168,76,0.3);
+  letter-spacing: 4px; line-height: 1; text-align: center;
+}
+.about-accent {
+  position: absolute; bottom: -20px; right: -20px;
+  width: 120px; height: 120px; background: var(--gold);
+  display: flex; align-items: center; justify-content: center;
+}
+.about-accent-text {
+  font-family: 'Bebas Neue', sans-serif; font-size: 13px;
+  letter-spacing: 2px; color: var(--black); text-align: center; line-height: 1.4;
+}
+.about-corner {
+  position: absolute; top: -1px; left: -1px;
+  width: 40px; height: 40px;
+  border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
+}
+.about-text .section-title { margin-bottom: 28px; }
+.about-body {
+  font-family: 'Cormorant Garamond', serif; font-size: 20px;
+  line-height: 1.7; color: rgba(245,240,232,0.7); margin-bottom: 20px;
+}
+.about-body em { color: var(--gold); font-style: italic; }
+.about-features {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 36px;
+}
+.feat-item {
+  padding: 16px 20px; border: 1px solid var(--border);
+  background: var(--card); transition: border-color 0.3s, transform 0.3s;
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.feat-item:hover { border-color: var(--gold); transform: translateY(-3px); }
+.feat-icon {
+  font-size: 22px; color: var(--gold); flex-shrink: 0; margin-top: 2px;
+}
+.feat-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+.feat-val { font-size: 15px; margin-top: 4px; font-weight: 400; }
+
+/* ─── CONTACT ─── */
+#contact { background: var(--black); }
+.contact-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2px; margin-top: 60px;
+}
+.contact-card {
+  background: var(--card); padding: 48px;
+  border: 1px solid var(--border); position: relative;
+  overflow: hidden; transition: border-color 0.3s;
+}
+.contact-card:hover { border-color: rgba(201,168,76,0.4); }
+.contact-card::before {
+  content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 2px;
+  background: var(--gold);
+}
+.contact-card-icon {
+  font-size: 26px; color: var(--gold); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.contact-card-title {
+  font-family: 'Bebas Neue', sans-serif; font-size: 24px;
+  letter-spacing: 2px; margin-bottom: 12px;
+}
+.contact-card-val { font-size: 18px; color: var(--gold); font-weight: 400; margin-bottom: 6px; }
+.contact-card-sub { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.contact-card a { color: inherit; text-decoration: none; }
+.contact-card a:hover { color: var(--gold-light); }
+
+/* ─── MAP ─── */
+.map-frame {
+  margin-top: 60px; height: 320px; border: 1px solid var(--border);
+  background: var(--card); display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.map-grid-overlay {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.map-inner { text-align: center; position: relative; z-index: 1; }
+.map-pin-icon { font-size: 48px; color: var(--gold); margin-bottom: 12px; animation: pinBounce 2s ease-in-out infinite; }
+@keyframes pinBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+.map-text {
+  font-family: 'Cormorant Garamond', serif; font-size: 18px;
+  font-style: italic; color: var(--muted);
+}
+.map-address { font-size: 13px; color: var(--muted); margin-top: 8px; }
+.map-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 20px; padding: 12px 28px;
+  border: 1px solid var(--gold); color: var(--gold);
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; position: relative; overflow: hidden; transition: color 0.4s; cursor: none;
+}
+.map-btn::before {
+  content: ''; position: absolute; inset: 0;
+  background: var(--gold); transform: translateX(-101%);
+  transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.map-btn:hover { color: var(--black); }
+.map-btn:hover::before { transform: translateX(0); }
+.map-btn i, .map-btn span { position: relative; z-index: 1; }
+
+/* ─── TESTIMONIALS ─── */
+#testimonials { background: var(--deep); text-align: center; }
+.testimonials-header { margin-bottom: 60px; }
+.testimonials-track {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+}
+.testi-card {
+  background: var(--card); border: 1px solid var(--border);
+  padding: 40px; text-align: left; position: relative;
+  transition: border-color 0.3s, transform 0.3s;
+}
+.testi-card:hover { border-color: var(--gold-dim); transform: translateY(-4px); }
+.testi-card::before { content: ''; position: absolute; top: 0; left: 0; width: 40px; height: 2px; background: var(--gold); }
+.testi-stars { color: var(--gold); font-size: 12px; margin-bottom: 16px; display: flex; gap: 3px; }
+.testi-text {
+  font-family: 'Cormorant Garamond', serif; font-size: 17px;
+  font-style: italic; color: rgba(245,240,232,0.8); line-height: 1.7; margin-bottom: 24px;
+}
+.testi-author { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold); }
+.testi-loc { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.testi-quote-mark {
+  position: absolute; top: 20px; right: 24px;
+  font-size: 80px; color: rgba(201,168,76,0.05);
+  font-family: Georgia, serif; line-height: 1; pointer-events: none;
+}
+
+/* ─── SOCIAL ─── */
+.social-section { background: var(--deep); padding: 80px 48px; text-align: center; }
+.social-section .section-label { justify-content: center; }
+.social-section .section-title { text-align: center; margin-bottom: 12px; }
+.social-handle {
+  font-family: 'Cormorant Garamond', serif; font-size: 20px;
+  font-style: italic; color: var(--gold); margin-bottom: 40px;
+}
+.social-grid { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.social-btn {
+  padding: 14px 32px; border: 1px solid var(--border);
+  color: var(--white); background: var(--card);
+  font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+  text-decoration: none; display: flex; align-items: center; gap: 10px;
+  transition: border-color 0.3s, transform 0.3s, background 0.3s;
+  cursor: none; position: relative; overflow: hidden;
+}
+.social-btn::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(201,168,76,0.06);
+  transform: translateY(101%); transition: transform 0.4s ease;
+}
+.social-btn:hover { border-color: var(--gold); transform: translateY(-3px); }
+.social-btn:hover::before { transform: translateY(0); }
+.social-btn i, .social-btn span { position: relative; z-index: 1; }
+.social-btn .fa-instagram { color: #e1306c; }
+.social-btn .fa-whatsapp { color: #25D366; }
+.social-btn .fa-phone { color: var(--gold); }
+.social-btn .fa-map-location-dot { color: #4285F4; }
+
+/* ─── BACK TO TOP ─── */
+#back-to-top {
+  position: fixed; bottom: 32px; right: 32px; z-index: 500;
+  width: 44px; height: 44px; background: var(--gold); color: var(--black);
+  border: none; display: flex; align-items: center; justify-content: center;
+  cursor: none; opacity: 0; transform: translateY(20px);
+  transition: opacity 0.3s, transform 0.3s;
+  font-size: 14px;
+}
+#back-to-top.visible { opacity: 1; transform: translateY(0); }
+#back-to-top:hover { background: var(--gold-light); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--black); border-top: 1px solid var(--border);
+  padding: 48px; display: flex;
+  justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;
+}
+.footer-logo {
+  font-family: 'Bebas Neue', sans-serif; font-size: 24px;
+  letter-spacing: 4px; color: var(--white);
+  display: flex; align-items: center; gap: 8px;
+}
+.footer-logo span { color: var(--gold); }
+.footer-logo i { font-size: 16px; color: var(--gold); }
+.footer-copy { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-align: center; }
+.footer-tagline {
+  font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; color: var(--muted);
+}
+.footer-links {
+  display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+  list-style: none; margin-top: 24px;
+  width: 100%; border-top: 1px solid var(--border); padding-top: 24px;
+}
+.footer-links a {
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  display: flex; align-items: center; gap: 6px;
+  transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--gold); }
+.footer-links i { font-size: 10px; }
+
+/* ─── REVEAL ─── */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s, transform 0.8s; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ─── MOBILE MENU ─── */
+.mobile-menu {
+  position: fixed; inset: 0; background: var(--black); z-index: 99;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 40px; transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.mobile-menu.open { transform: translateX(0); }
+.mobile-menu a {
+  font-family: 'Bebas Neue', sans-serif; font-size: 48px;
+  letter-spacing: 4px; color: var(--white); text-decoration: none;
+  transition: color 0.3s; display: flex; align-items: center; gap: 16px;
+}
+.mobile-menu a i { font-size: 28px; }
+.mobile-menu a:hover { color: var(--gold); }
+.mobile-menu-close {
+  position: absolute; top: 24px; right: 24px;
+  background: none; border: none; color: var(--muted);
+  font-size: 20px; cursor: none;
+}
+
+/* ─── OPEN NOW BADGE ─── */
+.open-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 4px 12px; background: rgba(76,175,80,0.12);
+  border: 1px solid rgba(76,175,80,0.3); border-radius: 2px;
+  font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--green);
+  margin-left: 12px;
+}
+.open-badge::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+/* ─── MEDIA ─── */
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  nav.scrolled { padding: 12px 24px; }
+  .nav-links, .btn-nav { display: none; }
+  .hamburger { display: flex; }
+  .hero { padding: 0 24px 80px; }
+  .hero-stats, .hero-scroll, .rating-badge { display: none; }
+  section { padding: 60px 24px; }
+  #about { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual { height: 300px; }
+  .collections-grid { grid-template-columns: 1fr; }
+  .col-card { height: 280px; }
+  .col-card:first-child { height: 280px; grid-row: span 1; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .testimonials-track { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: 20px; text-align: center; }
+  .social-section { padding: 60px 24px; }
+  .hero-line { left: 24px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Scroll Progress -->
+<div id="scroll-progress"></div>
+
+<!-- Back to Top -->
+<button id="back-to-top" aria-label="Back to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" id="menuClose"><i class="fa-solid fa-xmark"></i></button>
+  <a href="#collections" class="menu-link"><i class="fa-solid fa-shirt"></i>Collections</a>
+  <a href="#about" class="menu-link"><i class="fa-solid fa-store"></i>About</a>
+  <a href="#testimonials" class="menu-link"><i class="fa-solid fa-star"></i>Reviews</a>
+  <a href="#contact" class="menu-link"><i class="fa-solid fa-location-dot"></i>Contact</a>
+  <a href="https://www.instagram.com/blackbull_mens_clothing" target="_blank"><i class="fa-brands fa-instagram"></i>Instagram</a>
+</div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo"><i class="fa-solid fa-bullseye"></i> BLACK <span>&nbsp;BULL</span></a>
+  <ul class="nav-links">
+    <li><a href="#collections"><i class="fa-solid fa-shirt"></i> Collections</a></li>
+    <li><a href="#about"><i class="fa-solid fa-store"></i> Our Story</a></li>
+    <li><a href="#testimonials"><i class="fa-solid fa-star"></i> Reviews</a></li>
+    <li><a href="#contact"><i class="fa-solid fa-location-dot"></i> Visit Us</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a href="tel:7019128012" class="btn-nav"><i class="fa-solid fa-phone"></i><span>Call Now</span></a>
+    <button class="hamburger" id="hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-line"></div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">4.6<i class="fa-solid fa-star" style="font-size:18px;margin-left:4px;"></i></div>
+      <div class="stat-label">Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">6.8K</div>
+      <div class="stat-label">Followers</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">131+</div>
+      <div class="stat-label">Posts</div>
+    </div>
+  </div>
+
+  <div class="hero-tag">
+    <i class="fa-solid fa-location-dot"></i>
+    Men's Premium Collection — Sagara, Karnataka
+    <span class="open-badge"><i class="fa-solid fa-circle-check" style="font-size:9px;"></i> Open Now</span>
+  </div>
+
+  <h1 class="hero-title">
+    BLACK<br>
+    <span class="gold">BULL</span><br>
+    <span class="outline">MEN'S</span>
+  </h1>
+
+  <p class="hero-sub">Curated style for the modern gentleman</p>
+
+  <div class="hero-actions">
+    <a href="#collections" class="btn-primary"><i class="fa-solid fa-arrow-right"></i><span>Explore Collections</span></a>
+    <a href="#contact" class="btn-ghost"><i class="fa-solid fa-map-pin"></i><span>Find Our Store</span></a>
+  </div>
+
+  <div class="rating-badge">
+    <div>
+      <div class="rating-num">4.6</div>
+      <div class="rating-stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+      </div>
+    </div>
+    <div>
+      <div class="rating-sub">Google Rated</div>
+      <div class="rating-sub" style="margin-top:2px">32 Reviews</div>
+    </div>
+  </div>
+
+  <div class="hero-scroll">Scroll to Explore</div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span><i class="fa-solid fa-gem"></i> PREMIUM MENSWEAR</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-location-dot"></i> SAGARA, KARNATAKA</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-shirt"></i> SHIRTS &amp; PANTS</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-briefcase"></i> FORMAL COLLECTION</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-vest"></i> CASUAL WEAR</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-award"></i> QUALITY FABRICS</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-gem"></i> PREMIUM MENSWEAR</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-location-dot"></i> SAGARA, KARNATAKA</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-shirt"></i> SHIRTS &amp; PANTS</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-briefcase"></i> FORMAL COLLECTION</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-vest"></i> CASUAL WEAR</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+    <span><i class="fa-solid fa-award"></i> QUALITY FABRICS</span>
+    <span class="gold"><i class="fa-solid fa-diamond"></i></span>
+  </div>
+</div>
+
+<!-- COLLECTIONS -->
+<section id="collections">
+  <div class="collections-header reveal">
+    <div>
+      <div class="section-label"><i class="fa-solid fa-shirt"></i> What We Offer</div>
+      <h2 class="section-title">OUR<br>COLLECTIONS</h2>
+    </div>
+    <a href="https://www.instagram.com/blackbull_mens_clothing" target="_blank" class="btn-ghost"><i class="fa-brands fa-instagram"></i><span>View All</span></a>
+  </div>
+  <div class="collections-grid reveal">
+
+    <div class="col-card">
+      <div class="col-card-bg" style="background: linear-gradient(135deg, #1a1510 0%, #2a2015 100%);"></div>
+      <div class="col-card-icon"><i class="fa-solid fa-shirt"></i></div>
+      <div class="col-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+      <div class="col-card-content">
+        <div class="col-badge"><i class="fa-solid fa-sparkles" style="font-size:8px;"></i> New Arrival</div>
+        <div class="col-name">Formal Shirts</div>
+        <div class="col-desc">Premium formal shirts crafted for the professional. Crisp collars, fine fabrics, impeccable finish.</div>
+      </div>
+    </div>
+
+    <div class="col-card">
+      <div class="col-card-bg" style="background: linear-gradient(135deg, #0f1520 0%, #1a2535 100%);"></div>
+      <div class="col-card-icon"><i class="fa-solid fa-person-walking"></i></div>
+      <div class="col-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+      <div class="col-card-content">
+        <div class="col-badge"><i class="fa-solid fa-fire" style="font-size:8px;"></i> Bestseller</div>
+        <div class="col-name">Pants &amp; Trousers</div>
+        <div class="col-desc">Slim-fit and regular cuts for every occasion. Tailored precision for the modern man.</div>
+      </div>
+    </div>
+
+    <div class="col-card">
+      <div class="col-card-bg" style="background: linear-gradient(135deg, #0f1a10 0%, #1a2a1a 100%);"></div>
+      <div class="col-card-icon"><i class="fa-solid fa-vest-patches"></i></div>
+      <div class="col-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+      <div class="col-card-content">
+        <div class="col-badge"><i class="fa-solid fa-leaf" style="font-size:8px;"></i> Seasonal</div>
+        <div class="col-name">Casual Wear</div>
+        <div class="col-desc">Relaxed everyday styles that don't compromise on class.</div>
+      </div>
+    </div>
+
+    <div class="col-card">
+      <div class="col-card-bg" style="background: linear-gradient(135deg, #1a1020 0%, #2a1a35 100%);"></div>
+      <div class="col-card-icon"><i class="fa-solid fa-circle-dot"></i></div>
+      <div class="col-arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></div>
+      <div class="col-card-content">
+        <div class="col-badge"><i class="fa-solid fa-bolt" style="font-size:8px;"></i> Trending</div>
+        <div class="col-name">T-Shirts</div>
+        <div class="col-desc">Premium cotton tees in bold and minimal designs.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-visual reveal">
+    <div class="about-frame">
+      <div class="about-corner"></div>
+      <div class="about-logo-big">BB</div>
+    </div>
+    <div class="about-accent">
+      <div class="about-accent-text">OPEN<br>NOW<br><i class="fa-solid fa-star fa-sm"></i><i class="fa-solid fa-star fa-sm"></i><i class="fa-solid fa-star fa-sm"></i><i class="fa-solid fa-star fa-sm"></i></div>
+    </div>
+  </div>
+  <div class="about-text reveal">
+    <div class="section-label"><i class="fa-solid fa-scroll"></i> Our Story</div>
+    <h2 class="section-title">THE<br>BLACK BULL<br>WAY</h2>
+    <p class="about-body">
+      Nestled in the heart of <em>Sagara, Karnataka</em>, Black Bull Men's Collection is where style meets substance. We bring you carefully selected menswear that blends classic craftsmanship with modern sensibility.
+    </p>
+    <p class="about-body">
+      Every piece in our collection is chosen with intention — because a man who dresses well <em>commands attention</em> before he says a word.
+    </p>
+    <div class="about-features">
+      <div class="feat-item">
+        <div class="feat-icon"><i class="fa-solid fa-star"></i></div>
+        <div>
+          <div class="feat-label">Google Rating</div>
+          <div class="feat-val">4.6 / 5.0</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="fa-solid fa-store"></i></div>
+        <div>
+          <div class="feat-label">Status</div>
+          <div class="feat-val">Open Now</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="fa-brands fa-instagram"></i></div>
+        <div>
+          <div class="feat-label">Collection Posts</div>
+          <div class="feat-val">131 &amp; Growing</div>
+        </div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-icon"><i class="fa-solid fa-users"></i></div>
+        <div>
+          <div class="feat-label">Instagram</div>
+          <div class="feat-val">6,890 Followers</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="testimonials-header reveal">
+    <div class="section-label" style="justify-content:center;"><i class="fa-solid fa-quote-left"></i> What Customers Say</div>
+    <h2 class="section-title" style="text-align:center;">REAL<br>REVIEWS</h2>
+  </div>
+  <div class="testimonials-track reveal">
+    <div class="testi-card">
+      <div class="testi-quote-mark">"</div>
+      <div class="testi-stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <p class="testi-text">"Best menswear shop in Sagara. The fabric quality is exceptional and the collection is always fresh. I bought three formal shirts and all of them fit perfectly."</p>
+      <div class="testi-author"><i class="fa-solid fa-user" style="font-size:9px;margin-right:6px;"></i> Rajan K.</div>
+      <div class="testi-loc"><i class="fa-solid fa-location-dot" style="font-size:9px;margin-right:4px;"></i> Sagara, Karnataka</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote-mark">"</div>
+      <div class="testi-stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+      </div>
+      <p class="testi-text">"The staff is very helpful and the store has a great vibe. Found the perfect casual outfit here. Will definitely keep coming back for more."</p>
+      <div class="testi-author"><i class="fa-solid fa-user" style="font-size:9px;margin-right:6px;"></i> Suresh M.</div>
+      <div class="testi-loc"><i class="fa-solid fa-location-dot" style="font-size:9px;margin-right:4px;"></i> Shimoga, Karnataka</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote-mark">"</div>
+      <div class="testi-stars">
+        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i>
+      </div>
+      <p class="testi-text">"Amazing range of trousers and T-shirts. The prices are fair for the quality you get. Black Bull is the go-to place for anyone who takes dressing seriously."</p>
+      <div class="testi-author"><i class="fa-solid fa-user" style="font-size:9px;margin-right:6px;"></i> Arjun P.</div>
+      <div class="testi-loc"><i class="fa-solid fa-location-dot" style="font-size:9px;margin-right:4px;"></i> Sagara, Karnataka</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <div class="section-label"><i class="fa-solid fa-paper-plane"></i> Get In Touch</div>
+    <h2 class="section-title">VISIT<br>OUR STORE</h2>
+  </div>
+  <div class="contact-grid reveal">
+    <div class="contact-card">
+      <div class="contact-card-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <div class="contact-card-title">Location</div>
+      <div class="contact-card-val">J C Road, Sagara</div>
+      <div class="contact-card-sub">Opposite Marikamba Temple<br>Sagara — 577 401, Karnataka</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon"><i class="fa-solid fa-phone"></i></div>
+      <div class="contact-card-title">Call Us</div>
+      <div class="contact-card-val"><a href="tel:7019128012">70191 28012</a></div>
+      <div class="contact-card-sub">Available during store hours<br>WhatsApp also welcome</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon"><i class="fa-brands fa-instagram"></i></div>
+      <div class="contact-card-title">Instagram</div>
+      <div class="contact-card-val"><a href="https://www.instagram.com/blackbull_mens_clothing" target="_blank">@blackbull_mens_clothing</a></div>
+      <div class="contact-card-sub">Follow for latest drops &amp; giveaways</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-card-icon"><i class="fa-solid fa-clock"></i></div>
+      <div class="contact-card-title">Store Hours</div>
+      <div class="contact-card-val" style="color:var(--white)">Mon — Sun</div>
+      <div class="contact-card-sub" style="margin-top:8px;">
+        <span class="open-badge"><i class="fa-solid fa-circle-dot" style="font-size:9px;"></i> Currently Open</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="map-frame reveal">
+    <div class="map-grid-overlay"></div>
+    <div class="map-inner">
+      <div class="map-pin-icon"><i class="fa-solid fa-map-pin"></i></div>
+      <div class="map-text">Marikamba Temple Road, Sagara</div>
+      <div class="map-address">J C Road, Opposite Marikamba — Karnataka 577401</div>
+      <a href="https://maps.app.goo.gl/PndSPGXXQL7YqhfDA" target="_blank" class="map-btn">
+        <i class="fa-solid fa-diamond-turn-right"></i><span>Open in Google Maps</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL -->
+<div class="social-section reveal">
+  <div class="section-label"><i class="fa-solid fa-signal"></i> Stay Connected</div>
+  <h2 class="section-title">FOLLOW<br>THE BULL</h2>
+  <div class="social-handle">@blackbull_mens_clothing</div>
+  <div class="social-grid">
+    <a href="https://www.instagram.com/blackbull_mens_clothing" target="_blank" class="social-btn">
+      <i class="fa-brands fa-instagram"></i><span>Instagram</span>
+    </a>
+    <a href="https://wa.me/917019128012" target="_blank" class="social-btn">
+      <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
+    </a>
+    <a href="tel:7019128012" class="social-btn">
+      <i class="fa-solid fa-phone"></i><span>Call Store</span>
+    </a>
+    <a href="https://maps.app.goo.gl/PndSPGXXQL7YqhfDA" target="_blank" class="social-btn">
+      <i class="fa-solid fa-map-location-dot"></i><span>Directions</span>
+    </a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><i class="fa-solid fa-bullseye"></i> BLACK <span>&nbsp;BULL</span></div>
+  <div class="footer-copy">
+    &copy; 2025 Black Bull Men's Collections<br>
+    Sagara, Karnataka — 577 401
+  </div>
+  <div class="footer-tagline"><i class="fa-solid fa-quote-left" style="font-size:10px;margin-right:6px;"></i>Dress with Purpose.</div>
+  <ul class="footer-links">
+    <li><a href="#collections"><i class="fa-solid fa-shirt"></i> Collections</a></li>
+    <li><a href="#about"><i class="fa-solid fa-store"></i> About</a></li>
+    <li><a href="#testimonials"><i class="fa-solid fa-star"></i> Reviews</a></li>
+    <li><a href="#contact"><i class="fa-solid fa-location-dot"></i> Contact</a></li>
+    <li><a href="https://www.instagram.com/blackbull_mens_clothing" target="_blank"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+    <li><a href="https://wa.me/917019128012" target="_blank"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a></li>
+  </ul>
+</footer>
+
+<script>
+// ─── CURSOR ───
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+document.addEventListener('mousedown', () => cursor.classList.add('click'));
+document.addEventListener('mouseup', () => cursor.classList.remove('click'));
+
+(function animateCursor() {
+  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
+  rx += (mx - rx) * 0.12; ry += (my - ry) * 0.12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animateCursor);
+})();
+
+document.querySelectorAll('a, button, .col-card, .feat-item, .contact-card, .testi-card').forEach(el => {
+  el.addEventListener('mouseenter', () => {
+    cursor.style.width = '16px'; cursor.style.height = '16px';
+    ring.style.width = '56px'; ring.style.height = '56px';
+  });
+  el.addEventListener('mouseleave', () => {
+    cursor.style.width = '10px'; cursor.style.height = '10px';
+    ring.style.width = '36px'; ring.style.height = '36px';
+  });
+});
+
+// ─── SCROLL PROGRESS ───
+const progressBar = document.getElementById('scroll-progress');
+window.addEventListener('scroll', () => {
+  const total = document.documentElement.scrollHeight - window.innerHeight;
+  progressBar.style.width = (window.scrollY / total * 100) + '%';
+});
+
+// ─── NAV SCROLL ───
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ─── BACK TO TOP ───
+const btt = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400));
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+// ─── MOBILE MENU ───
+let menuOpen = false;
+
+function toggleMobile() {
+  menuOpen = !menuOpen;
+  document.getElementById('mobileMenu').classList.toggle('open', menuOpen);
+  const h = document.getElementById('hamburger');
+  h.querySelectorAll('span')[0].style.transform = menuOpen ? 'rotate(45deg) translate(4px, 4px)' : '';
+  h.querySelectorAll('span')[1].style.opacity = menuOpen ? '0' : '1';
+  h.querySelectorAll('span')[2].style.transform = menuOpen ? 'rotate(-45deg) translate(4px, -4px)' : '';
+}
+
+function closeMobile() {
+  menuOpen = false;
+  document.getElementById('mobileMenu').classList.remove('open');
+  const h = document.getElementById('hamburger');
+  h.querySelectorAll('span').forEach(s => { s.style.transform = ''; s.style.opacity = ''; });
+}
+
+document.getElementById('hamburger').addEventListener('click', toggleMobile);
+document.getElementById('menuClose').addEventListener('click', closeMobile);
+
+document.querySelectorAll('.menu-link').forEach(link => {
+  link.addEventListener('click', closeMobile);
+});
+
+// ─── REVEAL ON SCROLL ───
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 100);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(r => observer.observe(r));
+</script>
+</body>
+</html>
