@@ -8,7 +8,7 @@
      PRIMARY SEO META TAGS
 ═══════════════════════════════════════════════ -->
 <title>Sirinadu Pravasa | #1 Coastal Karnataka & Malenadu Tours from Bengaluru | Gokarna, Murudeshwar, Parnakuteera</title>
-<meta name="description" content="Karnataka's most trusted coastal & Malenadu travel agency from Bengaluru. Gokarna Om Beach, Murudeshwar scuba diving, Parnakuteera boat ride, Vibhuthi Falls, Honnavara mangroves, Jog Falls & 10+ destinations. Budget from ₹2,800/person. Bachelor groups welcome. Book now via WhatsApp!"/>
+<meta name="description" content="Coastal Karnataka & Malenadu tours from Bengaluru. Gokarna, Murudeshwar scuba, Parnakuteera, Jog Falls & more. From ₹2,800/person. Book on WhatsApp!"/>
 <meta name="keywords" content="Karnataka tour packages Bengaluru, Gokarna trip from Bengaluru, Murudeshwar scuba diving package, Parnakuteera tour, Honnavara mangroves boating, Vibhuthi Falls trek, Jog Falls trip, coastal Karnataka travel agency, Malenadu tour package, bachelor trip Karnataka coast, budget travel Karnataka, Sirinadu Pravasa, ಸಿರಿನಾಡು ಪ್ರವಾಸ, coastal Karnataka 2 day trip, Bengaluru to Gokarna package, Netrani Island scuba, Mirjan Fort trek, Yana Rocks hike, Aghanaashini river boat ride, Karnataka beach trip, weekend trip from Bengaluru, group tour Karnataka, AC tempo traveller Bengaluru coast"/>
 <meta name="author" content="Sirinadu Pravasa — sirinadupravasa@gmail.com"/>
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"/>
@@ -305,6 +305,34 @@
   }
 ]
 </script>
+<!-- ═══════════════════════════════════════════════
+     ORGANIZATION SCHEMA — FOR GOOGLE LOGO IN SEARCH
+     Google requires @type:Organization with logo to show
+     the site logo in search results. TravelAgency alone
+     does not trigger logo display.
+═══════════════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://sirinadupravasa.in/#org-logo",
+  "name": "Sirinadu Pravasa",
+  "url": "https://sirinadupravasa.in",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://sirinadupravasa.in/icon.png",
+    "width": 512,
+    "height": 512,
+    "caption": "Sirinadu Pravasa — Coastal Karnataka Tours"
+  },
+  "image": "https://sirinadupravasa.in/og-image.jpg",
+  "sameAs": [
+    "https://www.instagram.com/sirinadupravasa",
+    "https://wa.me/919845839517"
+  ]
+}
+</script>
+
 <!-- BREADCRUMB — SEO & usability -->
 <nav aria-label="Breadcrumb" style="background:var(--cream);border-bottom:1px solid var(--border);padding:9px clamp(16px,4vw,48px)">
   <ol itemscope itemtype="https://schema.org/BreadcrumbList" style="list-style:none;display:flex;flex-wrap:wrap;gap:6px;align-items:center;max-width:1040px;margin:0 auto;font-size:11px;color:var(--muted);font-weight:600">
@@ -1689,7 +1717,7 @@ footer{
   <div class="cta-box">
     <h2 class="cta-t">Don't just watch reels,<br/><em>live them</em></h2>
     <p class="cta-d">No long planning. No calls needed. Fill the form, confirm on WhatsApp, and we handle everything else.</p>
-    <div class="cta-contact"><a href="mailto:sirinadupravasa@gmail.com" style="color:inherit">sirinadupravasa@gmail.com</a> · <strong>+91 98458 39517</strong></div>
+    <div class="cta-contact"><a href="/cdn-cgi/l/email-protection#42312b302b2c2326373230233423312302252f232b2e6c212d2f" style="color:inherit"><span class="__cf_email__" data-cfemail="c5b6acb7acaba4a1b0b5b7a4b3a4b6a485a2a8a4aca9eba6aaa8">[email&#160;protected]</span></a> · <strong>+91 98458 39517</strong></div>
     <br/>
     <button class="btn-cta-white" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
       <i class="fas fa-compass"></i> Book your trip — free consultation
@@ -1762,7 +1790,7 @@ footer{
           <div class="ft-ci-icon"><i class="fas fa-envelope"></i></div>
           <div class="ft-ci-body">
             <div class="ft-ci-label">Email</div>
-            <div class="ft-ci-val"><a href="mailto:sirinadupravasa@gmail.com" style="color:inherit">sirinadupravasa@gmail.com</a></div>
+            <div class="ft-ci-val"><a href="/cdn-cgi/l/email-protection#75061c071c1b14110005071403140614351218141c195b161a18" style="color:inherit"><span class="__cf_email__" data-cfemail="daa9b3a8b3b4bbbeafaaa8bbacbba9bb9abdb7bbb3b6f4b9b5b7">[email&#160;protected]</span></a></div>
           </div>
         </div>
         <div class="ft-contact-item">
@@ -1819,7 +1847,7 @@ footer{
 
 <div class="toast" id="toast"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // IMAGE SKELETON LOADER
 function initImgWrap(wrap){
   const img=wrap.querySelector('img');
@@ -1905,12 +1933,14 @@ function handleBooking(){
   let disc='';const p=parseInt(pax);if(p>=13)disc='🎉 15% gang discount eligible!';else if(p>=8)disc='🎉 10% gang discount eligible!';else if(p>=5)disc='🎉 5% gang discount eligible!';
   const msg=`🌿 *New Booking — Sirinadu Pravasa*\n\n👤 Name: ${n}\n📞 Phone: ${ph}${em?'\n📧 Email: '+em:''}\n📍 Destination: ${dest}\n📅 Date: ${date}\n👥 People: ${pax}${budget?'\n💰 Budget: '+budget:''}${notes?'\n📝 Notes: '+notes:''}${disc?'\n\n'+disc:''}\n\n_Sent from sirinadupravasa.in_`;
   const btn=document.getElementById('submitBtn');
-  btn.innerHTML='<i class="fas fa-check"></i> Booking sent!';
+  btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
   btn.disabled=true;
-  const waUrl='https://wa.me/919845839517?text='+encodeURIComponent(msg);
-  window.open(waUrl,'_blank');
-  showToast('✅ Opening WhatsApp — booking sent!','success');
-  setTimeout(()=>{btn.innerHTML='<i class="fab fa-whatsapp" style="font-size:18px"></i> Send booking via WhatsApp';btn.disabled=false;},4000);
+  setTimeout(()=>{
+    window.open('https://wa.me/919845839517?text='+encodeURIComponent(msg),'_blank');
+    btn.innerHTML='<i class="fab fa-whatsapp" style="font-size:18px"></i> Send booking via WhatsApp';
+    btn.disabled=false;
+    showToast('✅ Booking sent! We\'ll reply within 2 hours.','success');
+  },500);
 }
 </script>
 </body>
