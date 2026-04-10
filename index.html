@@ -385,7 +385,7 @@
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body{font-family:'Plus Jakarta Sans',sans-serif;background:#fff;color:#1a1a1a;overflow-x:hidden;-webkit-font-smoothing:antialiased;min-width:0}
 *{-webkit-tap-highlight-color:transparent}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;border:none;background:none;font-family:inherit}
@@ -459,6 +459,7 @@ nav{
 .hero-pill{padding:6px 14px;border:1.5px solid var(--green-light);border-radius:100px;font-size:11px;font-weight:600;color:var(--green);background:var(--green-pale);display:flex;align-items:center;gap:6px}
 .hero-pill i{font-size:9px;opacity:.7}
 .hero-btns{display:flex;flex-direction:column;align-items:stretch;gap:12px;width:100%;max-width:340px;animation:fadeUp .8s .52s both}
+@media(max-width:380px){.hero-btns{max-width:100%}}
 .btn-primary{display:flex;align-items:center;justify-content:center;gap:10px;padding:17px 28px;background:var(--green);color:#fff;font-size:14px;font-weight:700;border-radius:100px;transition:all .2s;box-shadow:0 8px 28px rgba(31,107,58,.28)}
 .btn-primary:hover{background:#175430;transform:scale(1.03);box-shadow:0 12px 36px rgba(31,107,58,.42)}
 .btn-outline{display:flex;align-items:center;justify-content:center;gap:8px;padding:16px 28px;background:#fff;color:var(--text);font-size:13px;font-weight:600;border-radius:100px;border:1.5px solid var(--border);transition:all .2s}
@@ -806,6 +807,25 @@ footer{
 .ft-badge-item{padding:3px 10px;border:1px solid var(--border);border-radius:100px;font-size:9.5px;font-weight:600;color:var(--muted);display:flex;align-items:center;gap:5px}
 .ft-badge-item i{color:var(--green);font-size:9px}
 
+/* ── COASTAL GO BANNER ── */
+.coastal-go-banner{
+  background:linear-gradient(90deg,var(--green) 0%,var(--green2) 50%,#0f4a26 100%);
+  padding:18px clamp(16px,4vw,48px);
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  position:relative;overflow:hidden;
+}
+.coastal-go-banner::before{content:'🌊';position:absolute;right:32px;font-size:72px;opacity:.07;pointer-events:none;line-height:1}
+.coastal-go-text{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(18px,3.5vw,26px);
+  font-weight:700;
+  color:#fff;
+  letter-spacing:.01em;
+  text-align:center;
+  line-height:1.3;
+}
+.coastal-go-wave{font-size:clamp(18px,3vw,24px);animation:fireFlicker 1.8s ease infinite}
+
 /* ── DIVIDER ── */
 .divider{height:1px;background:var(--border)}
 
@@ -853,6 +873,58 @@ footer{
 /* ── SCROLL REVEAL ── */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .65s cubic-bezier(.16,1,.3,1),transform .65s cubic-bezier(.16,1,.3,1)}
 .reveal.vis{opacity:1;transform:translateY(0)}
+
+/* ══════════════════════════════════════
+   MOBILE FRIENDLY CONTAINER — GLOBAL
+══════════════════════════════════════ */
+@media(max-width:480px){
+  /* Hero */
+  .hero{padding:72px 16px 48px}
+  .hero-title{font-size:clamp(42px,14vw,72px)}
+  .hero-btns{max-width:100%}
+  .btn-primary,.btn-outline{padding:14px 20px;font-size:13px}
+
+  /* Sections */
+  .sec{padding:52px 16px}
+  .sec-h{font-size:clamp(26px,7vw,38px)}
+
+  /* Trending / Parnakuteera */
+  .trending-inner{padding:48px 16px}
+  .trending-main-title{font-size:clamp(28px,8vw,44px)}
+  .trending-kannada{font-size:clamp(16px,4.5vw,24px)}
+  .trend-hero-banner{grid-template-columns:1fr}
+  .trend-hero-left{padding:24px 18px}
+  .trend-hero-right{padding:24px 18px}
+  .trend-hero-stat-row{grid-template-columns:repeat(3,1fr);gap:8px}
+  .trend-stat-box{padding:12px 8px}
+  .trend-stat-val{font-size:20px}
+  .trend-day-grid{grid-template-columns:1fr}
+  .trend-tips-row{grid-template-columns:1fr}
+  .trend-cta-banner{padding:24px 20px;flex-direction:column}
+
+  /* Coastal tagline banner */
+  .coastal-go-banner{padding:14px 16px}
+  .coastal-go-text{font-size:clamp(15px,4.5vw,20px)}
+
+  /* Packages */
+  .pkg-grid{grid-template-columns:1fr}
+
+  /* Itinerary */
+  .itin-day-header{padding:16px 14px;gap:10px}
+  .itin-day-num{font-size:38px;min-width:42px}
+  .itin-body{padding:14px 14px}
+  .itin-footer{padding:12px 14px;flex-direction:column;align-items:flex-start}
+  .itin-time{width:52px;font-size:8px}
+  .itin-slot{gap:10px}
+
+  /* Footer */
+  .ft-top{grid-template-columns:1fr;gap:20px}
+  .ft-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+  .ft-bottom-links{gap:12px;flex-wrap:wrap}
+
+  /* Floating pill */
+  .cp{bottom:12px}
+}
 
 /* ── IMAGE LOADING SKELETON ── */
 @keyframes skeletonShimmer{0%{background-position:-400px 0}100%{background-position:400px 0}}
@@ -927,6 +999,80 @@ footer{
   </div>
 </section>
 
+
+<!-- ══════════════════════════════════════
+  📢 BACHELOR PROMO SECTION — above Parnakuteera
+══════════════════════════════════════ -->
+<section style="background:var(--green-pale);border-top:1px solid var(--green-light);border-bottom:1px solid var(--green-light);padding:60px clamp(16px,4vw,40px)">
+  <div style="max-width:680px;margin:0 auto;background:#fff;border:2px solid var(--green-light);border-radius:24px;padding:clamp(28px,5vw,48px);box-shadow:0 8px 40px rgba(31,107,58,.08)">
+    <div style="font-size:clamp(15px,2.5vw,18px);line-height:2;color:var(--ink)">
+
+      <p style="margin-bottom:18px">
+        🌊 <strong>Let's Go... To The Coast!</strong> 🌊<br/>
+        Planning a road trip with your crew? <strong>'Sirinadu Pravasa'</strong> welcomes you! 🙌<br/>
+        Our <strong>exclusive Coastal Karnataka package for bachelors</strong> is now available!
+      </p>
+
+      <p style="font-size:clamp(14px,2.2vw,16px);font-weight:800;color:var(--ink);margin-bottom:14px;letter-spacing:.02em">
+        📍 Places We Cover:
+      </p>
+
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px">
+
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:14px">
+          <span style="font-size:18px">✅</span>
+          <div>
+            <div style="font-weight:800;color:var(--ink);font-size:clamp(13px,2vw,15px)">Gokarna — The Complete Beach Experience</div>
+            <ul style="list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:6px">
+              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🏖️</span> Belkan Beach</li>
+              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🏝️</span> Paradise Beach</li>
+              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🌙</span> Half Moon Beach</li>
+              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🎬</span> Kanthara Movie Shooting Spot — Photo & Reels</li>
+              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🚤</span> Om Beach — Boating & Water Activities</li>
+              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🥾</span> Trekking — Beach Trail Trek</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:14px">
+          <span style="font-size:18px">✅</span>
+          <div style="font-weight:700;color:var(--ink);font-size:clamp(13px,2vw,15px)">Honnavara (Mangrove Boating — Instagram Favourite!)</div>
+        </div>
+
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px">
+        <div style="padding:12px 16px;background:var(--cream);border:1.5px solid var(--border);border-radius:12px;font-size:clamp(12px,1.8vw,13.5px);color:var(--text)">
+          💰 <strong>Price:</strong> Starting ₹5,499/- per person
+        </div>
+        <div style="padding:12px 16px;background:var(--cream);border:1.5px solid var(--border);border-radius:12px;font-size:clamp(12px,1.8vw,13.5px);color:var(--text)">
+          🕐 <strong>Duration:</strong> 3 Days / 2 Nights
+        </div>
+      </div>
+
+      <p style="font-weight:800;font-size:clamp(13px,2vw,15px);color:var(--ink);margin-bottom:10px">💡 Why choose us?</p>
+      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:22px;font-size:clamp(12px,1.8vw,13.5px);color:var(--muted)">
+        <div style="display:flex;align-items:center;gap:8px"><span>☑️</span> Budget-Friendly Price</div>
+        <div style="display:flex;align-items:center;gap:8px"><span>☑️</span> Best Photography Spots</div>
+        <div style="display:flex;align-items:center;gap:8px"><span>☑️</span> Safe & Secure Travel</div>
+      </div>
+
+      <p style="font-size:clamp(12px,1.8vw,14px);color:var(--muted);margin-bottom:20px">
+        Book today with your gang! First 5 bookings get <strong style="color:var(--green)">10% discount!</strong> 🎉
+      </p>
+
+      <a href="https://wa.me/919845839517?text=Hi!%20I%20want%20to%20book%20the%20Bachelors%20Beach%20Vibes%20Gokarna%20package%20with%20Sirinadu%20Pravasa." target="_blank" rel="noopener noreferrer"
+        style="display:flex;align-items:center;justify-content:center;gap:10px;padding:15px 28px;background:linear-gradient(135deg,#25d366,#1aab52);color:#fff;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.3);margin-bottom:18px;width:100%;box-sizing:border-box">
+        <i class="fab fa-whatsapp" style="font-size:18px"></i> Contact Us — Book on WhatsApp
+      </a>
+
+      <p style="font-size:clamp(13px,2vw,15px);font-weight:800;color:var(--green);margin-top:8px">
+        🌿 Sirinadu Pravasa — Your Journey, Our Responsibility!
+      </p>
+
+    </div>
+  </div>
+</section>
 
 <!-- ══════════════════════════════════════
   🔥 NOW TRENDING — POORNA KUTIRA (POORNAKUTIRA)
@@ -1440,10 +1586,10 @@ footer{
         <span class="pkg-tag">Honnavara</span>
       </div>
       <ul class="pkg-list">
-        <li>ಗೋಕರ್ಣ — ಓಂ ಬೀಚ್ ಬೋಟಿಂಗ್ & ಆ್ಯಕ್ಟಿವಿಟೀಸ್</li>
-        <li>ಬೆಳ್ಕಣ್ ಬೀಚ್, ಪ್ಯಾರಡೈಸ್ ಬೀಚ್, ಹಾಫ್ ಮೂನ್ ಬೀಚ್</li>
-        <li>ಕಾಂತಾರ ಶೂಟಿಂಗ್ ಸ್ಪಾಟ್ — Photo & Reels</li>
-        <li>ಟ್ರೆಕ್ಕಿಂಗ್ — Beach Trail Trekking</li>
+        <li>Gokarna — Om Beach boating & water activities</li>
+        <li>Belkan Beach, Paradise Beach, Half Moon Beach</li>
+        <li>Kanthara Shooting Spot — Photos & Reels</li>
+        <li>Trekking — Beach Trail Trek</li>
         <li>Mirjan Fort & Yana Rocks trek</li>
         <li>Night beach bonfire & fire lamp</li>
         <li>AC overnight transport + guide</li>
@@ -1532,85 +1678,6 @@ footer{
       <div class="pkg-footer"><div><div class="pkg-price-label">From</div><div class="pkg-price">₹8,999 <span>/ person</span></div></div><button class="btn-pkg" onclick="bookPackage('Grand Coastal Circuit','₹8,999')">Book Now</button></div>
     </div>
 
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ══════════════════════════════════════
-  📢 KANNADA BACHELOR PROMO SECTION
-  — UPDATED: Murudeshwar & Udupi removed
-  — UPDATED: Full Gokarna details added
-══════════════════════════════════════ -->
-<section style="background:var(--green-pale);border-top:1px solid var(--green-light);border-bottom:1px solid var(--green-light);padding:60px clamp(16px,4vw,40px)">
-  <div style="max-width:680px;margin:0 auto;background:#fff;border:2px solid var(--green-light);border-radius:24px;padding:clamp(28px,5vw,48px);box-shadow:0 8px 40px rgba(31,107,58,.08)">
-
-    <div style="font-size:clamp(15px,2.5vw,18px);line-height:2;color:var(--ink)">
-
-      <p style="margin-bottom:18px">
-        "🌊 <strong>ಚಲೋ... ಕರಾವಳಿ ಕಡೆ ಹೋಗೋಣ!</strong> 🌊<br/>
-        ಗಳೆಯರೊಂದಿಗೆ ರೋಡ್ ಟ್ರಿಪ್ ಹೋಗೋ ಪ್ಲಾನ್ ಇದೆಯಾ? ಹಾಗಾದ್ರೆ <strong>'ಸಿರಿನಾಡು ಪ್ರವಾಸ'</strong> ನಿಮ್ಮನ್ನು ಸ್ವಾಗತಿಸುತ್ತದೆ! 🙌<br/>
-        ಬ್ಯಾಚುಲರ್ಸ್‌ಗಾಗಿ ನಾವು ಸಿದ್ಧಪಡಿಸಿರುವ <strong>ವಿಶೇಷ ಕೋಸ್ಟಲ್ ಕರ್ನಾಟಕ ಪ್ಯಾಕೇಜ್</strong> ಈಗ ಲಭ್ಯ!
-        </p>
-
-      <p style="font-size:clamp(14px,2.2vw,16px);font-weight:800;color:var(--ink);margin-bottom:14px;letter-spacing:.02em">
-        📍 ನಾವು ಕವರ್ ಮಾಡುವ ತಾಣಗಳು:
-      </p>
-
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px">
-
-        <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:14px">
-          <span style="font-size:18px">✅</span>
-          <div>
-            <div style="font-weight:800;color:var(--ink);font-size:clamp(13px,2vw,15px)">ಗೋಕರ್ಣ — ಸಂಪೂರ್ಣ ಬೀಚ್ ಅನುಭವ</div>
-            <ul style="list-style:none;margin-top:8px;display:flex;flex-direction:column;gap:6px">
-              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🏖️</span> ಬೆಳ್ಕಣ್ ಬೀಚ್ (Belkan Beach)</li>
-              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🏝️</span> ಪ್ಯಾರಡೈಸ್ ಬೀಚ್ (Paradise Beach)</li>
-              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🌙</span> ಹಾಫ್ ಮೂನ್ ಬೀಚ್ (Half Moon Beach)</li>
-              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🎬</span> ಕಾಂತಾರ ಶೂಟಿಂಗ್ ಸ್ಪಾಟ್ (Kanthara Shooting Spot)</li>
-              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🚤</span> ಓಂ ಬೀಚ್ — ಬೋಟಿಂಗ್ & ಆ್ಯಕ್ಟಿವಿಟೀಸ್ (Om Beach with Boating & Activities)</li>
-              <li style="font-size:clamp(12px,1.8vw,13.5px);color:var(--text);display:flex;align-items:center;gap:8px"><span>🥾</span> ಟ್ರೆಕ್ಕಿಂಗ್ — ಬೀಚ್ ಟ್ರೇಲ್ ಟ್ರೆಕ್ (Beach Trail Trekking)</li>
-            </ul>
-          </div>
-        </div>
-
-        <div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:var(--green-pale);border:1.5px solid var(--green-light);border-radius:14px">
-          <span style="font-size:18px">✅</span>
-          <div style="font-weight:700;color:var(--ink);font-size:clamp(13px,2vw,15px)">ಹೊನ್ನಾವರ (ಮ್ಯಾಂಗ್ರೋವ್ ಬೋಟಿಂಗ್ - ಇನ್ಸ್ಟಾಗ್ರಾಮ್ ಫೇವರೇಟ್!)</div>
-        </div>
-
-      </div>
-
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:22px">
-        <div style="padding:12px 16px;background:var(--cream);border:1.5px solid var(--border);border-radius:12px;font-size:clamp(12px,1.8vw,13.5px);color:var(--text)">
-          💰 <strong>ಬೆಲೆ:</strong> ₹5,499/- ರಿಂದ ಪ್ರಾರಂಭ (ಪ್ರತಿ ವ್ಯಕ್ತಿಗೆ)
-        </div>
-        <div style="padding:12px 16px;background:var(--cream);border:1.5px solid var(--border);border-radius:12px;font-size:clamp(12px,1.8vw,13.5px);color:var(--text)">
-          🕐 <strong>ಸಮಯ:</strong> 3 ಹಗಲು / 2 ರಾತ್ರಿ
-        </div>
-      </div>
-
-      <p style="font-weight:800;font-size:clamp(13px,2vw,15px);color:var(--ink);margin-bottom:10px">💡 ಏಕಪಾ, ನಮ್ಮನ್ನೇ ಆಯ್ಕೆ ಮಾಡಬೇಕು?</p>
-      <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:22px;font-size:clamp(12px,1.8vw,13.5px);color:var(--muted)">
-        <div style="display:flex;align-items:center;gap:8px"><span>☑️</span> ಬಜೆಟ್ ಫ್ರೆಂಡ್ಲಿ ಪ್ರೈಸ್</div>
-        <div style="display:flex;align-items:center;gap:8px"><span>☑️</span> ಬೆಸ್ಟ್ ಫೋಟೋಗ್ರಾಫಿ ಸ್ಪಾಟ್ಸ್</div>
-        <div style="display:flex;align-items:center;gap:8px"><span>☑️</span> ಸೇಫ್ & ಸೆಕ್ಯೂರ್ ಟ್ರಾವೆಲ್</div>
-      </div>
-
-      <p style="font-size:clamp(12px,1.8vw,14px);color:var(--muted);margin-bottom:20px">
-        ನಿಮ್ಮ ಗ್ಯಾಂಗ್ ಜೊತೆ ಇಂದೇ ಬುಕ್ ಮಾಡಿ! ಮೊದಲ 5 ಬುಕಿಂಗ್‌ಗಳಿಗೆ <strong style="color:var(--green)">10% ರಿಯಾಯಿತಿ!</strong> 🎉
-      </p>
-
-      <a href="https://wa.me/919845839517?text=Hi!%20I%20want%20to%20book%20the%20Bachelors%20Beach%20Vibes%20Gokarna%20package%20with%20Sirinadu%20Pravasa." target="_blank" rel="noopener noreferrer"
-        style="display:inline-flex;align-items:center;gap:10px;padding:15px 28px;background:linear-gradient(135deg,#25d366,#1aab52);color:#fff;border-radius:100px;font-size:14px;font-weight:700;text-decoration:none;box-shadow:0 8px 24px rgba(37,211,102,.3);margin-bottom:18px">
-        <i class="fab fa-whatsapp" style="font-size:18px"></i> ಸಂಪರ್ಕಿಸಿ — WhatsApp ನಲ್ಲಿ ಬುಕ್ ಮಾಡಿ
-      </a>
-
-      <p style="font-size:clamp(13px,2vw,15px);font-weight:800;color:var(--green);margin-top:8px">
-        🌿 ಸಿರಿನಾಡು ಪ್ರವಾಸ - ನಿಮ್ಮ ಪ್ರವಾಸ, ನಮ್ಮ ಜವಾಬ್ದಾರಿ!"
-      </p>
-
-    </div>
   </div>
 </section>
 
@@ -1819,7 +1886,7 @@ footer{
   <div class="cta-box">
     <h2 class="cta-t">Don't just watch reels,<br/><em>live them</em></h2>
     <p class="cta-d">No long planning. No calls needed. Fill the form, confirm on WhatsApp, and we handle everything else.</p>
-    <div class="cta-contact">sirinadupravasa@gmail.com · <strong>+91 98458 39517</strong></div>
+    <div class="cta-contact"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cfbca6bda6a1aeabbabfbdaeb9aebcae8fa8a2aea6a3e1aca0a2">[email&#160;protected]</a> · <strong>+91 98458 39517</strong></div>
     <br/>
     <button class="btn-cta-white" onclick="document.getElementById('book').scrollIntoView({behavior:'smooth'})">
       <i class="fas fa-compass"></i> Book your trip — free consultation
@@ -1892,7 +1959,7 @@ footer{
           <div class="ft-ci-icon"><i class="fas fa-envelope"></i></div>
           <div class="ft-ci-body">
             <div class="ft-ci-label">Email</div>
-            <div class="ft-ci-val">sirinadupravasa@gmail.com</div>
+            <div class="ft-ci-val"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4f3c263d26212e2b3a3f3d2e392e3c2e0f28222e2623612c2022">[email&#160;protected]</a></div>
           </div>
         </div>
         <div class="ft-contact-item">
@@ -1949,7 +2016,7 @@ footer{
 
 <div class="toast" id="toast"></div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // IMAGE SKELETON LOADER
 function initImgWrap(wrap){
   const img=wrap.querySelector('img');
@@ -2036,13 +2103,12 @@ function handleBooking(){
   const msg=`🌿 *New Booking — Sirinadu Pravasa*\n\n👤 Name: ${n}\n📞 Phone: ${ph}${em?'\n📧 Email: '+em:''}\n📍 Destination: ${dest}\n📅 Date: ${date}\n👥 People: ${pax}${budget?'\n💰 Budget: '+budget:''}${notes?'\n📝 Notes: '+notes:''}${disc?'\n\n'+disc:''}\n\n_Sent from sirinadupravasa.in_`;
   const btn=document.getElementById('submitBtn');
   btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
-  btn.disabled=true;
   setTimeout(()=>{
     window.open('https://wa.me/919845839517?text='+encodeURIComponent(msg),'_blank');
-    btn.innerHTML='<i class="fab fa-whatsapp" style="font-size:18px"></i> Send booking via WhatsApp';
-    btn.disabled=false;
-    showToast('✅ Booking sent! We\'ll reply within 2 hours.','success');
-  },500);
+    btn.innerHTML='<i class="fab fa-whatsapp"></i> Sent! Opening WhatsApp';
+    showToast('✅ Redirecting to WhatsApp!','success');
+    setTimeout(()=>{btn.innerHTML='<i class="fab fa-whatsapp"></i> Book via WhatsApp';btn.disabled=false;},3500);
+  },800);
 }
 </script>
 </body>
