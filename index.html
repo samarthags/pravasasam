@@ -877,53 +877,144 @@ footer{
 /* ══════════════════════════════════════
    MOBILE FRIENDLY CONTAINER — GLOBAL
 ══════════════════════════════════════ */
+
+/* ── Base: ensure nothing bleeds on any screen ── */
+html,body{max-width:100%;overflow-x:hidden}
+img,video,iframe{max-width:100%;height:auto}
+
+/* ── Tablet (≤768px) ── */
+@media(max-width:768px){
+  /* Nav */
+  nav{padding:0 16px;height:56px}
+
+  /* Sections */
+  .sec{padding:56px 16px}
+  .sec-sub{margin-bottom:32px}
+
+  /* Destinations grid */
+  .dest-grid{grid-template-columns:1fr 1fr}
+  .dest-card:first-child{grid-row:span 1;aspect-ratio:3/4}
+
+  /* Trending */
+  .trending-inner{padding:56px 16px}
+  .trending-header{flex-direction:column;align-items:flex-start;gap:12px}
+
+  /* Packages */
+  .pkg-grid{grid-template-columns:1fr}
+
+  /* Why us / features */
+  .feat-grid{grid-template-columns:1fr 1fr}
+
+  /* Gems */
+  .gems-grid{grid-template-columns:1fr}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr 1fr}
+
+  /* Footer */
+  .ft-top{grid-template-columns:1fr 1fr;gap:28px}
+  .ft-bottom{flex-direction:column;align-items:flex-start;gap:10px}
+  .ft-bottom-links{flex-wrap:wrap;gap:12px}
+}
+
+/* ── Mobile (≤480px) ── */
 @media(max-width:480px){
   /* Hero */
-  .hero{padding:72px 16px 48px}
+  .hero{padding:72px 16px 52px}
   .hero-title{font-size:clamp(42px,14vw,72px)}
+  .hero-word-row{font-size:clamp(16px,5vw,26px)}
   .hero-btns{max-width:100%}
+  .hero-pills{gap:6px}
+  .hero-pill{font-size:10px;padding:5px 11px}
   .btn-primary,.btn-outline{padding:14px 20px;font-size:13px}
 
   /* Sections */
-  .sec{padding:52px 16px}
-  .sec-h{font-size:clamp(26px,7vw,38px)}
+  .sec{padding:48px 16px}
+  .sec-h{font-size:clamp(26px,7.5vw,38px)}
+  .sec-sub{font-size:12px;margin-bottom:28px}
+
+  /* Breadcrumb */
+  nav[aria-label="Breadcrumb"]{padding:8px 16px}
+
+  /* Destinations */
+  .dest-grid{grid-template-columns:1fr}
+  .dest-card:first-child{grid-row:span 1;aspect-ratio:3/4}
+  .filter-bar{gap:5px}
+  .filter-btn{padding:7px 14px;font-size:10px}
 
   /* Trending / Parnakuteera */
-  .trending-inner{padding:48px 16px}
-  .trending-main-title{font-size:clamp(28px,8vw,44px)}
+  .trending-inner{padding:44px 16px}
+  .trending-main-title{font-size:clamp(28px,8.5vw,44px)}
   .trending-kannada{font-size:clamp(16px,4.5vw,24px)}
   .trend-hero-banner{grid-template-columns:1fr}
-  .trend-hero-left{padding:24px 18px}
-  .trend-hero-right{padding:24px 18px}
-  .trend-hero-stat-row{grid-template-columns:repeat(3,1fr);gap:8px}
-  .trend-stat-box{padding:12px 8px}
+  .trend-hero-left{padding:24px 16px}
+  .trend-hero-right{padding:24px 16px}
+  .trend-hero-right::before{font-size:56px;bottom:-8px;right:-4px}
+  .trend-hero-stat-row{grid-template-columns:repeat(3,1fr);gap:6px}
+  .trend-stat-box{padding:12px 6px}
   .trend-stat-val{font-size:20px}
+  .trend-stat-lbl{font-size:8px}
   .trend-day-grid{grid-template-columns:1fr}
   .trend-tips-row{grid-template-columns:1fr}
-  .trend-cta-banner{padding:24px 20px;flex-direction:column}
+  .trend-cta-banner{padding:24px 18px;flex-direction:column;gap:16px}
+  .trend-cta-actions{flex-direction:column;gap:8px;width:100%}
+  .trend-cta-wa,.trend-cta-view{width:100%;justify-content:center}
 
   /* Coastal tagline banner */
-  .coastal-go-banner{padding:14px 16px}
+  .coastal-go-banner{padding:14px 16px;flex-direction:column;text-align:center;gap:8px}
   .coastal-go-text{font-size:clamp(15px,4.5vw,20px)}
 
   /* Packages */
   .pkg-grid{grid-template-columns:1fr}
+  .pkg-footer{flex-direction:column;align-items:flex-start;gap:12px}
+  .btn-pkg{align-self:stretch;text-align:center;justify-content:center}
+
+  /* Why us */
+  .feat-grid{grid-template-columns:1fr}
+
+  /* Gems */
+  .gems-grid{grid-template-columns:1fr}
 
   /* Itinerary */
   .itin-day-header{padding:16px 14px;gap:10px}
   .itin-day-num{font-size:38px;min-width:42px}
   .itin-body{padding:14px 14px}
-  .itin-footer{padding:12px 14px;flex-direction:column;align-items:flex-start}
-  .itin-time{width:52px;font-size:8px}
+  .itin-footer{padding:12px 14px;flex-direction:column;align-items:flex-start;gap:10px}
+  .itin-time{width:50px;font-size:8px}
   .itin-slot{gap:10px}
+  .itin-book-btn{width:100%;justify-content:center}
+
+  /* Steps */
+  .steps-wrap{gap:3px}
+  .step{padding:18px 16px;gap:14px}
+
+  /* Booking form */
+  .form-box{padding:20px 16px;border-radius:18px}
+  .form-grid{grid-template-columns:1fr}
+
+  /* FAQ */
+  .faq-q{padding:14px 16px;font-size:13px}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr}
+
+  /* CTA section */
+  .cta-section{padding:0 16px 80px}
+  .cta-box{padding:36px 20px}
 
   /* Footer */
   .ft-top{grid-template-columns:1fr;gap:20px}
   .ft-bottom{flex-direction:column;align-items:flex-start;gap:10px}
-  .ft-bottom-links{gap:12px;flex-wrap:wrap}
+  .ft-bottom-links{gap:10px;flex-wrap:wrap}
+  footer{padding:44px 16px 32px}
 
   /* Floating pill */
-  .cp{bottom:12px}
+  .cp{bottom:12px;max-width:calc(100vw - 24px)}
+  .cp-brand-label{font-size:11px}
+  .cp-action span{display:none}
+  .cp-action{padding:0 12px}
+  .cp-action:last-child{padding-right:14px}
+  .cp-brand{padding:12px 12px 12px 14px}
 }
 
 /* ── IMAGE LOADING SKELETON ── */
