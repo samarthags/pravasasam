@@ -8,7 +8,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --bg:     #0c0c0f;
       --card:   #13131a;
@@ -20,383 +19,177 @@
       --mono:   'DM Mono', monospace;
       --display:'Bebas Neue', sans-serif;
     }
-
-    html, body {
-      height: 100%;
-      background: var(--bg);
-      color: var(--text);
-      font-family: var(--mono);
-    }
-
-    /* animated mesh background */
+    html, body { height: 100%; background: var(--bg); color: var(--text); font-family: var(--mono); }
     body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
+      content: ''; position: fixed; inset: 0;
       background:
         radial-gradient(ellipse 60% 50% at 20% 50%, rgba(255,60,95,0.07) 0%, transparent 70%),
         radial-gradient(ellipse 50% 60% at 80% 50%, rgba(255,112,67,0.05) 0%, transparent 70%);
       pointer-events: none;
     }
-
     .page {
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
       padding: 32px 20px;
-      gap: 0;
     }
-
-    /* ── Logo ── */
     .brand {
       font-family: var(--display);
       font-size: clamp(3.5rem, 14vw, 7rem);
-      letter-spacing: 0.04em;
-      line-height: 1;
+      letter-spacing: 0.04em; line-height: 1;
       background: linear-gradient(135deg, #ff3c5f 0%, #ff7043 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
       margin-bottom: 6px;
       animation: fadeDown 0.5s ease both;
     }
-
     .tagline {
-      font-size: 0.68rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-      margin-bottom: 52px;
+      font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 48px;
       animation: fadeDown 0.5s 0.08s ease both;
     }
-
-    /* ── Card ── */
     .card {
-      width: 100%;
-      max-width: 520px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 16px;
+      width: 100%; max-width: 520px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 16px;
       padding: 32px;
       animation: fadeUp 0.5s 0.12s ease both;
     }
-
-    .card-label {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
-
-    /* ── Input row ── */
-    .input-row {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
+    .card-label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--muted); margin-bottom: 12px; }
+    .input-row { display: flex; gap: 10px; margin-bottom: 16px; }
     .url-input {
-      flex: 1;
-      background: #0a0a10;
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      color: var(--text);
-      font-family: var(--mono);
-      font-size: 0.78rem;
-      padding: 13px 16px;
-      outline: none;
+      flex: 1; min-width: 0;
+      background: #0a0a10; border: 1px solid var(--border); border-radius: 10px;
+      color: var(--text); font-family: var(--mono); font-size: 0.78rem;
+      padding: 13px 16px; outline: none;
       transition: border-color 0.15s, box-shadow 0.15s;
-      min-width: 0;
     }
-
     .url-input::placeholder { color: var(--muted); }
-
-    .url-input:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(255,60,95,0.1);
-    }
-
-    .url-input.shake {
-      animation: shake 0.35s ease;
-      border-color: var(--accent);
-    }
-
+    .url-input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,60,95,0.1); }
+    .url-input.shake { animation: shake 0.35s ease; border-color: var(--accent); }
     .go-btn {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border: none;
-      border-radius: 10px;
-      color: #fff;
-      font-family: var(--display);
-      font-size: 1.1rem;
-      letter-spacing: 0.06em;
-      padding: 0 22px;
-      cursor: pointer;
+      border: none; border-radius: 10px; color: #fff;
+      font-family: var(--display); font-size: 1.1rem; letter-spacing: 0.06em;
+      padding: 0 22px; cursor: pointer; flex-shrink: 0;
       transition: opacity 0.15s, transform 0.1s;
-      white-space: nowrap;
-      flex-shrink: 0;
     }
-
     .go-btn:hover:not(:disabled) { opacity: 0.88; }
     .go-btn:active:not(:disabled) { transform: scale(0.97); }
     .go-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-
-    /* ── Supported chips ── */
-    .chips {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 24px;
-    }
-
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 22px; }
     .chip {
-      font-size: 0.6rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 4px 10px;
+      font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); border: 1px solid var(--border); border-radius: 999px; padding: 4px 10px;
     }
-
-    /* ── Status area ── */
-    #status {
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-    }
-
+    #status { display: none; flex-direction: column; gap: 8px; margin-bottom: 14px; }
     #status.show { display: flex; }
-
-    /* progress bar */
-    .prog-bg {
-      background: var(--border);
-      border-radius: 999px;
-      height: 3px;
-      overflow: hidden;
-    }
-
+    .prog-bg { background: var(--border); border-radius: 999px; height: 3px; overflow: hidden; }
     .prog-fill {
-      height: 100%;
-      border-radius: 999px;
+      height: 100%; border-radius: 999px;
       background: linear-gradient(90deg, var(--accent), var(--accent2));
-      width: 0%;
-      transition: width 0.4s ease;
+      width: 0%; transition: width 0.4s ease;
     }
-
-    .prog-fill.indeterminate {
-      width: 40%;
-      animation: slide 1.2s ease-in-out infinite;
-    }
-
-    .status-text {
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-
-    .status-text.ok   { color: #50e080; }
-    .status-text.err  { color: var(--accent); }
-
-    /* ── Result row ── */
+    .prog-fill.indeterminate { width: 40%; animation: slide 1.2s ease-in-out infinite; }
+    .status-text { font-size: 0.7rem; color: var(--muted); }
+    .status-text.ok  { color: #50e080; }
+    .status-text.err { color: var(--accent); }
     #result {
-      display: none;
-      align-items: center;
-      gap: 14px;
-      background: rgba(80,224,128,0.05);
-      border: 1px solid rgba(80,224,128,0.15);
-      border-radius: 10px;
-      padding: 14px 16px;
+      display: none; align-items: center; gap: 14px;
+      background: rgba(80,224,128,0.05); border: 1px solid rgba(80,224,128,0.15);
+      border-radius: 10px; padding: 14px 16px;
       animation: fadeUp 0.3s ease both;
     }
-
     #result.show { display: flex; }
-
     .result-info { flex: 1; overflow: hidden; }
-
-    #result-title {
-      font-size: 0.82rem;
-      font-weight: 500;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      color: var(--text);
-    }
-
-    #result-sub {
-      font-size: 0.62rem;
-      color: var(--muted);
-      margin-top: 2px;
-    }
-
+    #result-title { font-size: 0.82rem; font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    #result-sub   { font-size: 0.62rem; color: var(--muted); margin-top: 2px; }
     .dl-btn {
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      border: none;
-      border-radius: 8px;
-      color: #fff;
-      font-family: var(--display);
-      font-size: 0.9rem;
-      letter-spacing: 0.05em;
-      padding: 9px 18px;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: opacity 0.15s;
-      text-decoration: none;
-      display: inline-block;
+      border: none; border-radius: 8px; color: #fff;
+      font-family: var(--display); font-size: 0.9rem; letter-spacing: 0.05em;
+      padding: 9px 18px; cursor: pointer; flex-shrink: 0;
+      transition: opacity 0.15s; text-decoration: none; display: inline-block;
     }
-
     .dl-btn:hover { opacity: 0.85; }
-
-    /* ── Playlist result list ── */
-    #playlist-results {
-      display: none;
-      flex-direction: column;
-      gap: 8px;
-      max-height: 320px;
-      overflow-y: auto;
-      margin-top: 4px;
-    }
-
-    #playlist-results.show { display: flex; }
-    #playlist-results::-webkit-scrollbar { width: 3px; }
-    #playlist-results::-webkit-scrollbar-thumb { background: var(--border); }
-
-    .pl-track {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: #0a0a10;
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 10px 14px;
-      font-size: 0.72rem;
-    }
-
-    .pl-track-info { flex: 1; overflow: hidden; }
-    .pl-track-name {
-      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
-      font-weight: 500;
-    }
-    .pl-track-artist { color: var(--muted); font-size: 0.62rem; }
-
-    .pl-dl-btn {
-      background: none;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--muted);
-      font-family: var(--mono);
-      font-size: 0.62rem;
-      padding: 5px 10px;
-      cursor: pointer;
-      flex-shrink: 0;
-      transition: all 0.15s;
-    }
-    .pl-dl-btn:hover:not(:disabled) { color: var(--text); border-color: #444; }
-    .pl-dl-btn.ok  { color: #50e080; border-color: rgba(80,224,128,0.3); }
-    .pl-dl-btn.err { color: var(--accent); border-color: rgba(255,60,95,0.3); }
-    .pl-dl-btn.loading { opacity: 0.5; cursor: not-allowed; }
-
-    /* ── Footnote ── */
-    .foot {
-      margin-top: 20px;
-      font-size: 0.6rem;
-      color: var(--muted);
-      text-align: center;
-      line-height: 1.8;
-    }
-
-    /* ── Animations ── */
-    @keyframes fadeDown {
-      from { opacity: 0; transform: translateY(-16px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
+    .instance-line { font-size: 0.58rem; color: var(--muted); margin-top: 10px; text-align: center; }
+    .dot-ok { color: #50e080; }
+    @keyframes fadeDown { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeUp   { from{opacity:0;transform:translateY(14px)}  to{opacity:1;transform:translateY(0)} }
     @keyframes shake {
-      0%,100% { transform: translateX(0); }
-      20%      { transform: translateX(-6px); }
-      40%      { transform: translateX(6px); }
-      60%      { transform: translateX(-4px); }
-      80%      { transform: translateX(4px); }
+      0%,100%{transform:translateX(0)} 20%{transform:translateX(-6px)}
+      40%{transform:translateX(6px)}   60%{transform:translateX(-4px)} 80%{transform:translateX(4px)}
     }
-    @keyframes slide {
-      0%   { margin-left: -40%; }
-      100% { margin-left: 100%; }
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes slide { 0%{margin-left:-40%} 100%{margin-left:100%} }
+    @keyframes spin  { to{transform:rotate(360deg)} }
     .spin {
-      display: inline-block;
-      width: 11px; height: 11px;
-      border: 2px solid rgba(255,255,255,0.2);
-      border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin 0.6s linear infinite;
-      vertical-align: middle;
+      display: inline-block; width: 11px; height: 11px;
+      border: 2px solid rgba(255,255,255,0.25); border-top-color: #fff;
+      border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle;
     }
+    .foot { margin-top: 18px; font-size: 0.58rem; color: var(--muted); text-align: center; line-height: 1.8; }
+    .foot a { color: #555; text-decoration: none; }
   </style>
 </head>
 <body>
 <div class="page">
 
   <div class="brand">MP3 DROP</div>
-  <div class="tagline">Paste any music link · Get your MP3</div>
+  <div class="tagline">Paste a link · Get your MP3</div>
 
   <div class="card">
-    <div class="card-label">Song or Playlist Link</div>
+    <div class="card-label">YouTube or Spotify Link</div>
 
     <div class="input-row">
-      <input
-        class="url-input"
-        id="url-input"
-        type="text"
-        placeholder="https://open.spotify.com/track/... or youtube.com/watch?..."
-        autocomplete="off"
-        onkeydown="if(event.key==='Enter') convert()"
-      />
+      <input class="url-input" id="url-input" type="text"
+        placeholder="youtube.com/watch?v=... or open.spotify.com/track/..."
+        autocomplete="off" spellcheck="false"
+        onkeydown="if(event.key==='Enter') convert()" />
       <button class="go-btn" id="go-btn" onclick="convert()">GET MP3</button>
     </div>
 
     <div class="chips">
-      <span class="chip">🎵 Spotify</span>
       <span class="chip">▶ YouTube</span>
-      <span class="chip">📋 Playlists</span>
-      <span class="chip">Free</span>
+      <span class="chip">🎵 Spotify</span>
+      <span class="chip">☁ SoundCloud</span>
+      <span class="chip">Free · No signup</span>
     </div>
 
-    <!-- Status / progress -->
     <div id="status">
       <div class="prog-bg"><div class="prog-fill" id="prog"></div></div>
       <div class="status-text" id="status-text">Working…</div>
     </div>
 
-    <!-- Single track result -->
     <div id="result">
       <div class="result-info">
-        <div id="result-title">Track Title</div>
-        <div id="result-sub">Ready to download</div>
+        <div id="result-title">Your Track</div>
+        <div id="result-sub">MP3 · 320kbps · Ready</div>
       </div>
-      <a class="dl-btn" id="dl-link" href="#" download>↓ MP3</a>
+      <a class="dl-btn" id="dl-link" href="#" target="_blank" rel="noopener">↓ MP3</a>
     </div>
 
-    <!-- Playlist results -->
-    <div id="playlist-results"></div>
+    <div class="instance-line" id="instance-line"></div>
   </div>
 
   <div class="foot">
-    Powered by cobalt.tools · For personal use only
+    Uses <a href="https://cobalt.tools" target="_blank">cobalt</a> community instances · Personal use only
   </div>
 
 </div>
-
 <script>
-// ── cobalt.tools API ──────────────────────────────────────────────────────
-// Open-source, free, no API key needed
-const COBALT_API = "https://api.cobalt.tools";
+// ── No-auth cobalt community instances ────────────────────────────────────
+// These instances have auth:false and cors:true (from instances.cobalt.best)
+// The page tries each in order and falls back automatically on auth errors or timeouts.
+const INSTANCES = [
+  "https://cobalt.ayo.wtf",
+  "https://cobalt.seitan.de",
+  "https://cobalt.uuid.monster",
+  "https://cobalt.perennialte.ch",
+  "https://cobalt.darkness.services",
+  "https://cobalt.privacyredirect.com",
+  "https://co.wuk.sh",
+  "https://cobalt.syntheticbird.net",
+  "https://cobalt.catvibers.me",
+  "https://cobalt.lunar.icu",
+];
 
-// ── Main convert function ─────────────────────────────────────────────────
 async function convert() {
   const input = document.getElementById("url-input");
   const url   = input.value.trim();
@@ -407,330 +200,170 @@ async function convert() {
     return;
   }
 
-  // Detect if it's a Spotify playlist
-  const isSpotifyPlaylist = /spotify\.com\/playlist\//.test(url);
-  const isYouTubePlaylist = /[?&]list=/.test(url) && !/watch/.test(url);
+  setLoading(true);
+  hideResult();
 
-  if (isSpotifyPlaylist) {
-    await handleSpotifyPlaylist(url);
-  } else {
-    await handleSingleTrack(url);
-  }
-}
+  let lastError = "All servers are busy. Please try again in a moment.";
 
-// ── Single track via cobalt ───────────────────────────────────────────────
-async function handleSingleTrack(url) {
-  setLoading(true, "Finding your track…");
-  hideResults();
-
-  try {
-    const data = await cobaltRequest(url);
-
-    if (data.status === "error") {
-      throw new Error(data.error?.code || "Conversion failed");
-    }
-
-    if (data.status === "redirect" || data.status === "tunnel") {
-      showSingleResult(data.url, url);
-    } else if (data.status === "picker") {
-      // Multiple audio options — pick first
-      const audioItem = data.picker?.find(p => p.type === "audio") || data.picker?.[0];
-      if (audioItem) showSingleResult(audioItem.url, url);
-      else throw new Error("No audio found");
-    } else {
-      throw new Error("Unexpected response from server");
-    }
-
-    setLoading(false);
-  } catch (err) {
-    setError(err.message);
-  }
-}
-
-// ── cobalt API request ────────────────────────────────────────────────────
-async function cobaltRequest(url) {
-  const res = await fetch(COBALT_API, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-      "Accept":       "application/json",
-    },
-    body: JSON.stringify({
-      url,
-      downloadMode: "audio",
-      audioFormat:  "mp3",
-      audioBitrate: "320",
-      filenameStyle: "pretty",
-    }),
-  });
-
-  if (!res.ok) {
-    const err = await res.json().catch(() => ({}));
-    throw new Error(err?.error?.code || `Server error ${res.status}`);
-  }
-
-  return res.json();
-}
-
-// ── Show single download result ───────────────────────────────────────────
-function showSingleResult(downloadUrl, originalUrl) {
-  const resultEl  = document.getElementById("result");
-  const titleEl   = document.getElementById("result-title");
-  const subEl     = document.getElementById("result-sub");
-  const linkEl    = document.getElementById("dl-link");
-
-  // Try to extract a readable title from URL
-  let title = "Your Track";
-  try {
-    const u = new URL(originalUrl);
-    if (u.hostname.includes("spotify")) {
-      title = "Spotify Track";
-    } else if (u.hostname.includes("youtube") || u.hostname.includes("youtu.be")) {
-      title = "YouTube Audio";
-    }
-  } catch {}
-
-  titleEl.textContent = title;
-  subEl.textContent   = "MP3 · 320kbps · Ready";
-  linkEl.href         = downloadUrl;
-  linkEl.download     = "track.mp3";
-
-  resultEl.classList.add("show");
-}
-
-// ── Spotify playlist: fetch tracks via public embed API ──────────────────
-async function handleSpotifyPlaylist(url) {
-  setLoading(true, "Reading playlist…");
-  hideResults();
-
-  try {
-    // Extract playlist ID
-    const match = url.match(/playlist\/([a-zA-Z0-9]+)/);
-    if (!match) throw new Error("Invalid Spotify playlist URL");
-    const playlistId = match[1];
-
-    // Use Spotify's public oEmbed / embed page to get track list
-    // We use the public embed endpoint which doesn't need auth
-    const embedUrl = `https://open.spotify.com/embed/playlist/${playlistId}`;
-
-    // Fetch track names via Spotify's public API (no auth needed for public playlists)
-    // We use the unofficial embed data endpoint
-    const apiUrl = `https://api.spotify.com/v1/playlists/${playlistId}/tracks?limit=50`;
-
-    // Since we can't call Spotify API without a token from pure frontend,
-    // we fall back to treating each track as a search query via cobalt
-    // and show a playlist UI where user clicks per track
-    setStatusText("Fetching playlist info…");
-
-    // Use the Spotify oEmbed to at least get the name
-    const oembedRes = await fetch(
-      `https://open.spotify.com/oembed?url=${encodeURIComponent(url)}`
-    ).catch(() => null);
-
-    let playlistName = "Spotify Playlist";
-    if (oembedRes?.ok) {
-      const oe = await oembedRes.json();
-      playlistName = oe.title || playlistName;
-    }
-
-    // Build a simple UI: one button that converts the whole playlist URL via cobalt
-    // cobalt handles Spotify playlists natively
-    setStatusText(`Processing "${playlistName}"…`);
-
-    const data = await cobaltRequest(url);
-
-    if (data.status === "error") {
-      throw new Error(data.error?.code || "Playlist conversion failed");
-    }
-
-    // cobalt returns a picker array for playlists
-    if (data.status === "picker" && data.picker?.length) {
-      showPlaylistResults(data.picker, playlistName);
-    } else if (data.status === "redirect" || data.status === "tunnel") {
-      // Single result even for playlist
-      showSingleResult(data.url, url);
-    } else {
-      throw new Error("No tracks found in playlist response");
-    }
-
-    setLoading(false);
-  } catch (err) {
-    setError(err.message);
-  }
-}
-
-// ── Show playlist track list ──────────────────────────────────────────────
-function showPlaylistResults(items, playlistName) {
-  const wrap = document.getElementById("playlist-results");
-  wrap.innerHTML = "";
-
-  // Header
-  const header = document.createElement("div");
-  header.style.cssText = "font-size:0.65rem;text-transform:uppercase;letter-spacing:0.14em;color:var(--muted);margin-bottom:4px";
-  header.textContent   = `${playlistName} — ${items.length} tracks`;
-  wrap.appendChild(header);
-
-  items.forEach((item, i) => {
-    const row = document.createElement("div");
-    row.className = "pl-track";
-
-    const num = document.createElement("span");
-    num.style.cssText = "color:var(--muted);font-size:0.6rem;flex-shrink:0;width:18px;text-align:right";
-    num.textContent = i + 1;
-
-    const info = document.createElement("div");
-    info.className = "pl-track-info";
-
-    const name = document.createElement("div");
-    name.className   = "pl-track-name";
-    name.textContent = item.title || `Track ${i + 1}`;
-
-    info.appendChild(name);
-
-    const btn = document.createElement("button");
-    btn.className   = "pl-dl-btn";
-    btn.textContent = "↓ MP3";
-    btn.onclick = () => downloadPlaylistTrack(item.url, btn, name.textContent);
-
-    row.appendChild(num);
-    row.appendChild(info);
-    row.appendChild(btn);
-    wrap.appendChild(row);
-  });
-
-  // Download all button
-  const allBtn = document.createElement("button");
-  allBtn.style.cssText = `
-    background: linear-gradient(135deg, var(--accent), var(--accent2));
-    border: none; border-radius: 8px; color: #fff;
-    font-family: var(--display); font-size: 0.9rem;
-    letter-spacing: 0.05em; padding: 11px; cursor: pointer;
-    margin-top: 4px; width: 100%; transition: opacity 0.15s;
-  `;
-  allBtn.textContent = `↓ DOWNLOAD ALL (${items.length})`;
-  allBtn.onmouseover = () => allBtn.style.opacity = "0.85";
-  allBtn.onmouseout  = () => allBtn.style.opacity = "1";
-  allBtn.onclick = () => downloadAllPlaylist(items, allBtn);
-  wrap.appendChild(allBtn);
-
-  wrap.classList.add("show");
-}
-
-// ── Download single playlist track ───────────────────────────────────────
-async function downloadPlaylistTrack(url, btn, title) {
-  btn.disabled    = true;
-  btn.className   = "pl-dl-btn loading";
-  btn.textContent = "…";
-
-  try {
-    triggerDownload(url, sanitizeFilename(title) + ".mp3");
-    btn.className   = "pl-dl-btn ok";
-    btn.textContent = "✓";
-  } catch {
-    btn.className   = "pl-dl-btn err";
-    btn.textContent = "✗";
-    btn.disabled    = false;
-  }
-}
-
-// ── Download all playlist tracks (sequential) ────────────────────────────
-async function downloadAllPlaylist(items, allBtn) {
-  allBtn.disabled    = true;
-  allBtn.textContent = "Downloading…";
-
-  const buttons = document.querySelectorAll(".pl-dl-btn");
-
-  for (let i = 0; i < items.length; i++) {
-    const item = items[i];
-    const btn  = buttons[i];
-    if (!btn) continue;
-
-    btn.disabled    = true;
-    btn.className   = "pl-dl-btn loading";
-    btn.textContent = "…";
+  for (let i = 0; i < INSTANCES.length; i++) {
+    const instance = INSTANCES[i];
+    setStatus(`Connecting… (${i + 1}/${INSTANCES.length})`);
 
     try {
-      triggerDownload(item.url, sanitizeFilename(item.title || `track-${i+1}`) + ".mp3");
-      btn.className   = "pl-dl-btn ok";
-      btn.textContent = "✓";
-    } catch {
-      btn.className   = "pl-dl-btn err";
-      btn.textContent = "✗";
-      btn.disabled    = false;
+      const data = await cobaltRequest(instance, url);
+
+      if (data.status === "error") {
+        const code = data.error?.code || "";
+        // Auth error = silently try next instance
+        if (code.includes("auth")) { lastError = code; continue; }
+        // Bad URL or unsupported = surface immediately, no point retrying
+        throw new Error(friendlyError(code));
+      }
+
+      if (data.status === "redirect" || data.status === "tunnel") {
+        showResult(data.url, url, instance);
+        setLoading(false);
+        return;
+      }
+
+      if (data.status === "picker" && data.picker?.length) {
+        const audio = data.picker.find(p => p.type === "audio") || data.picker[0];
+        showResult(audio.url, url, instance);
+        setLoading(false);
+        return;
+      }
+
+      // Unknown good status — skip
+      lastError = "Unexpected response, trying next server…";
+
+    } catch (err) {
+      // Network/timeout = try next
+      if (err.name === "AbortError" || err.name === "TypeError") {
+        lastError = "Server timeout, trying next…";
+        continue;
+      }
+      // App-level error = stop and tell user
+      setError(err.message);
+      return;
+    }
+  }
+
+  setError(lastError);
+}
+
+async function cobaltRequest(baseUrl, url) {
+  const ctrl    = new AbortController();
+  const timeout = setTimeout(() => ctrl.abort(), 9000);
+
+  try {
+    const res = await fetch(baseUrl, {
+      method: "POST",
+      signal: ctrl.signal,
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({
+        url,
+        downloadMode:  "audio",
+        audioFormat:   "mp3",
+        audioBitrate:  "320",
+        filenameStyle: "pretty",
+      }),
+    });
+
+    clearTimeout(timeout);
+
+    // Treat 401/403 as auth error → skip instance
+    if (res.status === 401 || res.status === 403) {
+      return { status: "error", error: { code: "error.api.auth.jwt.missing" } };
     }
 
-    // Small delay between downloads
-    if (i < items.length - 1) await sleep(800);
+    if (!res.ok) {
+      const body = await res.json().catch(() => ({}));
+      return { status: "error", error: { code: body?.error?.code || `http_${res.status}` } };
+    }
+
+    return res.json();
+
+  } finally {
+    clearTimeout(timeout);
   }
-
-  allBtn.textContent = "✓ Done";
 }
 
-// ── Trigger a browser file download ──────────────────────────────────────
-function triggerDownload(url, filename) {
-  const a   = document.createElement("a");
-  a.href    = url;
-  a.download = filename;
-  a.target  = "_blank";
-  a.rel     = "noopener";
-  document.body.appendChild(a);
-  a.click();
-  document.body.removeChild(a);
+function showResult(downloadUrl, originalUrl, instance) {
+  const host = (() => { try { return new URL(instance).hostname; } catch { return instance; } })();
+
+  document.getElementById("result-title").textContent = guessTitle(originalUrl);
+  document.getElementById("result-sub").textContent   = "MP3 · 320kbps · Ready";
+  document.getElementById("dl-link").href             = downloadUrl;
+  document.getElementById("result").classList.add("show");
+  document.getElementById("instance-line").innerHTML  =
+    `<span class="dot-ok">●</span> via ${host}`;
+
+  // Auto-start download
+  const a = document.createElement("a");
+  a.href = downloadUrl; a.download = "track.mp3";
+  a.target = "_blank"; a.rel = "noopener";
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
 }
 
-// ── UI helpers ────────────────────────────────────────────────────────────
-function setLoading(active, msg = "Working…") {
-  const statusEl = document.getElementById("status");
-  const prog     = document.getElementById("prog");
-  const btn      = document.getElementById("go-btn");
+function guessTitle(url) {
+  try {
+    const u = new URL(url);
+    if (u.hostname.includes("spotify"))                              return "Spotify Track";
+    if (u.hostname.includes("youtube") || u.hostname.includes("youtu.be")) return "YouTube Audio";
+    if (u.hostname.includes("soundcloud"))                           return "SoundCloud Track";
+  } catch {}
+  return "Your Track";
+}
 
-  statusEl.classList.toggle("show", active);
+function setLoading(active) {
+  const btn = document.getElementById("go-btn");
+  const prog = document.getElementById("prog");
   btn.disabled = active;
-
+  document.getElementById("status").classList.toggle("show", active);
   if (active) {
     btn.innerHTML = `<span class="spin"></span>`;
-    prog.style.width = "0%";
-    prog.classList.add("indeterminate");
-    setStatusText(msg);
+    prog.classList.add("indeterminate"); prog.style.width = "0%";
   } else {
     btn.textContent = "GET MP3";
-    prog.classList.remove("indeterminate");
-    prog.style.width = "100%";
+    prog.classList.remove("indeterminate"); prog.style.width = "100%";
   }
 }
 
-function setStatusText(msg, type = "") {
+function setStatus(msg, type = "") {
   const el = document.getElementById("status-text");
-  el.textContent = msg;
-  el.className   = "status-text " + type;
+  el.textContent = msg; el.className = "status-text " + type;
   document.getElementById("status").classList.add("show");
 }
 
 function setError(msg) {
   setLoading(false);
   document.getElementById("go-btn").textContent = "GET MP3";
-  setStatusText("⚠ " + msg, "err");
   document.getElementById("prog").style.width = "0%";
   document.getElementById("prog").classList.remove("indeterminate");
+  setStatus("⚠ " + msg, "err");
 }
 
-function hideResults() {
+function hideResult() {
   document.getElementById("result").classList.remove("show");
-  document.getElementById("playlist-results").classList.remove("show");
-  document.getElementById("playlist-results").innerHTML = "";
+  document.getElementById("instance-line").innerHTML = "";
 }
 
-function sanitizeFilename(str) {
-  return str.replace(/[^\w\s\-]/g, "").trim().replace(/\s+/g, " ") || "track";
+function friendlyError(code) {
+  const map = {
+    "error.api.link.invalid":        "That link isn't supported. Try a YouTube or Spotify URL.",
+    "error.api.link.unsupported":    "This platform isn't supported.",
+    "error.api.content.unavailable": "This content isn't available.",
+    "error.api.content.private":     "This content is private.",
+    "error.api.youtube.decipher":    "YouTube blocked this. Try a different track.",
+    "error.api.rate_exceeded":       "Rate limit hit — wait a moment and retry.",
+  };
+  return map[code] || (code ? code.replace(/error\.(api\.)?/, "") : "Something went wrong");
 }
 
-const sleep = ms => new Promise(r => setTimeout(r, ms));
-
-// ── Paste shortcut ────────────────────────────────────────────────────────
+// Ctrl+V shortcut focuses the input
 document.addEventListener("keydown", e => {
-  if ((e.ctrlKey || e.metaKey) && e.key === "v") {
+  if ((e.ctrlKey || e.metaKey) && e.key === "v")
     document.getElementById("url-input").focus();
-  }
 });
 </script>
 </body>
