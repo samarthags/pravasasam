@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Link Share</title>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+body {
+  background: #0e0e0e;
+  font-family: 'Figtree', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 18px 80px;
+  color: #fff;
+}
+
+/* ─── TOP INPUT AREA ─── */
+.top {
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: 28px;
+}
+
+.top h1 {
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  margin-bottom: 4px;
+  color: #fff;
+}
+
+.top p {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.input-wrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.url-box {
+  display: flex;
+  background: #1a1a1a;
+  border-radius: 16px;
+  border: 1.5px solid #2a2a2a;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.url-box:focus-within {
+  border-color: #444;
+}
+
+.url-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 15px 16px;
+  font-size: 14px;
+  color: #fff;
+  font-family: 'Figtree', sans-serif;
+}
+
+.url-box input::placeholder { color: #3a3a3a; }
+
+.go-btn {
+  margin: 6px;
+  background: #fff;
+  border: none;
+  border-radius: 11px;
+  padding: 0 18px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: opacity 0.15s, transform 0.15s;
+}
+
+.go-btn:active { opacity: 0.8; transform: scale(0.97); }
+
+/* Optional title input */
+.title-box {
+  background: #1a1a1a;
+  border: 1.5px solid #2a2a2a;
+  border-radius: 12px;
+  padding: 11px 15px;
+  font-size: 13px;
+  color: #fff;
+  font-family: 'Figtree', sans-serif;
+  outline: none;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+.title-box:focus { border-color: #444; }
+.title-box::placeholder { color: #333; }
+
+/* ─── LOADING ─── */
+.loading {
+  display: none;
+  font-size: 13px;
+  color: #444;
+  text-align: center;
+  padding: 20px;
+  letter-spacing: 1px;
+}
+.loading.on { display: block; animation: blink 1s ease infinite; }
+@keyframes blink { 0%,100%{opacity:.4} 50%{opacity:1} }
+
+/* ─── THE CARD ─── */
+.card-area {
+  width: 100%;
+  max-width: 420px;
+  display: none;
+  flex-direction: column;
+  gap: 14px;
+  animation: up 0.4s cubic-bezier(.22,1,.36,1) both;
+}
+.card-area.on { display: flex; }
+@keyframes up { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+/* THE CARD — exact Spotify Snapchat style */
+.snap-card {
+  background: #1c1c1e;
+  border-radius: 22px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.7);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.snap-card:active { transform: scale(0.985); }
+
+/* Top image section — where the icon lives on blurred bg */
+.card-top {
+  height: 210px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Blurred background using the favicon scaled up huge */
+.card-bg-blur {
+  position: absolute;
+  inset: -40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: blur(30px) saturate(2) brightness(0.4);
+  transform: scale(1.2);
+  z-index: 0;
+}
+.card-bg-blur img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+/* Dark gradient overlay */
+.card-top::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.4) 100%);
+  z-index: 1;
+}
+
+/* The main icon box — like Spotify album art */
+.card-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.12);
+  overflow: hidden;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-icon img {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+}
+.card-icon .emoji-fallback {
+  font-size: 40px;
+  line-height: 1;
+}
+
+/* Bottom text section */
+.card-bottom {
+  padding: 16px 18px 0;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.3;
+  margin-bottom: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: #888;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 14px;
+}
+
+/* The bottom strip — EXACTLY like Spotify's "Spotify" row at bottom */
+.card-strip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 13px 18px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.strip-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.strip-icon img { width: 16px; height: 16px; object-fit: contain; }
+.strip-icon .emoji-sm { font-size: 13px; }
+
+.strip-domain {
+  font-size: 13px;
+  font-weight: 600;
+  color: #aaa;
+  flex: 1;
+}
+
+.strip-arrow {
+  font-size: 18px;
+  color: #555;
+}
+
+/* ─── SHARE BUTTON — exactly like Snapchat's yellow button ─── */
+.share-snap-btn {
+  width: 100%;
+  background: #FFFC00;
+  border: none;
+  border-radius: 50px;
+  padding: 17px 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: 'Figtree', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #000;
+  transition: transform 0.15s, opacity 0.15s;
+  box-shadow: 0 4px 24px rgba(255,252,0,0.2);
+}
+.share-snap-btn:active { transform: scale(0.97); opacity: 0.9; }
+
+.snap-ghost {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}
+
+.share-snap-btn span { flex: 1; text-align: left; }
+
+.snap-arrow {
+  width: 26px;
+  height: 26px;
+  background: rgba(0,0,0,0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+/* ─── COPY / OTHER ACTIONS ─── */
+.actions-row {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  flex: 1;
+  background: #1a1a1a;
+  border: 1.5px solid #2a2a2a;
+  border-radius: 14px;
+  padding: 14px 10px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #888;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s;
+}
+.action-btn:active { background: #222; color: #fff; border-color: #444; }
+
+/* ─── TOAST ─── */
+#toast {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%) translateY(70px);
+  background: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 11px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  z-index: 999;
+  transition: transform 0.35s cubic-bezier(.34,1.56,.64,1);
+  white-space: nowrap;
+}
+#toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ─── SNAP MODAL ─── */
+.modal-bg {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(8px);
+  z-index: 100;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+}
+.modal-bg.open { display: flex; }
+
+.modal {
+  background: #141414;
+  border: 1px solid #2a2a2a;
+  border-radius: 28px;
+  padding: 26px 22px 28px;
+  width: 100%;
+  max-width: 420px;
+  animation: slideUp 0.4s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes slideUp { from{transform:translateY(50px);opacity:0} to{transform:translateY(0);opacity:1} }
+
+.modal h2 { font-size: 17px; font-weight: 800; margin-bottom: 4px; }
+.modal p { font-size: 13px; color: #555; margin-bottom: 20px; }
+
+/* mini card in modal */
+.modal-card {
+  background: #1c1c1e;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.07);
+  margin-bottom: 18px;
+}
+.modal-card-top {
+  height: 160px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.modal-card-top .blur-bg {
+  position: absolute;
+  inset: -30px;
+  filter: blur(25px) saturate(2) brightness(0.35);
+  transform: scale(1.3);
+  display: flex; align-items: center; justify-content: center;
+}
+.modal-card-top .blur-bg img { width: 160px; height: 160px; object-fit: contain; }
+.modal-card-top::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.15), rgba(0,0,0,0.4));
+  z-index: 1;
+}
+.modal-icon {
+  width: 76px; height: 76px; border-radius: 16px;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+  overflow: hidden; position: relative; z-index: 2;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+}
+.modal-icon img { width: 50px; height: 50px; object-fit: contain; }
+.modal-icon .emoji-fallback { font-size: 32px; }
+
+.modal-info {
+  padding: 12px 16px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.modal-info-title { font-size: 14px; font-weight: 800; color: #fff; }
+.modal-info-domain { font-size: 12px; color: #666; margin-top: 2px; }
+
+.modal-open-btn {
+  width: 100%;
+  background: #FFFC00;
+  border: none;
+  border-radius: 50px;
+  padding: 16px;
+  font-family: 'Figtree', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #000;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  transition: opacity 0.15s;
+  box-shadow: 0 4px 20px rgba(255,252,0,0.15);
+}
+.modal-open-btn:active { opacity: 0.85; }
+
+.modal-cancel {
+  display: block; text-align: center;
+  margin-top: 14px; font-size: 13px; color: #444;
+  cursor: pointer; transition: color 0.15s;
+}
+.modal-cancel:hover { color: #888; }
+</style>
+</head>
+<body>
+
+<!-- INPUT AREA -->
+<div class="top">
+  <h1>Share anything 👻</h1>
+  <p>Paste a link — it becomes a Snapchat-style card</p>
+  <div class="input-wrap">
+    <div class="url-box">
+      <input id="urlIn" type="url" placeholder="Paste any link here..." autocomplete="off" autocorrect="off" spellcheck="false">
+      <button class="go-btn" onclick="generate()">Share</button>
+    </div>
+    <input class="title-box" id="titleIn" type="text" placeholder="Custom name (optional — else auto-detected)">
+  </div>
+</div>
+
+<div class="loading" id="loading">LOADING PREVIEW...</div>
+
+<!-- CARD AREA -->
+<div class="card-area" id="cardArea">
+
+  <!-- The actual snap-style card -->
+  <div class="snap-card" id="snapCard" onclick="openLink()">
+    <div class="card-top">
+      <div class="card-bg-blur" id="bgBlur">
+        <img id="bgImg" src="" alt="">
+      </div>
+      <div class="card-icon" id="cardIcon">
+        <span class="emoji-fallback" id="iconEmoji">🔗</span>
+      </div>
+    </div>
+    <div class="card-bottom">
+      <div class="card-title" id="cardTitle">Link</div>
+      <div class="card-subtitle" id="cardSub">website.com</div>
+    </div>
+    <div class="card-strip">
+      <div class="strip-icon" id="stripIcon">
+        <span class="emoji-sm" id="stripEmoji">🔗</span>
+      </div>
+      <span class="strip-domain" id="stripDomain">website.com</span>
+      <span class="strip-arrow">›</span>
+    </div>
+  </div>
+
+  <!-- Snapchat share button — exactly like in the screenshot -->
+  <button class="share-snap-btn" onclick="openModal()">
+    <svg class="snap-ghost" viewBox="0 0 24 24" fill="none">
+      <path d="M12 2C7.5 2 4 5.5 4 10c0 2.5 1.1 4.7 2.8 6.2L6 20l3.5-1.5c.8.3 1.6.5 2.5.5 4.5 0 8-3.5 8-8s-3.5-8-8-8z" fill="#000"/>
+    </svg>
+    <span>Snapchat</span>
+    <div class="snap-arrow">›</div>
+  </button>
+
+  <!-- Copy / open actions -->
+  <div class="actions-row">
+    <button class="action-btn" onclick="copyLink()">📋 Copy Link</button>
+    <button class="action-btn" onclick="nativeShare()">⬆ More…</button>
+  </div>
+
+</div>
+
+<!-- SNAP MODAL -->
+<div class="modal-bg" id="modalBg" onclick="closeModal(event)">
+  <div class="modal">
+    <h2>👻 Snapchat</h2>
+    <p>Share this link card on your story or in a chat</p>
+
+    <div class="modal-card">
+      <div class="modal-card-top">
+        <div class="blur-bg"><img id="mBgImg" src="" alt=""></div>
+        <div class="modal-icon" id="modalIcon">
+          <span class="emoji-fallback" id="mEmoji">🔗</span>
+        </div>
+      </div>
+      <div class="modal-info">
+        <div>
+          <div class="modal-info-title" id="mTitle">Link</div>
+          <div class="modal-info-domain" id="mDomain">website.com</div>
+        </div>
+        <div style="width:32px;height:32px;background:rgba(255,255,255,0.06);border-radius:9px;display:flex;align-items:center;justify-content:center;color:#555;font-size:16px">›</div>
+      </div>
+    </div>
+
+    <button class="modal-open-btn" onclick="goSnap()">
+      <span style="font-size:18px">👻</span> Open in Snapchat
+    </button>
+    <span class="modal-cancel" onclick="closeModal(null)">Cancel</span>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+let state = { url: '', domain: '', title: '', favicon: '', emoji: '' };
+
+function getDomain(url) {
+  try { return new URL(url).hostname.replace('www.',''); } catch { return url; }
+}
+
+function getFavicon(domain) {
+  return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+}
+
+const EMOJIS = {
+  spotify:'🎵', youtube:'▶️', 'youtu.be':'▶️', instagram:'📸',
+  tiktok:'🎵', twitter:'🐦', 'x.com':'✖', netflix:'🎬',
+  soundcloud:'🎧', apple:'🍎', github:'💻', reddit:'👾',
+  facebook:'👤', linkedin:'💼', amazon:'📦', discord:'🎮',
+  whatsapp:'💬', telegram:'✈️', twitch:'🎮', pinterest:'📌',
+};
+function getEmoji(domain) {
+  for (const [k,v] of Object.entries(EMOJIS)) if(domain.includes(k)) return v;
+  return '🔗';
+}
+
+function guessTitle(url, domain) {
+  try {
+    const p = new URL(url).pathname.split('/').filter(Boolean);
+    if (p.length) {
+      const t = p[p.length-1].replace(/[-_+]/g,' ').replace(/\.\w+$/,'').replace(/\b\w/g,c=>c.toUpperCase());
+      if (t.length > 2 && t.length < 55) return t;
+    }
+    return domain.split('.')[0].replace(/\b\w/g,c=>c.toUpperCase());
+  } catch { return domain; }
+}
+
+async function generate() {
+  const url = document.getElementById('urlIn').value.trim();
+  if (!url) { toast('Paste a link first 🔗'); return; }
+  try { new URL(url); } catch { toast('Enter a valid URL starting with https://'); return; }
+
+  const loading = document.getElementById('loading');
+  const cardArea = document.getElementById('cardArea');
+  loading.classList.add('on');
+  cardArea.classList.remove('on');
+
+  await new Promise(r => setTimeout(r, 600));
+
+  const domain = getDomain(url);
+  const customTitle = document.getElementById('titleIn').value.trim();
+  const title = customTitle || guessTitle(url, domain);
+  const favicon = getFavicon(domain);
+  const emoji = getEmoji(domain);
+
+  state = { url, domain, title, favicon, emoji };
+
+  // Update card
+  document.getElementById('cardTitle').textContent = title;
+  document.getElementById('cardSub').textContent = domain;
+  document.getElementById('stripDomain').textContent = domain;
+  document.getElementById('iconEmoji').textContent = emoji;
+  document.getElementById('stripEmoji').textContent = emoji;
+
+  // Favicon images
+  setFavicon('bgImg', favicon, emoji, 'icon');
+  setFavicon('cardIconImg', favicon, emoji, 'main');
+  setFaviconStrip(favicon, emoji);
+
+  // Modal
+  document.getElementById('mTitle').textContent = title;
+  document.getElementById('mDomain').textContent = domain;
+  document.getElementById('mEmoji').textContent = emoji;
+  setFavicon('mBgImg', favicon, emoji, 'modal-bg');
+
+  loading.classList.remove('on');
+  cardArea.classList.add('on');
+}
+
+function setFavicon(imgId, src, emoji, type) {
+  const el = document.getElementById(imgId);
+  if (!el) return;
+  el.src = src;
+  el.onerror = () => { el.style.display='none'; };
+  el.style.display = '';
+
+  if (type === 'main') {
+    const icon = document.getElementById('cardIcon');
+    icon.innerHTML = '';
+    const img = new Image();
+    img.src = src;
+    img.style.cssText = 'width:64px;height:64px;object-fit:contain';
+    img.onerror = () => {
+      icon.innerHTML = `<span class="emoji-fallback">${emoji}</span>`;
+    };
+    icon.appendChild(img);
+  }
+
+  if (type === 'modal-bg') {
+    const mIcon = document.getElementById('modalIcon');
+    mIcon.innerHTML = '';
+    const img = new Image();
+    img.src = src;
+    img.style.cssText = 'width:50px;height:50px;object-fit:contain';
+    img.onerror = () => {
+      mIcon.innerHTML = `<span class="emoji-fallback">${emoji}</span>`;
+    };
+    mIcon.appendChild(img);
+  }
+}
+
+function setFaviconStrip(src, emoji) {
+  const strip = document.getElementById('stripIcon');
+  strip.innerHTML = '';
+  const img = new Image();
+  img.src = src;
+  img.style.cssText = 'width:16px;height:16px;object-fit:contain';
+  img.onerror = () => {
+    strip.innerHTML = `<span class="emoji-sm">${emoji}</span>`;
+  };
+  strip.appendChild(img);
+}
+
+function openLink() {
+  if (state.url) window.open(state.url, '_blank');
+}
+
+function openModal() {
+  if (!state.url) { toast('Generate a card first!'); return; }
+  document.getElementById('modalBg').classList.add('open');
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modalBg'))
+    document.getElementById('modalBg').classList.remove('open');
+}
+
+function goSnap() {
+  const u = `https://www.snapchat.com/scan?attachmentUrl=${encodeURIComponent(state.url)}`;
+  window.open(u, '_blank');
+  closeModal(null);
+  toast('👻 Opening Snapchat...');
+}
+
+function copyLink() {
+  if (!state.url) { toast('Generate a card first!'); return; }
+  navigator.clipboard.writeText(state.url)
+    .then(() => toast('✅ Link copied!'))
+    .catch(() => toast('Could not copy'));
+}
+
+function nativeShare() {
+  if (!state.url) return;
+  if (navigator.share) {
+    navigator.share({ title: state.title, url: state.url }).catch(()=>{});
+  } else {
+    copyLink();
+  }
+}
+
+function toast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(t._t);
+  t._t = setTimeout(() => t.classList.remove('show'), 2600);
+}
+
+document.getElementById('urlIn').addEventListener('keydown', e => {
+  if (e.key === 'Enter') generate();
+});
+
+// Handle paste — auto generate after a moment
+document.getElementById('urlIn').addEventListener('paste', () => {
+  setTimeout(generate, 150);
+});
+</script>
+</body>
+</html>
